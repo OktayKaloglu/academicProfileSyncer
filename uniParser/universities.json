@@ -4,61 +4,41 @@
         "initials": "ege",
         "name": "Ege University",
         "url_endpoint": "https://ebp.ege.edu.tr/DereceProgramlari/Detay/1/31/2626/932001",
-        "table_loop": "table.table-bordered > tbody > tr",
-        "course_ref": "td",
-        "course_href_detail": "td > a",
-        "course_name_ref": "td",
-        "url_prefix_href": "",
-        "course_code_index": "0",
-        "course_name_ref_index": "2",
-        "course_detail_index": "2",
+        "course_href_path": "td:nth-child(1) > a",
         "university_href_includes_domain": false,
-        "teacher_path": "#wrapper > div > div > div > div > div > div > p:nth-child(17)"
+        "university_prefix":"https://ebp.ege.edu.tr",
+        "teacher_path": "#wrapper > div > div > div > div > div > div > p:nth-child(17)",
+        "lesson_name_path":"#wrapper > div > div > div > div > div > div > table:nth-child(5) > tbody > tr > td:nth-child(2)"
+      
+        
       },
       {
         "initials": "deu",
         "name": "Dokuz Eylul University",
         "url_endpoint": "https://debis.deu.edu.tr/ders-katalog/2021-2022/tr/bolum_1210_tr.html",
-        "table_loop": "tbody > tr",
-        "course_ref": "td",
-        "course_href_detail": "td > a",
-        "course_name_ref": "td",
-        "url_prefix_href": "/ders-katalog/2021-2022/tr/",
-        "course_code_index": "2",
-        "course_name_ref_index": "3",
-        "course_detail_index": "12",
+        "course_href_path": "td:nth-child(3) > a",
         "university_href_includes_domain": false,
-        "teacher_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(12) > tbody > tr:nth-child(2) > td > p"
+        "university_prefix":"https://debis.deu.edu.tr/ders-katalog/2021-2022/tr/",
+        "teacher_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(12) > tbody > tr:nth-child(2) > td > p",
+        "lesson_name_path":"body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(3) > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2)"
       },
       {
         "initials": "iyte",
         "name": "Izmir High Technology Institute",
         "url_endpoint": "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-dersleri/",
-        "table_loop": "tbody > tr",
-        "course_ref": "td",
-        "course_href_detail": "td > a",
-        "course_name_ref": "td",
-        "url_prefix_href": "",
-        "course_code_index": "0",
-        "course_name_ref_index": "1",
-        "course_detail_index": "0",
         "university_href_includes_domain": true,
-        "teacher_path": "div > div.wpb_column.vc_col-sm-3 > div.iyte_ins-ass > div.stm-teacher-bio.stm-teacher-bio_trainer > div > div > div.stm-teacher-bio__title > a"
+        "course_href_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(36) > tbody > tr:nth-child(2) > td > table > tbody > tr:nth-child(5) > td:nth-child(3) > a",
+        "teacher_path": "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(12) > tbody > tr:nth-child(2) > td > p",
+        "lesson_name_path":"body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(3) > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2)"
       },
       {
         "initials": "yasar",
         "name": "Yasar University",
         "url_endpoint": "https://ce.yasar.edu.tr/dersler/",
-        "table_loop": "tbody > tr",
-        "course_ref": "td",
-        "course_href_detail": "a",
-        "course_name_ref": "td",
-        "url_prefix_href": "",
-        "course_code_index": "1",
-        "course_name_ref_index": "2",
-        "course_detail_index": "0",
         "university_href_includes_domain": true,
-        "teacher_path": "#main-content > div > div > div > div > div > ul > li:nth-child(1) > strong"
+        "course_href_path": "td:nth-child(2) > span > a",
+        "teacher_path": "li > strong",
+        "lesson_name_path":"div > div > div > h3"
       }
     ]
   }

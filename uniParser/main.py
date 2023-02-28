@@ -11,4 +11,3 @@ collectedData=[]
 for university in universities['universities']:
     collectedData.append(parsePage(university))
     
-print(collectedData)
