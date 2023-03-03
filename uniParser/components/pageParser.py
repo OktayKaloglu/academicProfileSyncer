@@ -1,5 +1,4 @@
 from concurrent.futures import ThreadPoolExecutor, wait
-from multiprocessing.pool import ThreadPool
 from urllib.request import urlopen,Request
 from bs4 import BeautifulSoup
 import datetime
