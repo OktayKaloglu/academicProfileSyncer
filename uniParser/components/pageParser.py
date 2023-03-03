@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor, wait
 from urllib.request import urlopen,Request
 from bs4 import BeautifulSoup
 import datetime
@@ -9,11 +10,13 @@ def lessonParser(url:str,instructorPath:str,lessonPath:str)->list:
     
     
     page=urlopen(Request(url=url,headers=headers))
-    print("status: ",page.getcode())
+    
     
     if page.getcode() ==200:
-        soup=BeautifulSoup(page.read(),features="html.parser")
-        #select returns an array hence we give the direct path to element we just need the first element.
+        soup=BeautifulSoup(page.read(),features="html.parser") 
+        # todo
+        # table:nth-child(12) like css selectors not working with the soup select
+        # find a way to trick that
         instructors= soup.select(instructorPath)
         instructorNames=[]
         if len(instructors)>0 :
@@ -26,7 +29,7 @@ def lessonParser(url:str,instructorPath:str,lessonPath:str)->list:
             lessonName=lesson[0].get_text(strip=True)
         
         arr=[instructorNames,lessonName,url]
-        print(arr)
+        print(datetime.datetime.now()," status: ",page.getcode(),", ",arr)
         return arr
     
     return []
@@ -36,7 +39,7 @@ def parsePage(university:dict)->list:
     
     data = []
         
-    if university["initials"]=="deu" :    
+    if university["initials"]!="ege" :    
         
         
         url=university["url_endpoint"]
@@ -49,17 +52,36 @@ def parsePage(university:dict)->list:
             soup=BeautifulSoup(page.read(),features="html.parser")
             
             rows=soup.select(university["course_href_path"])
-            for row in rows:
-                href=row.get("href")
-                if university["university_href_includes_domain"] :  
-                    url= href 
-                else: 
-                    url= university["university_prefix"]+href
-                print(datetime.datetime.now(),"  Parsing: ",url,end=" ")
-                data.append(lessonParser(url,university["teacher_path"],university["lesson_name_path"]))    
-
+            with ThreadPoolExecutor(max_workers=university["max_worker"]) as pool:
+                results=[]
+                for row in rows:
+                    href=row.get("href")
+                    if university["university_href_includes_domain"] :  
+                        url= href 
+                    else: 
+                        url= university["university_prefix"]+href
+                    
+                    result=pool.submit(lessonParser,url,university["teacher_path"],university["lesson_name_path"])
+                    results.append(result)
+                wait(results)
+            for res in results:
+                data.append(res.result())
+        
         
         
         
     
     return data
+    
+    """
+    without multi processing
+    for row in rows:
+                href=row.get("href")
+                if university["university_href_includes_domain"] :  
+                    url= href 
+                else: 
+                    url= university["university_prefix"]+href
+                
+                data.append(lessonParser(url,university["teacher_path"],university["lesson_name_path"]))
+            
+    """
