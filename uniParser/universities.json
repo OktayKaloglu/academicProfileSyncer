@@ -41,7 +41,7 @@
         "name": "Yasar University",
         "url_endpoint": "https://ce.yasar.edu.tr/dersler/",
         "university_href_includes_domain": true,
-        "course_href_path": "td:nth-child(2) > span > a",
+        "course_href_path": "td:nth-child(2) > a",
         "teacher_path": "li > strong",
         "teacher_table_idx":0,
         "lesson_name_path":"div > div > div > h3",

@@ -39,7 +39,7 @@ def lessonParser(url:str,instructorPath:str,lessonPath:str,instructorTableIdx:in
             print(datetime.datetime.now()," status: ",page.getcode(),", ",arr)
             return arr
         
-    return []
+    return [[],"err",url]
 
 
 def parsePage(university:dict)->list:
