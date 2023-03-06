@@ -15,7 +15,7 @@
     ```
     use to install all dependencies
     ```
-        pip3 install requirement.txt
+        pip3 install -r requirements.txt
     ```
 
     then run to generate csv file

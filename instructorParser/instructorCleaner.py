@@ -5,10 +5,9 @@ from uniParser.main import parseLessons
 parseLessons()
 """
 
-import numpy
+
 import pandas as pd
-import json
-        
+from jsonWrite import writeJson    
 
 def print_full(x):
     pd.set_option('display.max_rows', len(x))
@@ -43,8 +42,4 @@ instructors=instructors.explode('instructor')
 instructors["instructor"]=instructors["instructor"].apply(lambda x: x.strip())
 instructors=instructors["instructor"].unique().tolist()
 
-
-json_object = json.dumps(instructors,ensure_ascii=False, indent=4)
-print(json_object) 
-with open("cleaned_instructor.json", "w",encoding="UTF-8") as outfile:
-    outfile.write(json_object)
+writeJson(instructors,"cleaned_instructor.json")
