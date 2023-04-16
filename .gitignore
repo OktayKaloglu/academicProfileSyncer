@@ -2,6 +2,9 @@
 teachers.csv
 cleaned_instructor.json
 
+#config
+myopenaiconfig.json
+
 #vscode
 .vscode
 
