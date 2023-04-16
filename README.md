@@ -15,7 +15,6 @@
 download pipreqs 
     ```
         pip3 install pipreqs
- 
     ```
 
 create a virtual environment with 

@@ -1,0 +1,577 @@
+[
+    [
+        "g8LHJncAAAAJ:UxriW0iASnsC",
+        [
+            [
+                "Introduction to Semantic Web",
+                "80"
+            ],
+            [
+                "Access Control and Security",
+                "75"
+            ],
+            [
+                "Ontology Engineering",
+                "70"
+            ],
+            [
+                "Web Services and APIs",
+                "60"
+            ],
+            [
+                "Database Management Systems",
+                "50"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:70eg2SAEIzsC",
+        [
+            [
+                "Database Systems",
+                " 9"
+            ],
+            [
+                "Parallel Computing",
+                " 8"
+            ],
+            [
+                "Distributed Systems",
+                " 8"
+            ],
+            [
+                "Algorithms and Data Structures",
+                " 7"
+            ],
+            [
+                "Computer Networks",
+                " 7"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:hC7cP41nSMkC",
+        [
+            [
+                "Cognitive Behavioral Therapy (CBT)",
+                " 8"
+            ],
+            [
+                "Web Development",
+                " 7"
+            ],
+            [
+                "Nutrition",
+                " 6"
+            ],
+            [
+                "Sports Science",
+                " 5"
+            ],
+            [
+                "Psychiatry",
+                " 4"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:ZHo1McVdvXMC",
+        [
+            [
+                "Health Informatics",
+                " 9"
+            ],
+            [
+                "Medical Ontology",
+                " 8"
+            ],
+            [
+                "Data Standards in Healthcare",
+                " 8"
+            ],
+            [
+                "Interoperability in Healthcare",
+                " 7"
+            ],
+            [
+                "Personalized Medicine",
+                " 7"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:Tyk-4Ss8FVUC",
+        [
+            [
+                "Semantic Web Technologies",
+                " 9"
+            ],
+            [
+                "Web Services",
+                " 8"
+            ],
+            [
+                "Ontology Engineering",
+                " 9"
+            ],
+            [
+                "Database Systems",
+                " 7"
+            ],
+            [
+                "Distributed Systems",
+                " 8"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:L8Ckcad2t8MC",
+        [
+            [
+                "Machine Learning",
+                "90"
+            ],
+            [
+                "Data Mining",
+                "80"
+            ],
+            [
+                "Artificial Intelligence",
+                "70"
+            ],
+            [
+                "Algorithm Design and Analysis",
+                "60"
+            ],
+            [
+                "Database Systems",
+                "50"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:dhFuZR0502QC",
+        [
+            [
+                "Mobile Application Development",
+                " 8"
+            ],
+            [
+                "Software Architecture and Design",
+                " 7"
+            ],
+            [
+                "Mobile Advertising and Marketing",
+                " 6"
+            ],
+            [
+                "Performance Engineering",
+                " 5"
+            ],
+            [
+                "Quality Assurance and Testing",
+                " 4"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:isC4tDSrTZIC",
+        [
+            [
+                "Big Data Analytics ",
+                "00"
+            ],
+            [
+                "Cloud Computing",
+                "90"
+            ],
+            [
+                "Internet of Things (IoT)",
+                "80"
+            ],
+            [
+                "Healthcare Information Systems",
+                "70"
+            ],
+            [
+                "Web Application Development",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:qxL8FJ1GzNcC",
+        [
+            [
+                "Metadata Management ",
+                "00"
+            ],
+            [
+                "Ontology Engineering",
+                "90"
+            ],
+            [
+                "Semantic Web Technologies",
+                "80"
+            ],
+            [
+                "Data Modeling",
+                "70"
+            ],
+            [
+                "Information Retrieval",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:MXK_kJrjxJIC",
+        [
+            [
+                "Ontology Engineering",
+                " 9"
+            ],
+            [
+                "Artificial Intelligence",
+                " 8"
+            ],
+            [
+                "Database Systems",
+                " 7"
+            ],
+            [
+                "Logic and Computation",
+                " 6"
+            ],
+            [
+                "Semantic Web Technologies",
+                " 5"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:9yKSN-GCB0IC",
+        [
+            [
+                "Information Security",
+                "80"
+            ],
+            [
+                "Web Security",
+                "75"
+            ],
+            [
+                "Semantic Web Technologies",
+                "70"
+            ],
+            [
+                "Policy-Based Management",
+                "65"
+            ],
+            [
+                "Policy-Based Access Control",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:Se3iqnhoufwC",
+        [
+            [
+                "Semantic Web Technologies",
+                " 8"
+            ],
+            [
+                "Health Information Systems",
+                " 7"
+            ],
+            [
+                "Ontology Engineering",
+                " 6"
+            ],
+            [
+                "Software Systems",
+                " 5"
+            ],
+            [
+                "Data Management",
+                " 4"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:dshw04ExmUIC",
+        [
+            [
+                "Natural Language Processing (NLP)",
+                " 8"
+            ],
+            [
+                "Linked Data Technologies",
+                " 7"
+            ],
+            [
+                "Semantic Web Technologies",
+                " 7"
+            ],
+            [
+                "Ontology Development",
+                " 6"
+            ],
+            [
+                "Question Answering Systems",
+                " 6"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:4JMBOYKVnBMC",
+        [
+            [
+                "Database Systems",
+                " 8"
+            ],
+            [
+                "Data Integration and Transformation",
+                " 7"
+            ],
+            [
+                "Data Warehousing and Business Intelligence",
+                " 6"
+            ],
+            [
+                "Distributed Systems",
+                " 5"
+            ],
+            [
+                "Information Retrieval",
+                " 4"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:ldfaerwXgEUC",
+        [
+            [
+                "Information Retrieval",
+                "80"
+            ],
+            [
+                "Semantic Web",
+                "75"
+            ],
+            [
+                "Database Systems",
+                "70"
+            ],
+            [
+                "Natural Language Processing",
+                "65"
+            ],
+            [
+                "Distributed Systems",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:4TOpqqG69KYC",
+        [
+            [
+                "Web Development",
+                "80"
+            ],
+            [
+                "Health Informatics",
+                "70"
+            ],
+            [
+                "Data Science",
+                "60"
+            ],
+            [
+                "Human-Computer Interaction",
+                "50"
+            ],
+            [
+                "Artificial Intelligence",
+                "40"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:WF5omc3nYNoC",
+        [
+            [
+                "Distributed Systems",
+                "80"
+            ],
+            [
+                "Semantic Web",
+                "75"
+            ],
+            [
+                "Health Information Systems",
+                "70"
+            ],
+            [
+                "Medical Ontologies",
+                "65"
+            ],
+            [
+                "Data Interoperability",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:M3ejUd6NZC8C",
+        [
+            [
+                "Information Retrieval",
+                "80"
+            ],
+            [
+                "Artificial Intelligence",
+                "70"
+            ],
+            [
+                "Data Mining",
+                "60"
+            ],
+            [
+                "Machine Learning",
+                "50"
+            ],
+            [
+                "Natural Language Processing",
+                "40"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:nb7KW1ujOQ8C",
+        [
+            [
+                "Semantic Web Technologies",
+                " 9"
+            ],
+            [
+                "Ontology Engineering",
+                " 8"
+            ],
+            [
+                "Web Security",
+                " 8"
+            ],
+            [
+                "Access Control and Authorization",
+                " 7"
+            ],
+            [
+                "Data Privacy and Confidentiality",
+                " 7"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:SeFeTyx0c_EC",
+        [
+            [
+                "Artificial Intelligence",
+                "80"
+            ],
+            [
+                "Data Mining",
+                "75"
+            ],
+            [
+                "Machine Learning",
+                "70"
+            ],
+            [
+                "Information Retrieval",
+                "65"
+            ],
+            [
+                "Semantic Web",
+                "60"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:d1gkVwhDpl0C",
+        [
+            [
+                "Object-Oriented Design",
+                " 8"
+            ],
+            [
+                "Distributed Systems",
+                " 7"
+            ],
+            [
+                "Reusable Component Libraries",
+                " 7"
+            ],
+            [
+                "Interoperability Standards",
+                " 6"
+            ],
+            [
+                "Scalable Architecture",
+                " 6"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:u_35RYKgDlwC",
+        [
+            [
+                "Database Systems",
+                " 8"
+            ],
+            [
+                "Web Application Development",
+                " 7"
+            ],
+            [
+                "Data Structures and Algorithms",
+                " 6"
+            ],
+            [
+                "Human-Computer Interaction",
+                " 5"
+            ],
+            [
+                "Software Engineering",
+                " 4"
+            ]
+        ]
+    ],
+    [
+        "g8LHJncAAAAJ:cFHS6HbyZ2cC",
+        [
+            [
+                "Data Storage Technologies",
+                " 6"
+            ],
+            [
+                "Software Development",
+                " 5"
+            ],
+            [
+                "Data Analysis",
+                " 7"
+            ],
+            [
+                "Information Security",
+                " 8"
+            ],
+            [
+                "Ontology-based Systems",
+                " 9"
+            ]
+        ]
+    ]
+]

@@ -377,33 +377,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Personalized Vaccination Using Ontology Based Profiling",
-                "pub_year": 2013,
-                "citation": "Metadata and Semantics Research: 7th Research Conference, MTSR 2013 …, 2013",
-                "author": "Ozgu Can and Emine Sezer and Okan Bursa and Murat Osman Unalir",
-                "conference": "Metadata and Semantics Research: 7th Research Conference, MTSR 2013, Thessaloniki, Greece, November 19-22, 2013. Proceedings 7",
-                "pages": "213-224",
-                "publisher": "Springer International Publishing"
+                "pub_year": "2013",
+                "citation": "Metadata and Semantics Research: 7th Research Conference, MTSR 2013 …, 2013"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:hMod-77fHWUC",
             "num_citations": 8,
-            "citedby_url": "/scholar?hl=en&cites=10557642970637097816",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=10557642970637097816",
             "cites_id": [
                 "10557642970637097816"
-            ],
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:WFs5UlhIhJIJ:scholar.google.com/",
-            "cites_per_year": {
-                "2014": 3,
-                "2015": 3,
-                "2016": 0,
-                "2017": 1,
-                "2018": 0,
-                "2019": 0,
-                "2020": 0,
-                "2021": 0,
-                "2022": 0,
-                "2023": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -426,36 +409,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "An extension of ontology based databases to handle preferences",
-                "pub_year": 2009,
-                "citation": "ICEIS 2009-11th International Conference on Enterprise Information Systems …, 2009",
-                "author": "Dilek Tapucu and Yamine Ait-Ameur and Stephane Jean and Murat Osman Ünalır",
-                "journal": "ICEIS 2009-11th International Conference on Enterprise Information Systems, Proceedings",
-                "publisher": "INSTICC",
-                "abstract": "Ontologies have been defined to make explicit the semantics of data. With the emergence of the SemanticWeb, the amount of ontological data (or instances) available has increased. To manage such data, Ontology Based DataBases (OBDBs), that store ontologies and their instance data in the same repository have been proposed. These databases are associated with exploitation languages supporting description, querying, etc. on both ontologies and data. However, usually queries return a big amount of data that may be sorted in order to find the relevant ones. Moreover, in the current, few approaches considering user preferences when querying have been developed. Yet this problem is fundamental for many applications especially in the e-commerce domain. In this paper, we first propose an extension of an existing OBDB, called OntoDB through extension of their ontology model in order to support semantic description of preferences. Secondly, an extension of an ontology based query language, called OntoQL defined on OntoDB for querying ontological data with preferences is presented. Finally, an implementation of the proposed extensions are described."
+                "pub_year": "2009",
+                "citation": "ICEIS 2009-11th International Conference on Enterprise Information Systems …, 2009"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:_FxGoFyzp5QC",
             "num_citations": 7,
-            "citedby_url": "/scholar?hl=en&cites=6559817502067767314",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6559817502067767314",
             "cites_id": [
                 "6559817502067767314"
-            ],
-            "pub_url": "https://gcris.iyte.edu.tr/handle/11147/2449",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ErgjQkMnCVsJ:scholar.google.com/",
-            "cites_per_year": {
-                "2010": 2,
-                "2011": 0,
-                "2012": 1,
-                "2013": 1,
-                "2014": 0,
-                "2015": 0,
-                "2016": 0,
-                "2017": 0,
-                "2018": 0,
-                "2019": 0,
-                "2020": 0,
-                "2021": 2
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -478,44 +441,61 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "A load balancing approach for parallel database machines",
-                "pub_year": "1995",
-                "citation": "Proceedings Euromicro Workshop on Parallel and Distributed Processing, 51-58, 1995"
+                "pub_year": 1995,
+                "citation": "Proceedings Euromicro Workshop on Parallel and Distributed Processing, 51-58, 1995",
+                "author": "Oguz Dikenelli and Murat Osman Unalir and Atilla Ozerdim and Esen Ozkarahan",
+                "conference": "Proceedings Euromicro Workshop on Parallel and Distributed Processing",
+                "pages": "51-58",
+                "publisher": "IEEE",
+                "abstract": "Parallel database systems have become a major tool for high performance information processing. These systems require efficient load balancing approaches to partition each relation and to allocate them to the parallel architecture. If the database is not partitioned in a balanced way, the execution of database operations might waste resources, reducing the performance of parallel system. In this study, a multiattribute declustering approach is proposed for parallel database systems. This approach partitions the multiattribute file so as to generate blocks for any given number of processors. Then, an efficient allocation algorithm is applied to map adjacent blocks to neighboring processors considering the underlying architecture. Therefore, operations such as join, requiring high block interactions are executed efficiently on any network topology. Our algorithm is applied to both uniform and nonuniform data distribution …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:70eg2SAEIzsC",
             "num_citations": 7,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9268239298366496037",
+            "citedby_url": "/scholar?hl=en&cites=9268239298366496037",
             "cites_id": [
                 "9268239298366496037"
-            ]
+            ],
+            "pub_url": "https://ieeexplore.ieee.org/abstract/document/389155/",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:JV1zYIlmn4AJ:scholar.google.com/",
+            "cites_per_year": {
+                "1995": 1,
+                "1996": 0,
+                "1997": 1,
+                "1998": 0,
+                "1999": 0,
+                "2000": 0,
+                "2001": 0,
+                "2002": 0,
+                "2003": 0,
+                "2004": 0,
+                "2005": 1,
+                "2006": 0,
+                "2007": 0,
+                "2008": 0,
+                "2009": 0,
+                "2010": 2,
+                "2011": 0,
+                "2012": 0,
+                "2013": 0,
+                "2014": 2
+            }
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Natural language based analysis of SQuAD: An analytical approach for BERT",
-                "pub_year": 2022,
-                "citation": "Expert Systems with Applications 195, 116592, 2022",
-                "author": "Zekeriya Anil Guven and Murat Osman Unalir",
-                "journal": "Expert Systems with Applications",
-                "volume": "195",
-                "pages": "116592",
-                "publisher": "Pergamon",
-                "abstract": "In recent years, deep learning models have been used in the implementation of question answering systems. In this study, the performance of the question answering system was evaluated from the perspective of natural language processing using SQuAD, which was developed to measure the performance of deep learning language models. In line with the evaluations, in order to increase the performance, 3 natural language based methods, namely RNP, that can be used with pre-trained BERT language models have been proposed and they have increased the performance of the question answering system in which the pre-trained BERT models are used by 1.1% to 2.4%. As a result of the application of RNP methods with sentence selection, an increase in accuracy between 6.6% and 8.76% was achieved in answer detection. Since these methods don’t require any training process, it has been shown that they …"
+                "pub_year": "2022",
+                "citation": "Expert Systems with Applications 195, 116592, 2022"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:M3NEmzRMIkIC",
             "num_citations": 6,
-            "citedby_url": "/scholar?hl=en&cites=16307162060542979133",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16307162060542979133",
             "cites_id": [
                 "16307162060542979133"
-            ],
-            "pub_url": "https://www.sciencedirect.com/science/article/pii/S0957417422000884",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:PSxkuX6tTuIJ:scholar.google.com/",
-            "cites_per_year": {
-                "2022": 3,
-                "2023": 3
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -587,34 +567,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Ontology-based database approach for handling preferences",
-                "pub_year": 2010,
-                "citation": "Data Warehousing Design and Advanced Engineering Applications: Methods for …, 2010",
-                "author": "Dilek Tapucu and Gayo Diallo and Yamine Ait Ameur and Murat Osman Ünalir",
-                "pages": "248-271",
-                "publisher": "IGI Global",
-                "abstract": "Information systems now manage huge amount of data. Users are overwhelmed by the numerous results provided in response to their requests. These results must often be sorted and filtered in order to be usable. Moreover, the “one size fits all” approach has shown its limitation for information searching in many applications, particularly in the e-commerce domain. The capture and exploitation of user preferences have been proposed as a solution to overcome this problem. However, the existing approaches usually define preferences for a particular application. Thus, it is difficult to share and reuse the handled preferences in other contexts. In this chapter, we propose a sharable, formal and generic model to represent user‘s preferences. The model gathers several preferences models proposed in the Database and Semantic Web communities. The novelty of our approach is that the defined preferences are …"
+                "pub_year": "2010",
+                "citation": "Data Warehousing Design and Advanced Engineering Applications: Methods for …, 2010"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:blknAaTinKkC",
             "num_citations": 6,
-            "citedby_url": "/scholar?hl=en&cites=9786651723546352296",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9786651723546352296",
             "cites_id": [
                 "9786651723546352296"
-            ],
-            "pub_url": "https://www.igi-global.com/chapter/ontology-based-database-approach-handling/36618",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:qNpxAuQr0YcJ:scholar.google.com/",
-            "cites_per_year": {
-                "2010": 1,
-                "2011": 0,
-                "2012": 0,
-                "2013": 0,
-                "2014": 0,
-                "2015": 2,
-                "2016": 0,
-                "2017": 0,
-                "2018": 0,
-                "2019": 2
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -653,29 +615,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Systematic mapping study on question answering frameworks over linked data",
-                "pub_year": 2018,
-                "citation": "IET Software 12 (6), 461-472, 2018",
-                "author": "Ceren Ocal Tasar and Murat Komesli and Murat Osman Unalir",
-                "volume": "12",
-                "number": "6",
-                "pages": "461-472",
-                "publisher": "The Institution of Engineering and Technology",
-                "abstract": "Employing linked data technologies and semantic endpoints for question answering systems are expanding approaches among the researchers. Therefore, systems that combine syntactic and semantic analysis and enrich input questions by sentence‐level recognition are examined. A systematic mapping study is conducted to identify and analyse the studies from major databases, journals and proceedings of conferences or workshops published between 2010 and 2017. With a set of 14 research questions, inclusion and exclusion criteria are specified. 53 studies are selected as primary studies from an initial set of 845 papers. This study provides a mapping while focusing on the methods and identifying the gaps between required and existing approaches. Popular approaches which have gained the most attention among researchers are given as a conclusion. Moreover, a comparison between the authors’ study …"
+                "pub_year": "2018",
+                "citation": "IET Software 12 (6), 461-472, 2018"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:YFjsv_pBGBYC",
             "num_citations": 4,
-            "citedby_url": "/scholar?hl=en&cites=17621650886371456374",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17621650886371456374",
             "cites_id": [
                 "17621650886371456374"
-            ],
-            "pub_url": "https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/iet-sen.2018.5105",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:djUeHh6ujPQJ:scholar.google.com/",
-            "cites_per_year": {
-                "2019": 1,
-                "2020": 2,
-                "2021": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -698,35 +647,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Ontoloji Tabanlı Bilgi Sistemlerinde Erişim Denetimi: Ulusal Aşı Bilgi Sistemi İçin Durum Çalışması",
-                "pub_year": 2010,
-                "citation": "TÜBAV Bilim Dergisi 3 (3), 238-249, 2010",
-                "author": "Murat ÜNALIR and CAN Özgü and Emine ÜNALIR",
-                "journal": "TÜBAV Bilim Dergisi",
-                "volume": "3",
-                "number": "3",
-                "pages": "238-249",
-                "abstract": "Günümüzdeki webin sunduğu verinin, sadece insanlar değil makineler tarafından da aynı şekilde anlaşılarak, sistemler ve kullanıcılar arasında bilgi paylaşımını ve birlikte çalışabilirliği sağlamak, Anlamsal Web’in ulaşmak istediği hedefler arasında yer almaktadır. Özellikle, verinin anlamsal tanımının verildiği ontolojilerin üzerinden çıkarsama yapılmasını destekleyen alana özgü ontoloji tabanlı bilgi sistemleri geliştirilmeye başlanmıştır. Oldukça çok sayıda insan ve makine kullanıcısı olan bu sistemlerde bilgi paylaşımı desteklenirken, erişim denetiminin sağlanması ve olası çelişkilerinin çözümlenmesi gerekmektedir. Bu çalışmada ontoloji tabanlı bilgi sistemlerinde erişim denetiminin sağlanması ve çelişkilerin çözümlenmesi için Ontoloji Tabanlı Erişim Denetim (OBAC) modelinin sunduğu çözümler anlatılmaktadır. Mevcut erişim denetim uygulamalarında Rol Tabanlı Erişim Denetimi (RBAC) kullanılmaktadır. OBAC, RBAC’in getirdiği yönetimsel ek yükler nedeni ile rol tabanlı erişim denetimi kullanan uygulamalardan farklı olarak, profil tabanlı bir erişim denetimi sunmaktadır. Bu amaçla, kişiye özel bilgi anlamsal olarak modellenmekte ve erişim denetiminin bir parçası haline getirilmektedir. Bu çalışmada, sağlık alanındaki aşı ve aşı uygulamalarına ilişkin bilgi ve hizmetlerin sunulması hedeflenerek, ontoloji tabanlı bilgi sistemi olarak geliştirilmekte olan Ulusal Aşı Bilgi Sistemi’ndeki (UABS) erişim denetim desteği, OBAC’in kullanıldığı bir durum çalışması ile verilmektedir"
+                "pub_year": "2010",
+                "citation": "TÜBAV Bilim Dergisi 3 (3), 238-249, 2010"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:CHSYGLWDkRkC",
             "num_citations": 4,
-            "citedby_url": "/scholar?hl=en&cites=4416798823162194172",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4416798823162194172",
             "cites_id": [
                 "4416798823162194172"
-            ],
-            "pub_url": "https://dergipark.org.tr/en/pub/tubav/issue/21521/230911",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:_Cjy4iCfSz0J:scholar.google.com/",
-            "cites_per_year": {
-                "2013": 1,
-                "2014": 0,
-                "2015": 0,
-                "2016": 1,
-                "2017": 0,
-                "2018": 0,
-                "2019": 0,
-                "2020": 0,
-                "2021": 2
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -777,16 +707,29 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Towards interoperable ontologies: Blood test ontology with foaf",
-                "pub_year": "2016",
-                "citation": "The Tenth International Conference on Advances in Semantic Processing …, 2016"
+                "pub_year": 2016,
+                "citation": "The Tenth International Conference on Advances in Semantic Processing …, 2016",
+                "author": "Emine Sezer and Ozgu Can and Okan Bursa and Murat Osman Unalir",
+                "journal": "The Tenth International Conference on Advances in Semantic Processing (SEMAPRO 2016)",
+                "pages": "32-46",
+                "abstract": "Healthcare systems around the globe are changing their information systems in order to be able to share and reuse patients’ information not only in a department where the information is produced, but also between the departments of an organization and also among the different health organizations or other institutions. For this purpose, lots of data standards and ontologies are developed in the health care domain. BloodTestOntology, which is introduced in this work, describes the substances found in the blood to help physicians in making a diagnosis. Friend of a Friend (FOAF), a well-known ontology for defining personal information, is extended to define required relations for the health care domain. BloodTestOntology is integrated with extended FOAF ontology in order to create an interoperable treatment system with other information systems. The proposed model can be used for personalized treatment suggestion systems."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:ZHo1McVdvXMC",
             "num_citations": 3,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16901706404540951840",
+            "citedby_url": "/scholar?hl=en&cites=16901706404540951840",
             "cites_id": [
                 "16901706404540951840"
-            ]
+            ],
+            "pub_url": "http://personales.upv.es/thinkmind/dl/conferences/semapro/semapro_2016/semapro_2016_2_20_30046.pdf",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:IK2bBG3sjuoJ:scholar.google.com/",
+            "cites_per_year": {
+                "2017": 1,
+                "2018": 0,
+                "2019": 0,
+                "2020": 0,
+                "2021": 1
+            }
         },
         {
             "container_type": "Publication",
@@ -872,16 +815,28 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Anlamsal web için bilgi sistemi altyapısı",
-                "pub_year": "2016",
-                "citation": "Türkiye Bilişim Vakfı Bilgisayar Bilimleri ve Mühendisliği Dergisi 1 (1), 2016"
+                "pub_year": 2016,
+                "citation": "Türkiye Bilişim Vakfı Bilgisayar Bilimleri ve Mühendisliği Dergisi 1 (1), 2016",
+                "author": "MO ÜNALIR and Ö Öztürk and T Özacar",
+                "journal": "Türkiye Bilişim Vakfı Bilgisayar Bilimleri ve Mühendisliği Dergisi",
+                "volume": "1",
+                "number": "1",
+                "abstract": "Ontologies have a critical role for implementing the semantic Web. It is important to implement enviroments to create and to store ontologies. These environments have to support Web services that is the future of the applications. In this article, we describe the ontology environment that is the subject of the AEGONT project."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:Tyk-4Ss8FVUC",
             "num_citations": 2,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8154812971176536045",
+            "citedby_url": "/scholar?hl=en&cites=8154812971176536045",
             "cites_id": [
                 "8154812971176536045"
-            ]
+            ],
+            "pub_url": "https://dergipark.org.tr/en/pub/tbbmd/issue/22240/238751",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:7ae59DC3K3EJ:scholar.google.com/",
+            "cites_per_year": {
+                "2021": 1,
+                "2022": 0,
+                "2023": 1
+            }
         },
         {
             "container_type": "Publication",
@@ -920,25 +875,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Türkiye’de İşe Alım Sürecinin Değerlendirilmesi ve Bir Ontoloji Geliştirilmesi",
-                "pub_year": 2012,
-                "citation": "Akademik Bilişim’10, 449, 2012",
-                "author": "Ünal Er and Murat Osman Ünalır",
-                "journal": "Akademik Bilişim’10",
-                "pages": "449",
-                "abstract": "İnsan Kaynakları Yönetiminin en önemli bölümlerinden biri işe alım sürecidir. Bu süreçte şirketlerin en uygun çalışanı bulmaları ve/veya iş arayan bir kişinin kendisi için en uygun işi bulması oldukça zordur. Bu çalışmada kişilere en uygun işlerin bulunması için ontolojiler ve anlamsal web teknolojileri kullanılmıştır. Sonuçların klasik veritabanı uygulamalarına göre daha sağlıklı olduğu görülmüştür. İşe alım sürecinde kamu kurumları ve özel istihdam bürolarının kullanmaları için bir ontoloji oluşturulmuştur. Bu sayede bu kurumların kendi aralarında konuşabilmelerini sağlayan ortak bir dil meydana getirilmiştir. Oluşturulan ontoloji sayesinde sistemler arası bütünleştirmenin çok daha kolay kurulması beklenmektedir."
+                "pub_year": "2012",
+                "citation": "Akademik Bilişim’10, 449, 2012"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:_kc_bZDykSQC",
             "num_citations": 2,
-            "citedby_url": "/scholar?hl=en&cites=7159129818353527409",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7159129818353527409",
             "cites_id": [
                 "7159129818353527409"
-            ],
-            "pub_url": "https://ab.org.tr/ab10/kitap/_AB10_ikincicilt_tekli.pdf#page=69",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:cWrem6NWWmMJ:scholar.google.com/",
-            "cites_per_year": {
-                "2016": 2
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -1025,25 +971,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Revisiting Ontology Based Access Control: The Case for Ontology Based Data Access.",
-                "pub_year": 2022,
-                "citation": "ICISSP, 515-518, 2022",
-                "author": "Özgü Can and Murat Osman Ünalir",
-                "conference": "ICISSP",
-                "pages": "515-518",
-                "abstract": "Ontology Based Data Access (OBDA) is a semantic paradigm to perform a mapping between an ontology and a data source for querying heterogeneous data sources. The result of this mapping ensures data access and data integration. Therefore, OBDA allows to query various datasets and provides data virtualization by integrating multiple and varied data sources. Ontology Based Access Control (OBAC) enables the realization of an access control mechanism by using Semantic Web technologies. OBAC allows to model the access control knowledge and uses domain knowledge to create policy ontologies. This paper revisits the OBAC approach by considering the OBDA to query legacy data that are stored in different types of data sources. For this purpose, OBAC is examined within the scope of OBDA and a conceptual model is proposed to extend OBAC with OBDA to provide data virtualization and to consolidate users’ access privileges. Thus, security and management of complex information systems could be carried out by using Semantic Web technologies."
+                "pub_year": "2022",
+                "citation": "ICISSP, 515-518, 2022"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:vV6vV6tmYwMC",
             "num_citations": 1,
-            "citedby_url": "/scholar?hl=en&cites=8192183240356790372",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8192183240356790372",
             "cites_id": [
                 "8192183240356790372"
-            ],
-            "pub_url": "https://www.scitepress.org/Papers/2022/108981/108981.pdf",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ZABgyEB7sHEJ:scholar.google.com/",
-            "cites_per_year": {
-                "2022": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -1066,43 +1003,40 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "A methodology for defining working healthcare ontologies",
-                "pub_year": 2019,
-                "citation": "Int. J. Sci. Technol. Res 5 (15), 146-156, 2019",
-                "author": "Emine Sezer and MO Ünalır and Ö Can and Okan Bursa",
-                "journal": "Int. J. Sci. Technol. Res",
-                "volume": "5",
-                "number": "15",
-                "pages": "146-156",
-                "abstract": "Retrieving the information needed for right clinical decision and searching through a large amount of data are important challenges that health information systems encountered despite the advances in the information systems. In order to reuse these distributed data, the health information standards are developed to enable interoperable health information systems. As the standards are far from the necessary semantics, the data defined according to these standards are not been efficiently used by machines. Semantic Web technologies provide a common framework to access and process the information by machines with the support of ontologies. The heterogeneous and distributed nature of health data makes it a very suitable candidate to define health domain specific ontologies. In this work, a methodology for defining health ontologies, which should work as information base of a health information system as the next stage, is proposed to ensure interoperability and reuse between health information systems with the support of health information standards. Clinical Biochemistry Laboratory Ontology (CBLO) is given as a use case to model information of laboratory tests realized in clinical biochemistry laboratory that are a sub-domain of medical laboratory tests. In addition, a weighted evaluation for the proposed methodology is presented."
+                "pub_year": "2019",
+                "citation": "Int. J. Sci. Technol. Res 5 (15), 146-156, 2019"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:HDshCWvjkbEC",
             "num_citations": 1,
-            "citedby_url": "/scholar?hl=en&cites=111051799642699415",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=111051799642699415",
             "cites_id": [
                 "111051799642699415"
-            ],
-            "pub_url": "https://scholar.archive.org/work/yickucgw6rhvpnu2wjryvfz5ge/access/wayback/https://pdfs.semanticscholar.org/6db1/7e8fa2147d5f8942bd201c503496fee612ab.pdf",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:l_Ze_QWJigEJ:scholar.google.com/",
-            "cites_per_year": {
-                "2021": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Bir Reklam Aracısı Yazılımının Makine Öğrenmesi Yetenekleriyle İyileştirilmesi için Planlama",
-                "pub_year": "2018",
-                "citation": "7. Ulusal Yazılım Mimarisi Konferansı, 2018"
+                "pub_year": 2018,
+                "citation": "7. Ulusal Yazılım Mimarisi Konferansı, 2018",
+                "author": "Görkem Giray and Murat Osman Ünalır and Cem Çatıkkaş",
+                "conference": "7. Ulusal Yazılım Mimarisi Konferansı",
+                "abstract": "Bir Reklam Aracısı Yazılımı, hangi reklam ağından hangi sırada reklam talep edeceğine dair kararı verirken uygulamanın reklam gelirini azami seviyeye çıkarmayı hedefler. Bu kararı ne kadar iyi verebileceği, reklam gelirini ölçmek için kullanılan eBGBM (Etkin Bin Gösterim Başına Maliyet) değerini ne kadar iyi tahmin edebileceğine bağlıdır. Mevcut durumda bu tahmin, önceden kodlanmış bir karar mekanizması ve konu alanı uzmanları tarafından belirlenen parametreler doğrultusunda yapılmaktadır. Bu tahminin daha iyi yapılabilmesi ve zaman içinde oluşan veri doğrultusunda güncellenebilmesi için makine öğrenmesi algoritmalarının kullanılması mümkündür. Bu bildiride, mevcut sisteme makine öğrenmesi yetenekleri kazandırmak için yapılan planlama çalışmaları sunulmaktadır. Bu kapsamda bir makine öğrenmesi süreci, bu süreci gerçekleştirmek için tasarlanan bir mimari ve geliştirme takımının sahip olması gereken yetkinlikler anlatılmıştır."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:L8Ckcad2t8MC",
             "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3414125318755492256",
+            "citedby_url": "/scholar?hl=en&cites=3414125318755492256",
             "cites_id": [
                 "3414125318755492256"
-            ]
+            ],
+            "pub_url": "https://www.researchgate.net/profile/Goerkem-Giray-2/publication/328688615_Bir_Reklam_Aracisi_Yaziliminin_Makine_Ogrenmesi_Yetenekleriyle_Iyilestirilmesi_icin_Planlama_Planning_for_the_Enhancement_of_an_Ad_Mediation_Software_with_Machine_Learning_Capabilities/links/5c26ac3d92851c22a34c3fa2/Bir-Reklam-Aracisi-Yaziliminin-Makine-Oegrenmesi-Yetenekleriyle-Iyilestirilmesi-icin-Planlama-Planning-for-the-Enhancement-of-an-Ad-Mediation-Software-with-Machine-Learning-Capabilities.pdf",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:oKEWe-NoYS8J:scholar.google.com/",
+            "cites_per_year": {
+                "2020": 1
+            }
         },
         {
             "container_type": "Publication",
@@ -1133,16 +1067,26 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Big data aware diabetes management: Requirements, solutions and reviews",
-                "pub_year": "2017",
-                "citation": "2017 International Artificial Intelligence and Data Processing Symposium …, 2017"
+                "pub_year": 2017,
+                "citation": "2017 International Artificial Intelligence and Data Processing Symposium …, 2017",
+                "author": "Murat Osman Ünalir and Özgü Can and Emine Sezer and Okan Bursa and Handan Ak",
+                "conference": "2017 International Artificial Intelligence and Data Processing Symposium (IDAP)",
+                "pages": "1-6",
+                "publisher": "IEEE",
+                "abstract": "The convergence of IoT, cloud computing and big data creates new opportunities for diabetes management. There are many research projects on diabetes management in the literature. They are generally based on web application architectures and rely on traditional data management systems. This paper firstly describes the big data characteristics and then discusses the perspectives of healthcare systems should have. After briefing the requirements of diabetes management in big data era, big data awareness matrix for diabetes management is presented. Existing solutions are revisited in the light of the matrix and a general review of diabetes management is concluded with the convergent technologies."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:isC4tDSrTZIC",
             "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6287703782117915954",
+            "citedby_url": "/scholar?hl=en&cites=6287703782117915954",
             "cites_id": [
                 "6287703782117915954"
-            ]
+            ],
+            "pub_url": "https://ieeexplore.ieee.org/abstract/document/8090179/",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:Mr0EskZpQlcJ:scholar.google.com/",
+            "cites_per_year": {
+                "2017": 1
+            }
         },
         {
             "container_type": "Publication",
@@ -1181,24 +1125,16 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Melez Erişim Denetimi için bir Mimari Önerisi: İK Uygulaması Örneği.",
-                "pub_year": 2015,
-                "citation": "UYMS, 2015",
-                "author": "Nuriye Yasemin Alparslan and Murat Komesli and Murat Osman Ünalir and Özgü Can",
-                "conference": "UYMS",
-                "abstract": "Anlamsal web, web içeriklerinin diğer yazılımlar tarafından anlaşılabilir, yorumlanabilir, kullanılabilir olmasını ve bilginin paylaşılmasını amaçlamaktadır. Anlamsal web’de bilginin güvenliği erişim denetimi ile sağlanmaktadır. OBAC (Ontology Based Access Control–Ontoloji Tabanlı Erişim Denetimi) verinin anlamsal tanımının olduğu ontolojilere erişim denetiminin sağlanmasında kullanılan bir modeldir. RBAC (Role Based Access Control–Rol Tabanlı Erişim Denetimi) ise, rol tabanlı erişim denetimini sağlamaktadır. İlişkisel veritabanlarında RBAC, ontolojilerde ise OBAC kullanılmaktadır. İnsan Kaynakları (İK) uygulamalarında hem RBAC hem de OBAC kullanılmaktadır. Bu çalışmada, her iki yaklaşımın karışımı olan HAC (Hybrid Access Control-Melez Erişim Denetimi) altyapı mimarisi geliştirilmeye çalışılmıştır. İK alanında, OBAC ve RBAC birleşimiyle oluşan melez veri tabanlı bir erişim çerçevesi olarak HAC geliştirilmektedir. Bu çerçeveye erişim için, yöntem ve araç yazılım içeren bir yazılım mimarisi sunulmaktadır. Böylelikle, melez veri ile roller yönetilerek İK alanında veritabanı yönetimine bir çözüm getirilmiş olacaktır."
+                "pub_year": "2015",
+                "citation": "UYMS, 2015"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:fPk4N6BV_jEC",
             "num_citations": 1,
-            "citedby_url": "/scholar?hl=en&cites=1060293335204545757",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1060293335204545757",
             "cites_id": [
                 "1060293335204545757"
-            ],
-            "pub_url": "https://ceur-ws.org/Vol-1483/79_Bildiri.pdf",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:3cSUsivrtg4J:scholar.google.com/",
-            "cites_per_year": {
-                "2019": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -1221,16 +1157,26 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Ontology Based Metadata Management for National Healthcare Data Dictionary",
-                "pub_year": "2012",
-                "citation": ""
+                "pub_year": 2012,
+                "citation": "",
+                "author": "Yasemin Yüksek and Murat Osman Ünalır",
+                "volume": "18",
+                "number": "2",
+                "pages": "133-144",
+                "abstract": "Ontology based metadata is based on ontologies that give formal semantics to information for content level. In this study, ontology based metadata management that intended the metadata modeling developed for National Health Data Dictionary (NHDD) was proposed. NHDD is used as a reference to all health institutions in Turkey and it provides great contribution in terms of the terminology. The approach of the proposed ontology based metadata management was achieved by using modeling methodology of metadata requirements. This methodology includes determination of metadata beneficiaries, listing of metadata requirements for each beneficiary, identification of the source of metadata, categorizing of metadata and a metamodel building."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:qxL8FJ1GzNcC",
             "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14402831848269166642",
+            "citedby_url": "/scholar?hl=en&cites=14402831848269166642",
             "cites_id": [
                 "14402831848269166642"
-            ]
+            ],
+            "pub_url": "https://jag.journalagent.com/z4/vi.asp?pdir=pajes&plng=eng&un=PAJES-38257&look4=",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:MjjEq0Ej4ccJ:scholar.google.com/",
+            "cites_per_year": {
+                "2020": 1
+            }
         },
         {
             "container_type": "Publication",
@@ -1285,57 +1231,67 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Reducing the inferred type statements with individual grouping constructs",
-                "pub_year": "2006",
-                "citation": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC …, 2006"
+                "pub_year": 2006,
+                "citation": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC …, 2006",
+                "author": "Övünç Öztürk and Tuğba Özacar and Murat Osman Ünalır",
+                "conference": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC 2006, Athens, GA, USA, November 5-9, 2006. Proceedings 5",
+                "pages": "573-582",
+                "publisher": "Springer Berlin Heidelberg",
+                "abstract": "A common approach for reasoning is to compute the deductive closure of an ontology using the rules specified and to work on the closure at query time. This approach reduces the run time complexity but increases the space requirements. The main reason of this increase is the type and subclass statements in the ontology. Type statements show a significant percentage in most ontologies. Since subclass is a transitive property, derivation of other statements, in particular type statements relying on it, gives rise to cyclic repetition and an excess of inferred type statements. In brief, a major part of closure computation is deriving the type statements relying on subclass statements. In this paper, we propose a syntactic transformation that is based on novel individual grouping constructs. This transformation reduces the number of inferred type statements relying on subclass relations. Thus, the space requirement of …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:MXK_kJrjxJIC",
             "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11452675298692544393",
+            "citedby_url": "/scholar?hl=en&cites=11452675298692544393",
             "cites_id": [
                 "11452675298692544393"
-            ]
+            ],
+            "pub_url": "https://link.springer.com/chapter/10.1007/11926078_41",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ibd1WoET8J4J:scholar.google.com/",
+            "cites_per_year": {
+                "2007": 1
+            }
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Distributed policy management in semantic web",
-                "pub_year": "2006",
-                "citation": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC …, 2006"
+                "pub_year": 2006,
+                "citation": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC …, 2006",
+                "author": "Özgü Can and Murat Osman Ünalır",
+                "conference": "The Semantic Web-ISWC 2006: 5th International Semantic Web Conference, ISWC 2006, Athens, GA, USA, November 5-9, 2006. Proceedings 5",
+                "pages": "970-971",
+                "publisher": "Springer Berlin Heidelberg",
+                "abstract": "With the growth of Internet and the fast development of semantic web technologies, the access and usage of information will become much more easier. However, the security of information gathering for both information suppliers and demanders is a critical issue. Policies determine the ideal behaviors for web concepts. The concepts of policy, policy languages and policy ontologies must be determined, effective tools for policy definition and management must be developed."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:9yKSN-GCB0IC",
             "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1546246156870540712",
+            "citedby_url": "/scholar?hl=en&cites=1546246156870540712",
             "cites_id": [
                 "1546246156870540712"
-            ]
+            ],
+            "pub_url": "https://link.springer.com/chapter/10.1007/11926078_73",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&oe=ASCII&q=related:qN2U869edRUJ:scholar.google.com/",
+            "cites_per_year": {
+                "2007": 1
+            }
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Güvenli ve kişisel aşı bilgi sistemi. 6",
-                "citation": "Uluslararasi Bilgi Güvenliği ve Kriptoloji Konferansı 20, 21, 0",
-                "author": "O Bursa and Emine Sezer and Özgü Can and Murat Osman Ünalır",
-                "journal": "Uluslararasi Bilgi Güvenliği ve Kriptoloji Konferansı",
-                "volume": "20",
-                "pages": "21",
-                "abstract": "Bilgi güvenliliği ve gizliliğin sağlanması e-sağlık etki alanı içerisindeki uygulamalar için temel bir ihtiyaçtır. Bu amaçla yapılan çalışmaların büyük bir kısmında, genellikle erişim denetim mekanizmaları kullanılmaktadır. Bu çalışmada, politikalar sadece sistemde erişim denetimi sağlamak için değil, aynı zamanda kişiselleştirme için de kullanılmaktadır. Önerilen yaklaşım, e-sağlık uygulamalarının önemli parçalarından biri olan aşı bilgi sistemi temel alınarak açıklanmaktadır. Aşı bilgi sisteminde yer alan her bir paydaş için profil tanımı yapılmaktadır. Aşı etki alanı bilgisi, profiller ve politikalar birlikte kullanılarak sistemin kişiselleştirilmiş kullanımı sağlanmaktadır. Böylelikle, elektronik sağlık kayıtlarına erişim kısıtlandırılarak, hasta gizliliği sağlanmakta ve aşılama işlemi ile ilgili klinik yönergeler etkili bir şekilde gerçekleştirilmektedir."
+                "citation": "Uluslararasi Bilgi Güvenliği ve Kriptoloji Konferansı 20, 21, 0"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:aqlVkmm33-oC",
             "num_citations": 1,
-            "citedby_url": "/scholar?hl=en&cites=7458782223251782522",
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=7458782223251782522",
             "cites_id": [
                 "7458782223251782522"
-            ],
-            "pub_url": "https://scholar.google.com/scholar?cluster=7458782223251782522&hl=en&oi=scholarr",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ervr6enqgmcJ:scholar.google.com/",
-            "cites_per_year": {
-                "2018": 1
-            }
+            ]
         },
         {
             "container_type": "Publication",
@@ -1357,32 +1313,21 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Sağlık bilgi sistemleri: Kan test ontolojisi için durum çalışması",
-                "citation": "2015 Akademik Bilişim Konferansları, 4-6, 0"
-            },
-            "filled": false,
-            "author_pub_id": "g8LHJncAAAAJ:Se3iqnhoufwC",
-            "num_citations": 1,
-            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9185805468995098345",
-            "cites_id": [
-                "9185805468995098345"
-            ]
-        },
-        {
-            "container_type": "Publication",
-            "source": "AUTHOR_PUBLICATION_ENTRY",
-            "bib": {
-                "title": "Veri Yogun Bilgi SistemleriIçin Melez Bir Veri MimarisiOnerisi",
-                "citation": "",
-                "author": "Murat Osman Ünalır and Emrah Inan and Burak Yönyül and Emre Olca and Fatmana Sentürk and Vahab Mostafapour and Petek Yıldız and Dilek Yılmazer and Devrim Isli"
+                "citation": "2015 Akademik Bilişim Konferansları, 4-6, 0",
+                "author": "Emine Sezer and Özgü Can and Okan Bursa and Murat Osman Ünalır",
+                "journal": "2015 Akademik Bilişim Konferansları",
+                "pages": "4-6",
+                "abstract": "Hasta ile ilgili bilgiler doktorlar, klinikler, eczaneler, sigorta şirketleri ve sağlık kurumları arasında dağıtık bir şekilde bulunmaktadır. Son yıllarda, tüm dünyada sağlık sistemleri, sadece bilginin üretildiği değil, hem kurumun kendi birimleri arasında hem de diğer kurumlar ile paylaşabilmesini ve yeniden kullanılabilmesini sağlayacak şekilde, bilgi sistemlerini değiştirmeye başlamıştır. Birlikte çalışabilir sağlık bilgi sistemleri için, anlamsal web teknolojileri, sundukları iyi tanımlanmış alana özgü ontolojilerin ve bu ontolojiler ile oluşturulmuş bilgiler üzerinde çıkarsama yapılabilme gücü ile yazılım sistemlerinin bilgi sistemlerini oluşturmak için kullanılmalıdır. Bu çalışmada, bir klinik bilgi sistemi için kan testlerini be sonuçları tanımlayacak bir bilgi tabanı olarak kullanılmak üzere geliştirilen Kan Test Ontolojisi tanıtılmaktadır. Aynı zamanda, sağlık alanı için geliştirilmiş olan bazı standartların ve ontolojilerin kısa bir analizine de …"
             },
             "filled": true,
-            "author_pub_id": "g8LHJncAAAAJ:zYLM7Y9cAGgC",
+            "author_pub_id": "g8LHJncAAAAJ:Se3iqnhoufwC",
             "num_citations": 1,
-            "citedby_url": "/scholar?hl=en&cites=2758251252397332272",
+            "citedby_url": "/scholar?hl=en&cites=9185805468995098345",
             "cites_id": [
-                "2758251252397332272"
+                "9185805468995098345"
             ],
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:MFdrdOZGRyYJ:scholar.google.com/",
+            "pub_url": "https://scholar.google.com/scholar?cluster=9185805468995098345&hl=en&oi=scholarr",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:6RZL02eJen8J:scholar.google.com/",
             "cites_per_year": {
                 "2016": 1
             }
@@ -1391,13 +1336,34 @@
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
-                "title": "Semantic Web Enabled Geographic Question Answering Framework: GeoTR",
-                "pub_year": "2023",
-                "citation": "arXiv preprint arXiv:2301.04752, 2023"
+                "title": "Veri Yogun Bilgi SistemleriIçin Melez Bir Veri MimarisiOnerisi",
+                "citation": ""
             },
             "filled": false,
+            "author_pub_id": "g8LHJncAAAAJ:zYLM7Y9cAGgC",
+            "num_citations": 1,
+            "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2758251252397332272",
+            "cites_id": [
+                "2758251252397332272"
+            ]
+        },
+        {
+            "container_type": "Publication",
+            "source": "AUTHOR_PUBLICATION_ENTRY",
+            "bib": {
+                "title": "Semantic Web Enabled Geographic Question Answering Framework: GeoTR",
+                "pub_year": 2023,
+                "citation": "arXiv preprint arXiv:2301.04752, 2023",
+                "author": "Ceren Ocal Tasar and Murat Komesli and Murat Osman Unalir",
+                "journal": "arXiv preprint arXiv:2301.04752",
+                "abstract": "With the considerable growth of linked data, researchers have focused on how to increase the availability of semantic web technologies to provide practical usages for real life systems. Question answering systems are an example of real-life systems that communicate directly with end users, understand user intention and generate answers. End users do not care about the structural query language or the vocabulary of the knowledge base where the point of a problem arises. In this study, a question answering framework that converts Turkish natural language input into SPARQL queries in the geographical domain is proposed. Additionally, a novel Turkish ontology, which covers a 10th grade geography lesson named Spatial Synthesis Turkey, has been developed to be used as a linked data provider. Moreover, a gap in the literature on Turkish question answering systems, which utilizes linked data in the geographical domain, is addressed. A hybrid system architecture that combines natural language processing techniques with linked data technologies to generate answers is also proposed. Further related research areas are suggested."
+            },
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:dshw04ExmUIC",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://arxiv.org/abs/2301.04752",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:dNv7bB262LIJ:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1416,19 +1382,12 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "A comparative review for question answering frameworks on the linked data",
-                "pub_year": 2021,
-                "citation": "Recent Advances in Computer Science and Communications (Formerly: Recent …, 2021",
-                "author": "Ceren O Tasar and Murat Komesli and Murat O Unalir",
-                "volume": "14",
-                "number": "6",
-                "pages": "1695-1705",
-                "publisher": "Bentham Science Publishers"
+                "pub_year": "2021",
+                "citation": "Recent Advances in Computer Science and Communications (Formerly: Recent …, 2021"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:NhqRSupF_l8C",
-            "num_citations": 0,
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:58EfFTbIwAIJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -1459,18 +1418,12 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Development of a Method and a Tool for Hybrid Data Based Access Framework",
-                "pub_year": 2019,
-                "citation": "2019 Innovations in Intelligent Systems and Applications Conference (ASYU), 1-6, 2019",
-                "author": "Nuriye Yasemin Alparslan and Murat Komesli and Murat Osman Unalir and Ozgu Can",
-                "conference": "2019 Innovations in Intelligent Systems and Applications Conference (ASYU)",
-                "pages": "1-6",
-                "publisher": "IEEE"
+                "pub_year": "2019",
+                "citation": "2019 Innovations in Intelligent Systems and Applications Conference (ASYU), 1-6, 2019"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:2P1L_qKh6hAC",
-            "num_citations": 0,
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:Te11kny4GIsJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -1513,92 +1466,85 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Heterojen Veritabanı Yönetim Sistemleri için Bir Tekil Veri Erişim Çerçevesi",
-                "pub_year": "2019",
-                "citation": ""
+                "pub_year": 2019,
+                "citation": "",
+                "author": "Nail Diker and Görkem Giray and Murat Osman Ünalır",
+                "abstract": "Farklı veri saklama ve sorgulama gereksinimleri için farklı saklama modelleri ve bu modelleri gerçekleyen çok sayıda araç bulunmaktadır. Bu araçlar veri saklama ve sorgulama konusundaki problemler için çözümler sunsa da diğer taraftan farklı araçlarda saklanan verilerin bütünleştirme problemi karşımıza çıkmaktadır. Bu problem için de çeşitli çözümler önerilmiştir. Bu çalışmada literatürde bulunan veri çeşitliliği ve bu veri çeşitliliği ile başa çıkmak için önerilen çözümler sınıflandırılarak incelenmiştir. Bu inceleme sonucunda yapılan çözümlemeler doğrultusunda veri çeşitliliği problemini çözmek için bir tekil veri erişim çerçevesi sunulmuştur. Bu tekil veri çerçevesinin faydası örnek bir durum senaryosunda gösterilmiştir."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:4JMBOYKVnBMC",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://www.researchgate.net/profile/Goerkem-Giray-2/publication/335565989_Heterojen_Veritabani_Yonetim_Sistemleri_icin_Bir_Tekil_Veri_Erisim_Cercevesi/links/614d8c1c519a1a381f7dc68b/Heterojen-Veritabani-Yoenetim-Sistemleri-icin-Bir-Tekil-Veri-Erisim-Cercevesi.pdf",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:bXPoEkzEsDUJ:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Çevik Ontoloji Geliştirme 101: Yeniden Kullanım Tabanlı Çevik Bir Ontoloji Geliştirme Yöntemi",
-                "pub_year": 2019,
-                "citation": "",
-                "author": "Cemil Abiş and Görkem Giray and Murat Osman Ünalır",
-                "abstract": "Ontolojilerin bilgisayar bilimleri alanında yaygınlaşmasıyla birlikte, ontoloji geliştirme metodolojilerine yönelik çalışmalar da artmıştır. Genellikle ontoloji geliştirme deneyimlerinden ortaya çıkan bu metodolojiler, geliştirme süreçlerini farklı bakış açılarıyla ele almıştır. Ancak yazılım mühendisliğinde olduğu gibi olgunlaşmış ve kabul görmüş bir süreçten bahsetmek hala mümkün değildir. Bunun yanı sıra ontoloji geliştirme metodolojilerinin çözüm sağlayamadığı yeniden kullanım gibi bazı konular, ontoloji mühendisleri için önemli bir sorun olmaya devam etmektedir. Bu çalışmada mevcut yöntemlerin eksiklikleri dikkate alınarak, çevik ve yeniden kullanım tabanlı bir ontoloji geliştirme metodolojisi önerilmiştir."
-            },
-            "filled": true,
-            "author_pub_id": "g8LHJncAAAAJ:_Qo2XoVZTnwC",
-            "num_citations": 0,
-            "pub_url": "https://scholar.google.com/scholar?cluster=6448828377659014253&hl=en&oi=scholarr",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:bfzS-z3XflkJ:scholar.google.com/",
-            "cites_per_year": {}
-        },
-        {
-            "container_type": "Publication",
-            "source": "AUTHOR_PUBLICATION_ENTRY",
-            "bib": {
-                "title": "Systematic mapping study on question answering frameworks over linked data",
-                "pub_year": 2018,
-                "citation": "INST ENGINEERING TECHNOLOGY-IET, 2018",
-                "author": "C Ocal Tasar and M Komesli and MO Unalir",
-                "publisher": "INST ENGINEERING TECHNOLOGY-IET",
-                "abstract": "Employing linked data technologies and semantic endpoints for question answering systems are expanding approaches among the researchers. Therefore, systems that combine syntactic and semantic analysis and enrich input questions by sentence-level recogniti"
-            },
-            "filled": true,
-            "author_pub_id": "g8LHJncAAAAJ:1sJd4Hv_s6UC",
-            "num_citations": 0,
-            "pub_url": "https://scholar.google.com/scholar?cluster=7650554706030284252&hl=en&oi=scholarr",
-            "cites_per_year": {}
-        },
-        {
-            "container_type": "Publication",
-            "source": "AUTHOR_PUBLICATION_ENTRY",
-            "bib": {
-                "title": "Development of semantic web application architecture for natural language based querying",
-                "pub_year": 2018,
-                "citation": "",
-                "author": "Murat Osman Unalir",
-                "abstract": "With the developing technology and increased demand on practical usage of knowledge, users require to interact with systems by using natural language. Researchers discover the necessity of natural language queries should be converted to machine understandable format to meet the requirement of users. The necessity of the conversion triggered the researches on studies on question answering systems that is one of the systems mostly interact with natural language queries. For question answering systems that utilizes structural knowledge sources, understanding user intention accurately consists of the processes of natural language processing, representing the user intention and forming structured query to generate the answer. A technique and an architecture to convert natural language query to ontology query language by utilizing from both linguistic and semantic technologies are proposed in this study. Automatic conversion of an unstructured natural language query to a structured ontology query language SPARQL and process of producing answer over linked data are explained in the proposed technique and architecture. A different approach other than the related studies is followed in terms of defining a “Query Semantization” layer in the proposed architecture and developing a natural language aware ontology for the technique proposed. Contribution to the literature is expected by combining natural language processing technique and semantic web technologies with a different approach."
-            },
-            "filled": true,
-            "author_pub_id": "g8LHJncAAAAJ:HoB7MX3m0LUC",
-            "num_citations": 0,
-            "pub_url": "https://ceur-ws.org/Vol-2291/paper4_3.pdf",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:r4Wr007ZRsQJ:scholar.google.com/",
-            "cites_per_year": {}
-        },
-        {
-            "container_type": "Publication",
-            "source": "AUTHOR_PUBLICATION_ENTRY",
-            "bib": {
-                "title": "A metamodel-based search engine for document management systems",
-                "pub_year": "2017",
-                "citation": "2017 International Artificial Intelligence and Data Processing Symposium …, 2017"
+                "pub_year": "2019",
+                "citation": ""
             },
             "filled": false,
-            "author_pub_id": "g8LHJncAAAAJ:ldfaerwXgEUC",
+            "author_pub_id": "g8LHJncAAAAJ:_Qo2XoVZTnwC",
             "num_citations": 0
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
-                "title": "An ontology-based integration approach for medical information standards [Tibbi Bilişim Standartlari için Ontoloji Tabanli Bir Bütünleştirme Yaklaşimi]",
+                "title": "Systematic mapping study on question answering frameworks over linked data",
+                "pub_year": "2018",
+                "citation": "INST ENGINEERING TECHNOLOGY-IET, 2018"
+            },
+            "filled": false,
+            "author_pub_id": "g8LHJncAAAAJ:1sJd4Hv_s6UC",
+            "num_citations": 0
+        },
+        {
+            "container_type": "Publication",
+            "source": "AUTHOR_PUBLICATION_ENTRY",
+            "bib": {
+                "title": "Development of semantic web application architecture for natural language based querying",
+                "pub_year": "2018",
+                "citation": ""
+            },
+            "filled": false,
+            "author_pub_id": "g8LHJncAAAAJ:HoB7MX3m0LUC",
+            "num_citations": 0
+        },
+        {
+            "container_type": "Publication",
+            "source": "AUTHOR_PUBLICATION_ENTRY",
+            "bib": {
+                "title": "A metamodel-based search engine for document management systems",
                 "pub_year": 2017,
-                "citation": "Institute of Electrical and Electronics Engineers Inc., 2017",
-                "author": "E Sezer and O Can and MO Unalir and O Bursa",
-                "publisher": "Institute of Electrical and Electronics Engineers Inc.",
-                "abstract": "Healthcare domain is a huge and complicated area where people, different organizations and various institutions get services as well as provide services at the same time. In this area, a huge amount of health data is produced from a variety of resources and this data is growing up, exponentially. To share and reuse this produced big data among different healthcare information systems, medical information standards have been developed. As a result of these standards being insufficient for interoperability, subdomain specific ontologies have begun to be developed in healthcare domain. It is aimed that the health information that is defined by these domain specific ontologies can be shared among different healthcare information systems. In this paper, an ontology based integration approach is proposed to develop domain specific healthcare ontologies supported by medical informatics standards. © 2017 IEEE."
+                "citation": "2017 International Artificial Intelligence and Data Processing Symposium …, 2017",
+                "author": "Cemil Abiş and Murat Osman Ünalir",
+                "conference": "2017 International Artificial Intelligence and Data Processing Symposium (IDAP)",
+                "pages": "1-8",
+                "publisher": "IEEE",
+                "abstract": "There are so many works that have been performed to achieve semantic search, but few are integrated with enterprise applications such as documents management systems (DMS). While major search engines such as Google, Yahoo and Bing always introduce novel methods to enhance search experience, users of enterprise systems generally have to deal with form-based search infrastructures to access their data and most of these users are not satisfied with this. Especially DMSs, which are highly used by companies and public institutions to store their documents, make accessing to stored documents painful with their existing search infrastructures. Main objective of this work is implementing a metamodel driven semantic search engine and enhancing the searching capabilities of Bizdocs1 which is one of the commercial DMSs used in Turkey. We also aims to provide a high-performance and scalable search …"
             },
             "filled": true,
-            "author_pub_id": "g8LHJncAAAAJ:WbkHhVStYXYC",
+            "author_pub_id": "g8LHJncAAAAJ:ldfaerwXgEUC",
             "num_citations": 0,
-            "pub_url": "https://gcris.ege.edu.tr/handle/11454/16204",
+            "pub_url": "https://ieeexplore.ieee.org/abstract/document/8090177/",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&oe=ASCII&q=related:A0hH8yaQxI0J:scholar.google.com/",
             "cites_per_year": {}
+        },
+        {
+            "container_type": "Publication",
+            "source": "AUTHOR_PUBLICATION_ENTRY",
+            "bib": {
+                "title": "An ontology-based integration approach for medical information standards [Tibbi Bilişim Standartlari için Ontoloji Tabanli Bir Bütünleştirme Yaklaşimi]",
+                "pub_year": "2017",
+                "citation": "Institute of Electrical and Electronics Engineers Inc., 2017"
+            },
+            "filled": false,
+            "author_pub_id": "g8LHJncAAAAJ:WbkHhVStYXYC",
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -1638,24 +1584,39 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "An ontology based approach in health information systems: Blood test ontology example",
-                "pub_year": "2016",
-                "citation": ""
+                "pub_year": 2016,
+                "citation": "",
+                "author": "Emine Sezer and Özgü Can and Okan Bursa and Murat Osman Ünalır",
+                "volume": "22",
+                "number": "5",
+                "pages": "367-375",
+                "abstract": "Health domain is a complex and distributed research area, where different institutions and people take and provide service, at the same time. Therefore, the health data about a patient is completely distributed among doctors, clinics, hospitals, pharmacies and insurance companies. To share and reuse the distributed, well-structured and semantically rich clinical data with the appropriate permissions from anywhere is one of the major areas that the research of information systems focused in healthcare domain in recent years. The semantic web provides a technological infrastructure with representing the meaning of data and reasoning new information from the existing knowledge for the healthcare domain. The blood, as the life fluid, gives hints to the clinicians about a patient's general health status by analyzing the ingredients in. The results of blood tests contain lots of information that can be used by different clinics. In the diagnostic phase, analyzing the blood for the same tests repeatedly delays to start the treatment process and increases the cost. The Blood Test Ontology is developed to model the blood tests semantically that is done in the health field and also to define information related with the blood and the blood tests as well as the relationships between them. The ontology in this work is developed with the aim to be used in the health information system, which should provide the querying, sharing and reusing the personalized the blood test result of the patients, as a knowledge base. The Blood Test Ontology is supported by the medical information standards to be able to interoperable with the other medical ontologies that are …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:WF5omc3nYNoC",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://jag.journalagent.com/z4/vi.asp?pdir=pajes&plng=eng&un=PAJES-79847",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "ALAN MODELİNİN POLİTİKA KULLANILARAK KİŞİSELLEŞTİRİLMESİ.",
-                "pub_year": "2015",
-                "citation": "Pamukkale University Journal of Engineering Sciences 21 (5), 2015"
+                "pub_year": 2015,
+                "citation": "Pamukkale University Journal of Engineering Sciences 21 (5), 2015",
+                "author": "Özgü Can and Okan Bursa and Murat Osman ÜNALIR",
+                "journal": "Pamukkale University Journal of Engineering Sciences",
+                "volume": "21",
+                "number": "5",
+                "abstract": "Öz AbstractGünümüzde, çevrimiçi olarak erişilen bilgi üstsel olarak artmaktadır. Bilgi miktarındaki bu artış, kullanıcıların tercihleri ile uyumlu bilgiye etkin bir şekilde erişmesini zorlaştırmaktadır. Bu zorluklar, kişiselleştirme yaklaşımı kullanılarak, bireye özel bilginin ya da servisin sunulması ile aşılabilir. Kişiselleştirme yaklaşımının temeli, kişiye özel bilgiyi temsil eden profil yapısıdır. Kullanıcı-uyarlanabilir bir sistemde, profil tipine özgü bir aramanın sonucunda, kullanıcı ihtiyaçlarına göre kişiselleştirilmiş sonuçlara ulaşılacaktır. Bu çalışmada, kişisel içeriğin sunulması amacı ile anlamsal olarak zengin profiller oluşturulmakta ve geliştirilen kullanıcı profilleri, politikalar ile entegre edilerek kural-tabanlı bir kişiselleştirme sağlanmaktadır. Böylelikle, profili temel alan kısıtlar yardımı ile kişiselleştirilmiş bilgiye erişim etkin bir şekilde gerçekleştirilecektir.Nowadays, the information that can be accessed online is increasing …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:M3ejUd6NZC8C",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://search.ebscohost.com/login.aspx?direct=true&profile=ehost&scope=site&authtype=crawler&jrnl=13007009&AN=111018655&h=CvvFAY%2FCekKUL5G6ms4CwfSX5TZmEl4Vx7EdcKVIYgvItCiT3FDTHEQ9dDsfxNv84oFk07Y6Q0MoM04DHF%2F%2FRg%3D%3D&crl=c",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:KIEvDKJyvs4J:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1726,20 +1687,12 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "ULUSAL SAĞLIK VERİ SÖZLÜĞÜ’NÜN ONTOLOJİ TABANLI HALE GETİRİLMESİ VE TIBBİ BİLİŞİM STANDARTLARI İLE ZENGİNLEŞTİRİLMESİ",
-                "pub_year": 2014,
-                "citation": "Gazi Üniversitesi Mühendislik Mimarlık Fakültesi Dergisi 29 (3), 2014",
-                "author": "Yasemin GÜLTEPE and Murat ÜNALIR",
-                "journal": "Gazi Üniversitesi Mühendislik Mimarlık Fakültesi Dergisi",
-                "volume": "29",
-                "number": "3",
-                "abstract": "Türkiye’de Ulusal Sağlık Bilgi Sistemi, dağıtık sağlık bilgi sistemleri arasında birlikte çalışabilirliği sağlamayı amaçlamaktadır. Dağıtık sağlık bilgi sistemlerinde birlikte çalışabilirlik için; bütün sağlık kurumlarına referans olan ve terminoloji bakımından büyük katkı sağlayan Ulusal Sağlık Veri Sözlüğü (USVS) kullanılmaktadır. Web ortamında USVS’nin kolay bir şekilde hem insanlar hem de uygulamalar tarafından okunabilir ve anlaşılabilir olması için USVS’nin anlamsal olarak tanımlama gereksinimleri ortaya çıkmaktadır. Anlamsal Web’in temel bileşeni ontoloji, kavramsallaştırmanın biçimsel ve açık şekilde sunumudur. Ontolojiler, sağlık alanındaki uygulamalarda önemli bir rol oynamaktadır. Bu çalışmada Anlamsal Web teknolojileri kullanılarak, Ontoloji Tabanlı USVS (OTUSVS) geliştirilmiştir ve tıbbi bilişim standartlarındaki anlamsal farklılıkların ortadan kaldırılabilmesi amacıyla OTUSVS’nin tıbbi bilişim standartları ile zenginleştirilmesi için bir metodoloji önerilmiştir. USVS’nin ontolojik yapıda olmasının avantajları karşılaştırmalı olarak gösterilmiştir. OTUSVS’nin oluşturulmasında ontoloji tanımlama dili olarak OWL ve tıbbi bilişim standartları olarak da SNOMED CT kavramları/kodları, ICD 10 ve LOINC kodları kullanılmıştır."
+                "pub_year": "2014",
+                "citation": "Gazi Üniversitesi Mühendislik Mimarlık Fakültesi Dergisi 29 (3), 2014"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:KxtntwgDAa4C",
-            "num_citations": 0,
-            "pub_url": "https://dergipark.org.tr/en/pub/gazimmfd/article/89581",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:EvgJttE7i6UJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -1794,12 +1747,20 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Ontoloji Tabanlı Bilgi Sistemlerinde Politika Yönetimi",
-                "pub_year": "2010",
-                "citation": "Bilişim Teknolojileri Dergisi 3 (2), 2010"
+                "pub_year": 2010,
+                "citation": "Bilişim Teknolojileri Dergisi 3 (2), 2010",
+                "author": "CAN Özgü and Murat ÜNALIR",
+                "journal": "Bilişim Teknolojileri Dergisi",
+                "volume": "3",
+                "number": "2",
+                "abstract": "Bir bilgi uzayı olan web, sadece kisilerin haberlesmesi için degil, aynı zamanda bilginin makinelerce de anlasılabilecegi Anlamsal Web yapısına dogru gelismektedir. Anlamsal Web verinin paylasılmasına ve tekrar kullanımına izin veren genel bir çatı saglamaktadır. Ancak, bu paylasımın ve tekrar kullanımın beraberinde getirdigi tehditler nedeni ile güvenlik ve gizlilik kavramları önem kazanmıstır. Böylelikle, erisim politikalarının gelistirilmesi ihtiyacı ortaya çıkmıstır. Bu çalısmada Anlamsal Web politikalarının bilgiye güvenli bir biçimde erisim için nasıl kullanılacagına deginilmektedir. Bu amaçla, bilgiye erisimin ontoloji tabanlı bir yaklasım ile gerçeklestirildigi Ontoloji Tabanlı Erisim Denetimi modeli gelistirilmistir. Bu modelde, ontolojiler kullanılarak çesitli politikaların yaratılması gerçeklestirilmektedir. Böylelikle, bu model, ontoloji tabanlı bilgi sistemlerinde erisim denetiminin saglanması amacı ile kullanılabilecektir. Modelin uygulaması Jena Anlamsal Web çatısı kullanılarak gerçeklestirilmistir."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:nb7KW1ujOQ8C",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://dergipark.org.tr/en/download/article-file/75273",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:6txaSKn7lKQJ:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1830,7 +1791,7 @@
             "author_pub_id": "g8LHJncAAAAJ:SeFeTyx0c_EC",
             "num_citations": 0,
             "pub_url": "https://link.springer.com/chapter/10.1007/978-90-481-9794-1_20",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:ZhAUO4mMRlYJ:scholar.google.com/",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&oe=ASCII&q=related:ZhAUO4mMRlYJ:scholar.google.com/",
             "cites_per_year": {}
         },
         {
@@ -1862,29 +1823,29 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Development of an agent mediated E-Commerce system for tourism domain",
-                "pub_year": 2004,
-                "citation": "",
-                "author": "OĞUZ DİKENELLİ and Yasemin TOPALOĞLU and RIZA CENK ERDUR and MURAT OSMAN ÜNALIR and ÖZGÜR GÜMÜŞ",
-                "pages": "1-75",
-                "abstract": "Öz: Bu projede, anlamsal web ortamı için özelleştirilmiş bir çoklu etmen platformu geliştirilmiş ve bu platform turizm alanında otel odalarının rezervasyonu senaryosunu gerçekleştirmek için kullanılmıştır. Gerçekleştirilen sistem, kullanıcıların tanımladıkları tatil profillerine en uygun otelleri uygun zamanda bulabilme yeteneğine ve otel etmenleri ile pazarlık yaparak kullanıcıları adına doğru otel odasını rezervasyon etme yeteneğine sahiptir. Sistemin gerçekleştirilmesi sırasında otel bilgileri ve kullanıcı profilleri ontolojiler olarak tanımlanmıştır. Geliştirilen etmen platformunun anlamsal web standartlarını destekleme özelliği sayesinde, senaryonun gerçekleşirimi sırasında etmenler tarafından bu ontolojilerin kullanılması sağlanmıştır. Geliştirilen etmen platformunun anlamsal etmen eşleme, anlamsal bilgi taşıyabilme, anlamsal web servisleri ile entegre olabilme ve anlamsal bilgi tabanlarına entegre olabilme yetenekleri …"
+                "pub_year": "2004",
+                "citation": ""
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:35N4QoGY0k4C",
-            "num_citations": 0,
-            "pub_url": "https://app.trdizin.gov.tr/publication/project/detail/TmpNNU1EQT0=",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Yeniden kullanılabilir bileşen kütüphaneleri için nesneye dayalı ve dağıtık bir mimari tasarımı",
-                "pub_year": "2001",
-                "citation": "Ege Üniversitesi, 2001"
+                "pub_year": 2001,
+                "citation": "Ege Üniversitesi, 2001",
+                "author": "Murat Osman Ünalır",
+                "publisher": "Ege Üniversitesi",
+                "abstract": "Bu tezde, yeniden kullanılabilir bileşen kütüphaneleri için nesneye dayalı ve dağıtık bir mimari tasarımı yapılmıştır.Bu mimarinin en önemli elemanı bileşenlerin bilgi modelidir. Geliştirilen bileşen bilgi modeli, standartları destekleyen ve nesneye dayalı bir yapıdadır.Mimarinin literatüre en önemli katkısı, bileşen bilgi modelinin genişletilebilmesidir.Genişletilen bilgi modelleri, BIDM (Basic Interoperability Data Model) bilgi modelini (IEEE Standardı 1420.1-1995) temel almaktadır.Dolayısıyla, diğer kütüphanelerle, birlikte işlenebilirlik için bir altyapı kurulmuştur.Bu altyapı kullanılarak, Internet tabanlı dağıtık bir yapıda, yeniden kullanılabilir bileşen kütüphanelerinin ölçeklenebilir olması sağlanmıştır.Böylece, farklı yazılım süreçlerine sahip şirketler, kendi yerel bileşen bilgi modellerini diğer bileşen bilgi modellerini temel alarak oluşturabilir.Genişletilebilir bileşen bilgi modellerinin dağıtık bir mimari yapısında tasarımıyla …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:d1gkVwhDpl0C",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://gcris.ege.edu.tr/handle/11454/199",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1903,12 +1864,21 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "INTERNET TABANLI BIR SORU BANKASI UYGULAMASININ ASP, ADO ye ODBC TEKNOLOJ1LERIYLE GELi $ T1RILMESI",
-                "pub_year": "2000",
-                "citation": "Trakya Üniversitesi Fen Bilimleri Dergisi 1 (2), 12-23, 2000"
+                "pub_year": 2000,
+                "citation": "Trakya Üniversitesi Fen Bilimleri Dergisi 1 (2), 12-23, 2000",
+                "author": "Mustafa Türksever and Murat Osman ÜNALIR",
+                "journal": "Trakya Üniversitesi Fen Bilimleri Dergisi",
+                "volume": "1",
+                "number": "2",
+                "pages": "12-23",
+                "abstract": "Günumüzde, eitm kurumlannda, orencilerin ye Oretim uyelerinin kullanimina acik bir soru bankasi aranan bir uygulamadir. çou zaman Orenciler dersierle ilgili soru sikintisi yaamakta ya da ceitli kaynaklardan buldukiari veya kendi yarattii sorulari bakaIarina uIatirmakta guçluk çekrnektedirler. Herkesin ortak kuIIanabiIdii, orencilerifl de öretim uyelerinin kontrolünde katkida bulunduu bir soru bankasi genel baariyi arttiracak faydali bir uygulamadir. Internetin, bilgi çainin en cok paylailan iletiim ortami olmasi nedeniyle soru bankasi Internet tabanhi olacak ekiIde gelitirilmitir. Bu nedenhe, Internet tabanhi bir uygulama gehitirme amaciyla kullanilan arac takimi ASP (Active Server Pages), ADO (Active Data Objects) ye ODBC (Open Database Connectivity) teknolojilennden meydana gelmektedir."
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:u_35RYKgDlwC",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://dergipark.org.tr/en/pub/trakyafbd/issue/22675/242135",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:jnDJzTxCUAcJ:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1927,21 +1897,12 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "A PURE OBJECT ORIENTED DATABASE",
-                "pub_year": 1994,
-                "citation": "Software Systems in Engineering: Presented at the Energy-Sources Technology …, 1994",
-                "author": "Erden Basar and Alp Kut and Murat Osman Unalir",
-                "journal": "Software Systems in Engineering: Presented at the Energy-Sources Technology Conference, New Orleans, Louisiana, January 23-26, 1994",
-                "volume": "59",
-                "pages": "269",
-                "publisher": "American Society of Mechanical Engineers",
-                "abstract": "When designing a system or an application program, object oriented modeling and design makes life easier for programmer with reusable codes, inheritance, extensibility. For this reason this application is designed using object oriented modeling and design methodologies, and implemented with Borland Pascal which is an object oriented programming language and this is why we call it a “Pure object oriented database prototype.\" This paper is about working on creating a pure object oriented database kernel and its object oriented user interface."
+                "pub_year": "1994",
+                "citation": "Software Systems in Engineering: Presented at the Energy-Sources Technology …, 1994"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:pyW8ca7W8N0C",
-            "num_citations": 0,
-            "pub_url": "https://scholar.google.com/scholar?cluster=11433007590618297171&hl=en&oi=scholarr",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:U_MlOdQzqp4J:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -1970,11 +1931,20 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Dosya Entegrasyonu Etki Alanında Anomali Tespiti İçin Bir Ontoloji Geliştirimi",
-                "citation": "Bilişim Teknolojileri Dergisi 12 (3), 239-252, 0"
+                "citation": "Bilişim Teknolojileri Dergisi 12 (3), 239-252, 0",
+                "author": "CAN Özgü and Murat Osman ÜNALIR and ÜZÜM İbrahim",
+                "journal": "Bilişim Teknolojileri Dergisi",
+                "volume": "12",
+                "number": "3",
+                "pages": "239-252",
+                "abstract": "Günümüzde, veri depolama ve yazılım geliştirme teknolojilerinin çeşitliliğinde büyük bir artış yaşanmıştır. Hızla gelişen ve değişen teknolojiler sebebiyle, ortak çalışan organizasyonlardaki entegrasyon ve çok çeşitlilik, temel bir sorun olarak ortaya çıkmaktadır. Bu kapsamda dosya entegrasyonları, farklı iş platformları arasındaki veri bütünleştirmesine yardımcı olan etkili bir çözüm olarak sunulmaktadır. Böylelikle, farklı elektronik sistemler arasındaki rutin iş süreçleri ve iş mantıkları otomatize edilebilmektedir. Anomali tespiti, sistemlerde meydana gelebilecek anormal durumları tespit eden bir veri analiz işlemidir. Anomali tespiti, bilgi tabanlı sistemlerde beklenmedik durumlara karşı farkındalık ve beklenen davranışa uymayan anomaliler karşısında gerekli eylemlerin yerine getirilmesini sağlamaktadır. Bu nedenle, anomali tespiti dosya entegrasyonlarında meydana gelen anomalilerin tespiti için önemli bir veri analizi işlemidir. Bu çalışma kapsamında, dosya entegrasyonu sistemlerinde gerçekleşen anomalileri tespit edebilmek için ontoloji tabanlı bir yaklaşım sunulmaktadır. Dosya entegrasyonlarında anormalliklerin tespiti, bilgi güvenliği üçlüsünden (gizlilik, bütünlük ve kullanılabilirlik) biri olan kullanılabilirlik açısından önemlidir. Entegrasyonlardaki anomalilerin büyük bir kısmı veri bütünlüğüne yöneliktir ve bu anomaliler transfer süresinden ya da gelen dosya boyutundan tespit edilerek yakalanabilmektedir. Önerilen ontolojik yaklaşımda, örnek bir sisteme yapılan dosya entegrasyonları sorgulanarak entegrasyon işlemlerinde meydana gelen anomaliler tespit edilebilmektedir. Önerilen yaklaşımın, dosya entegrasyon sistemlerinde veri bütünlüğüne …"
             },
-            "filled": false,
+            "filled": true,
             "author_pub_id": "g8LHJncAAAAJ:cFHS6HbyZ2cC",
-            "num_citations": 0
+            "num_citations": 0,
+            "pub_url": "https://dergipark.org.tr/en/pub/gazibtd/issue/47484/487373",
+            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:Wolv9RHkSyoJ:scholar.google.com/",
+            "cites_per_year": {}
         },
         {
             "container_type": "Publication",
@@ -1992,16 +1962,11 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "ALAN MODELİNİN POLİTİKA KULLANILARAK KİŞİSELLEŞTİRİLMESİ PERSONALIZING DOMAIN MODEL BY USING POLICY",
-                "citation": "",
-                "author": "Özgü CAN and Okan BURSA and Murat Osman ÜNALIR",
-                "abstract": "Öz AbstractGünümüzde, çevrimiçi olarak erişilen bilgi üstsel olarak artmaktadır. Bilgi miktarındaki bu artış, kullanıcıların tercihleri ile uyumlu bilgiye etkin bir şekilde erişmesini zorlaştırmaktadır. Bu zorluklar, kişiselleştirme yaklaşımı kullanılarak, bireye özel bilginin ya da servisin sunulması ile aşılabilir. Kişiselleştirme yaklaşımının temeli, kişiye özel bilgiyi temsil eden profil yapısıdır. Kullanıcı-uyarlanabilir bir sistemde, profil tipine özgü bir aramanın sonucunda, kullanıcı ihtiyaçlarına göre kişiselleştirilmiş sonuçlara ulaşılacaktır. Bu çalışmada, kişisel içeriğin sunulması amacı ile anlamsal olarak zengin profiller oluşturulmakta ve geliştirilen kullanıcı profilleri, politikalar ile entegre edilerek kural-tabanlı bir kişiselleştirme sağlanmaktadır. Böylelikle, profili temel alan kısıtlar yardımı ile kişiselleştirilmiş bilgiye erişim etkin bir şekilde gerçekleştirilecektir.Nowadays, the information that can be accessed online is increasing exponentially. However, this increase in the amount of information brings difficulties to users to access information relevant with their preferences in an effective way. These difficulties could be overcomed with providing customized information or service to an individual by using personalization approach. Profiling is the basis of personalization approach and the representation of person specific information. In a user-adaptive system, personalized results will be reached according to the user’s needs after a profile specific search. In this work, semantically rich profiles are created to present personal context and developed user profiles are integrated with policies to provide a rule-based personalization. Thus, personalized information will be …"
+                "citation": ""
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:4OULZ7Gr8RgC",
-            "num_citations": 0,
-            "pub_url": "https://jag.journalagent.com/z4/download_fulltext.asp?pdir=pajes&plng=eng&un=PAJES-96158",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:kvobn2Z0PhYJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -2052,35 +2017,22 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "VERİTABANI GÜVENLİK POLİTİKASI METAVERİ MODELİ OLUŞTURULMASI VE BİR UYGULAMA",
-                "citation": "Pamukkale Üniversitesi Mühendislik Bilimleri Dergisi 10 (4), 57-61, 0",
-                "author": "Dilek Tapucu ARPAÇAY and Murat Osman ÜNALIR",
-                "journal": "Pamukkale Üniversitesi Mühendislik Bilimleri Dergisi",
-                "volume": "10",
-                "number": "4",
-                "pages": "57-61",
-                "abstract": "Veritabanları üzerinde saklanan veriler, ilgili bilgisayar sistemi için tanımlanmış güvenlik politikaları ile korunmalıdır. Güvenlik politikaları bilginin değerini ve ilişkili riskleri karşılayacak şekilde ortaya konmalıdır. Bu çalışmada veritabanları için ortaya konulması düşünülen iki ayrı güvenlik politikası “Genel Olarak Kabul Edilen Sistem Güvenlik Prensipleri” ile açıklanmaktadır. Anılan politikalar için metaveriler ile metaveriler oluşturulmakta ve ilgili metaveriler, XML-Şema kullanılarak uygulamaya geçirilmektedir. Böylece her bir modele ait elemanların yapıları ortaya konulmaktadır. Gerçekleştirilen uygulama ile, organizasyonlar içinde belirlenen politikaların, değişen durumlar karşısında yeniden düzenlenmesinin kolaylaşacaktır. Bu sayede, metamodeller üzerinde yapılacak değişiklikler ile, ilgili politikaların süreç içinde devamlılığı sağlanabilecek ve metamodeller farklı sistemler arasında taşınabilecektir."
+                "citation": "Pamukkale Üniversitesi Mühendislik Bilimleri Dergisi 10 (4), 57-61, 0"
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:9ZlFYXVOiuMC",
-            "num_citations": 0,
-            "pub_url": "https://dergipark.org.tr/en/pub/pajes/issue/20528/218657",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Anlamsal Web’de Ontoloji Tabanlı Politikaların Kullanımı Using Ontology Based Policies in Semantic Web",
-                "citation": "",
-                "author": "Özgü Can and Murat Osman Ünalır",
-                "abstract": "Semantic Web allows machines to share and reuse the information by using formal semantics for machines to communicate with other machines. However, sharing the information brings security needs like privacy, access control, authentication, authorization and data integrity, thus, efficient mechanisms are needed to provide the security of Semantic Web technologies. Semantic Web based policies are used to access data in a secure way. A policy provides an access control mechanism for a resource without making any change in the source. In Ontology Based Access Control (OBAC), accessing to data is achieved by an ontology based approach. For this purpose, ontologies are used to model data of access mechanisms. In this work, three kinds of policies are defined: domain, profile and preference policies allowing the system to behave according to the specific requirements of users for better personalization. User preferences are constrained by enforcing domain and profile policies, thus, users can achieve the best query results."
+                "citation": ""
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:mVmsd5A6BfQC",
-            "num_citations": 0,
-            "pub_url": "http://www.emo.org.tr/ekler/cfd5cbe778de570_ek.pdf",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:UDJ7qi3ttvkJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",
@@ -2120,16 +2072,11 @@
             "source": "AUTHOR_PUBLICATION_ENTRY",
             "bib": {
                 "title": "Ontoloji Tabanlı Türk Şarap Portalı Tasarımı",
-                "citation": "",
-                "author": "Övünç Öztürk and Tuğba Özacar and Murat Osman Ünalır",
-                "abstract": "Anlamsal Web’de bilgi paylaşımı sadece insanlar arasında olmaktan çıkarılarak daha etkin bir hale gelecektir. Bunun sayesinde günümüzde kullanıcıların yapmak zorunda olduğu görevleri makinalar üstlenebilecektir. Bu bildiride anlatılan portalda amaç kullanıcılara Anlamsal Web’de sağlanacak olan kolaylıkların bir kısmını göstermektir. Bunu gerçekleştirebilmek için ontolojiler ve çıkarsama teknikleri kullanılacaktır."
+                "citation": ""
             },
-            "filled": true,
+            "filled": false,
             "author_pub_id": "g8LHJncAAAAJ:LkGwnXOMwfcC",
-            "num_citations": 0,
-            "pub_url": "http://inet-tr.org.tr/inetconf9/bildiri/90.doc",
-            "url_related_articles": "/scholar?oi=bibs&hl=en&q=related:0oeNk1HKC2gJ:scholar.google.com/",
-            "cites_per_year": {}
+            "num_citations": 0
         },
         {
             "container_type": "Publication",

@@ -4,6 +4,7 @@ cleaned_instructor.json
 
 #config
 myopenaiconfig.json
+openaiConfig.json
 
 #vscode
 .vscode
