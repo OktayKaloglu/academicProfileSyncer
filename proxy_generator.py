@@ -5,7 +5,6 @@ import requests
 import time
 from fp.fp import FreeProxy
 import logging
-from selenium.webdriver.support.wait import TimeoutException
 from data_types import ProxyMode
 
 
@@ -56,7 +55,7 @@ class ProxyGenerator(object):
                 elif resp.status_code == 401:
                     self.logger.warning("Incorrect credentials for proxy!")
                     return False
-            except (TimeoutException, TimeoutError):
+            except TimeoutError:
                 time.sleep(self._TIMEOUT)
             except Exception as e:
                 self.logger.info("Exception while testing proxy: %s", e)
@@ -75,7 +74,7 @@ class ProxyGenerator(object):
         user_agent = UserAgent().random
 
         _HEADERS = {
-            'accept-language': 'en-US,en',
+            'accept-language': 'en-US,en,tr,tr-TR',
             'accept': 'text/html,application/xhtml+xml,application/xml',
             'User-Agent': user_agent,
         }
@@ -112,7 +111,7 @@ class ProxyGenerator(object):
         # if not it adds them to the dirty list
         # and gets a new proxy from the list
         # if it works yields the proxy for the usage
-        while time.time()-t1 < wait_time:
+        while (time.time()-t1 < wait_time):
             proxy = all_proxies.pop()
             if not all_proxies:
                 all_proxies = freeproxy.get_proxy_list()
@@ -126,6 +125,9 @@ class ProxyGenerator(object):
                 t1 = time.time()
             else:
                 dirty_proxy = proxy
+
+            self.logger.info("Added dirty proxy to the dict ->")
+            self.logger.info(str(proxy))
             self._dirty_freeproxies.add(dirty_proxy)
 
     def FreeProxies(self, timeout=1, wait_time=120):
@@ -134,13 +136,13 @@ class ProxyGenerator(object):
         self._fp_gen = self._fp_coroutine(timeout=timeout, wait_time=wait_time)
         self._proxy_gen = self._fp_gen.send
         proxy = self._proxy_gen(None)  # prime the generator
-        self.logger.debug("Trying with proxy %s", proxy)
+        self.logger.info("Trying with proxy %s", proxy)
         proxy_works = self._use_proxy(proxy)
         n_retries = 200
         n_tries = 0
 
         while (not proxy_works) and (n_tries < n_retries):
-            self.logger.debug("Trying with proxy %s", proxy)
+            self.logger.info("Trying with proxy %s", proxy)
             proxy_works = self._use_proxy(proxy)
             n_tries += 1
             if not proxy_works:
