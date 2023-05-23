@@ -2,13 +2,12 @@ from data_types import Course
 
 
 class OrganizationParser:
-
     def __init__(self, nav):
         self.nav = nav
         self.sections = []
 
     def get_course_details(self, __data) -> Course:
-        course: Course = {'container_type': 'Author'}
+        course: Course = {"container_type": "Author"}
 
         # if isinstance(__data, str):
         #    course['course_name'] = __data
@@ -20,8 +19,8 @@ class OrganizationParser:
     def _find_tag_class_name(self, __data, tag, text):
         elements = __data.find_all(tag)
         for element in elements:
-            if 'class' in element.attrs and text in element.attrs['class'][0]:
-                return element.attrs['class'][0]
+            if "class" in element.attrs and text in element.attrs["class"][0]:
+                return element.attrs["class"][0]
 
     def _fill_basics(self, soup, author):
         # author['name'] = soup.find('div', id='gsc_prf_in').text

@@ -16,15 +16,14 @@ class Singleton(type):
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
-            cls._instances[cls] = super(Singleton, cls).__call__(*args,
-                                                                 **kwargs)
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
 
 
 class Navigator(object, metaclass=Singleton):
     def __init__(self):
         super(Navigator, self).__init__()
-        self.logger = logging.getLogger('navigator')
+        self.logger = logging.getLogger("navigator")
         self._TIMEOUT = 5
         self._max_retries = 5
         # Both of them freeproxy
@@ -38,7 +37,7 @@ class Navigator(object, metaclass=Singleton):
 
     def set_logger(self, enable: bool):
         handler = logging.StreamHandler()  # output to console
-        formatter = logging.Formatter('NAVIGATOR: %(levelname)s: %(message)s')
+        formatter = logging.Formatter("NAVIGATOR: %(levelname)s: %(message)s")
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO if enable else logging.CRITICAL)
@@ -95,39 +94,58 @@ class Navigator(object, metaclass=Singleton):
                     if not pm.has_proxy():
                         self.logger.info("No connections possible")
                         if not self.got_403:
-                            self.logger.info("Retrying immediately with another session")
+                            self.logger.info(
+                                "Retrying immediately with another session"
+                            )
                         else:
                             w = random.uniform(60, 2 * 120)
-                            self.logger.info("Will retry after %.2f seconds (with another session).", w)
+                            self.logger.info(
+                                "Will retry after %.2f seconds (with another session).",
+                                w,
+                            )
                             time.sleep(w)
                         self._new_session()
                         self.got_403 = True
                         continue  # Retry request same session
                     else:
-                        self.logger.info("Currently trying another connection with different session")
+                        self.logger.info(
+                            "Currently trying another connection with different session"
+                        )
                 elif resp.status_code == 302 and resp.has_redirect_location:
                     self.logger.debug("Got a redirect, checking...")
                     page_request = resp.headers["location"]
                 else:
-                    self.logger.info("""Response code %d, Retrying...""", resp.status_code)
+                    self.logger.info(
+                        """Response code %d, Retrying...""", resp.status_code
+                    )
             except DOSException:
                 if not pm.has_proxy():
                     self.logger.info("No other connections possible.")
                     w = random.uniform(60, 2 * 60)
-                    self.logger.info("Will retry after %.2f seconds (with the same session).", w)
+                    self.logger.info(
+                        "Will retry after %.2f seconds (with the same session).", w
+                    )
                     time.sleep(w)
                     continue
 
             except (Timeout, TimeoutException) as e:
-                err = "Timeout Exception %s while fetching page: %s" % (type(e).__name__, e.args)
+                err = "Timeout Exception %s while fetching page: %s" % (
+                    type(e).__name__,
+                    e.args,
+                )
                 self.logger.info(err)
                 if timeout < 3 * self._TIMEOUT:
-                    self.logger.info("Increasing timeout and retrying within same session.")
+                    self.logger.info(
+                        "Increasing timeout and retrying within same session."
+                    )
                     timeout = timeout + self._TIMEOUT
                     continue
                 self.logger.info("Giving up this session.")
             except Exception as e:
-                err = "Exception %s while fetching page: %s" % (type(e).__name__, e.args)
+                err = "Exception %s while fetching page: %s" % (
+                    type(e).__name__,
+                    e.args,
+                )
                 self.logger.info(err)
                 self.logger.info("Retrying with a new session.")
 
@@ -137,29 +155,35 @@ class Navigator(object, metaclass=Singleton):
             self.logger.info("Tries increased current tries cound -> %d", tries)
 
             try:
-                session, timeout = pm.get_next_proxy(num_tries=tries, old_timeout=timeout,
-                                                     old_proxy=pm._proxies.get('http', None))
+                session, timeout = pm.get_next_proxy(
+                    num_tries=tries,
+                    old_timeout=timeout,
+                    old_proxy=pm._proxies.get("http", None),
+                )
             except Exception:
-                self.logger.info("No other secondary connections possible. "
-                                 "Using the primary proxy for all requests.")
+                self.logger.info(
+                    "No other secondary connections possible. "
+                    "Using the primary proxy for all requests."
+                )
                 break
 
         return self._get_page(page_request)
 
     def _set_retries(self, num_retries: int) -> None:
-        if (num_retries < 0):
+        if num_retries < 0:
             raise ValueError("num_retries must not be negative")
         self._max_retries = num_retries
 
     def _get_soup(self, url: str) -> BeautifulSoup:
         html = self._get_page(url)
         # Special html char, replace it
-        html = html.replace(u'\xa0', u' ')
-        res = BeautifulSoup(html, 'html.parser')
+        html = html.replace("\xa0", " ")
+        res = BeautifulSoup(html, "html.parser")
         return res
 
-    def _filter_link(self, href: str, base_url: str, blacklist: list[str] = None) -> str | None:
-
+    def _filter_link(
+        self, href: str, base_url: str, blacklist: list[str] = None
+    ) -> str | None:
         builtin_include_filter = ["#", "javascript:", "mailto:"]
         builtin_equal_filter = ["/"]
 
@@ -179,7 +203,7 @@ class Navigator(object, metaclass=Singleton):
         href_schema = urlparse(href)
 
         # Path validation
-        if href_schema.path == b'' or '':
+        if href_schema.path == b"" or "":
             return None
 
         # Check blacklisted word
@@ -189,14 +213,14 @@ class Navigator(object, metaclass=Singleton):
                     return None
 
         # check is href includes http or not
-        if href_schema.scheme != '' or b'':
+        if href_schema.scheme != "" or b"":
             return href
         else:
             return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
 
     def search_organization(self, url: str, filter_source: str = None) -> list:
         soup = self._get_soup(url)
-        rows = soup.find_all('a')
+        rows = soup.find_all("a")
         blacklist = ["DersOgretimPlaniPdf", "sayfa"]
 
         if rows:
@@ -207,7 +231,9 @@ class Navigator(object, metaclass=Singleton):
 
         self.logger.info("Starting filtering process for links")
         for link in rows:
-            filtered = self._filter_link(href=link.get('href'), base_url=url, blacklist=blacklist)
+            filtered = self._filter_link(
+                href=link.get("href"), base_url=url, blacklist=blacklist
+            )
             if filtered is not None and filtered not in seen_urls:
                 res.append({"course": filtered})
                 seen_urls.add(filtered)

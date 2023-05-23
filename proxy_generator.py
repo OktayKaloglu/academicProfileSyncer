@@ -18,7 +18,7 @@ class MaxTryException(Exception):
 
 class ProxyGenerator(object):
     def __init__(self):
-        self.logger = logging.getLogger('proxy_generator')
+        self.logger = logging.getLogger("proxy_generator")
         self._proxy_gen = None
         self._proxy_used = False
         self.proxy_mode = None
@@ -33,7 +33,7 @@ class ProxyGenerator(object):
 
     def set_logger(self, enable: bool):
         handler = logging.StreamHandler()  # output to console
-        formatter = logging.Formatter('%(levelname)s: %(message)s')
+        formatter = logging.Formatter("%(levelname)s: %(message)s")
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO if enable else logging.CRITICAL)
@@ -42,15 +42,14 @@ class ProxyGenerator(object):
         self._close_session()
 
     def _check_proxy(self, proxies) -> bool:
-
         with requests.Session() as session:
             session.proxies = proxies
             try:
-                resp = session.get(
-                    "http://httpbin.org/ip", timeout=self._TIMEOUT)
+                resp = session.get("http://httpbin.org/ip", timeout=self._TIMEOUT)
                 if resp.status_code == 200:
-                    self.logger.info("Proxy works! IP address: %s",
-                                     resp.json()["origin"])
+                    self.logger.info(
+                        "Proxy works! IP address: %s", resp.json()["origin"]
+                    )
                     return True
                 elif resp.status_code == 401:
                     self.logger.warning("Incorrect credentials for proxy!")
@@ -74,9 +73,9 @@ class ProxyGenerator(object):
         user_agent = UserAgent().random
 
         _HEADERS = {
-            'accept-language': 'en-US,en,tr,tr-TR',
-            'accept': 'text/html,application/xhtml+xml,application/xml',
-            'User-Agent': user_agent,
+            "accept-language": "en-US,en,tr,tr-TR",
+            "accept": "text/html,application/xhtml+xml,application/xml",
+            "User-Agent": user_agent,
         }
         # self._session.headers.update(_HEADERS)
         init_kwargs.update(headers=_HEADERS)
@@ -96,11 +95,10 @@ class ProxyGenerator(object):
     def _fp_coroutine(self, timeout=1, wait_time=120):
         """Get a free proxy from free-proxy-list.net."""
         freeproxy = FreeProxy(rand=False, timeout=timeout)
-        if not hasattr(self, '_dirty_freeproxies'):
+        if not hasattr(self, "_dirty_freeproxies"):
             self._dirty_freeproxies = set()
         try:
-            all_proxies = freeproxy.get_proxy_list(
-                repeat=False)  # free-proxy >= 1.1.0
+            all_proxies = freeproxy.get_proxy_list(repeat=False)  # free-proxy >= 1.1.0
         # Library version checking
         except TypeError:
             all_proxies = freeproxy.get_proxy_list()  # free-proxy < 1.1.0
@@ -111,17 +109,17 @@ class ProxyGenerator(object):
         # if not it adds them to the dirty list
         # and gets a new proxy from the list
         # if it works yields the proxy for the usage
-        while (time.time()-t1 < wait_time):
+        while time.time() - t1 < wait_time:
             proxy = all_proxies.pop()
             if not all_proxies:
                 all_proxies = freeproxy.get_proxy_list()
             if proxy in self._dirty_freeproxies:
                 continue
-            proxies = {'http://': proxy, 'https://': proxy}
+            proxies = {"http://": proxy, "https://": proxy}
             proxy_works = self._check_proxy(proxies)
             if proxy_works:
                 # Stop execution callback with yield
-                dirty_proxy = (yield proxy)
+                dirty_proxy = yield proxy
                 t1 = time.time()
             else:
                 dirty_proxy = proxy
@@ -151,9 +149,10 @@ class ProxyGenerator(object):
         if n_tries == n_retries:
             n_dirty = len(self._dirty_freeproxies)
             self._fp_gen.close()
-            msg = ("None of the free proxies are working at the moment. "
-                   f"Marked {n_dirty} proxies dirty. Try again after a few minutes."
-                   )
+            msg = (
+                "None of the free proxies are working at the moment. "
+                f"Marked {n_dirty} proxies dirty. Try again after a few minutes."
+            )
             raise MaxTryException(msg)
         else:
             return True
@@ -189,7 +188,7 @@ class ProxyGenerator(object):
         elif https[:5] != "https":
             https = "https://" + https
 
-        proxies = {'http://': http, 'https://': https}
+        proxies = {"http://": http, "https://": https}
         self._proxy_works = self._check_proxy(proxies)
 
         if self._proxy_works:
