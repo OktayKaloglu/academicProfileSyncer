@@ -3,7 +3,6 @@ import random
 import sys
 import time
 from urllib.parse import urlparse
-from lxml import etree
 
 from bs4 import BeautifulSoup
 from httpx import TimeoutException
@@ -24,18 +23,19 @@ class Singleton(type):
 
 class Navigator(object, metaclass=Singleton):
     def __init__(self):
-        super(Navigator, self).__init__()
+        # super(Navigator, self).__init__()
+        super().__init__()
         self.logger = logging.getLogger("navigator")
-        self._TIMEOUT = 5
+        self._timeout_obj = 5
         self._max_retries = 5
         # Both of them freeproxy
-        self.pm1 = ProxyGenerator()
-        self.pm2 = ProxyGenerator()
-        self._session1 = self.pm1.get_session()
-        self._session2 = self.pm2.get_session()
+        self.proxy_manager_1 = ProxyGenerator()
+        self.proxy_manager_2 = ProxyGenerator()
+        self._session1 = self.proxy_manager_1.get_session()
+        self._session2 = self.proxy_manager_2.get_session()
         self.got_403 = False
-        self.pm1.set_logger(True)
-        self.pm2.set_logger(True)
+        self.proxy_manager_1.set_logger(True)
+        self.proxy_manager_2.set_logger(True)
         self.debug_print_printed = False
 
     def set_logger(self, enable: bool):
@@ -47,46 +47,49 @@ class Navigator(object, metaclass=Singleton):
 
     def set_timeout(self, timeout: int):
         if timeout >= 0:
-            self._TIMEOUT = timeout
+            self._timeout_obj = timeout
 
     def use_proxy(self):
-        proxy_works = self.pm1.FreeProxies()
-        proxy_works2 = self.pm2.FreeProxies()
+        proxy_works = self.proxy_manager_1.FreeProxies()
+        proxy_works2 = self.proxy_manager_2.FreeProxies()
         if not proxy_works and proxy_works2:
-            self.pm1 = self.pm2
+            self.proxy_manager_1 = self.proxy_manager_2
         if not proxy_works2 and proxy_works:
             sys.exit(1)
         if proxy_works and not proxy_works2:
-            self.pm2 = self.pm1
+            self.proxy_manager_2 = self.proxy_manager_1
 
-        self._session1 = self.pm1.get_session()
-        self._session2 = self.pm2.get_session()
+        self._session1 = self.proxy_manager_1.get_session()
+        self._session2 = self.proxy_manager_2.get_session()
         self.logger.info("Sessions started")
 
     def _new_session(self, **kwargs):
         self.got_403 = False
-        self._session2 = self.pm2._new_session(**kwargs)
+        self._session2 = self.proxy_manager_2._new_session(**kwargs)
 
     def _get_page(self, page_request: str) -> str:
         self.logger.info("Getting %s", page_request)
         resp = None
         tries = 0
-        pm = self.pm2
+        proxy_manager = self.proxy_manager_2
         session = self._session2
-        timeout = self._TIMEOUT
+        timeout = self._timeout_obj
         while tries < self._max_retries:
             try:
-                w = random.uniform(1, 2)
-                time.sleep(w)
+                random_wait = random.uniform(1, 2)
+                time.sleep(random_wait)
                 resp = session.get(page_request, timeout=timeout)
 
                 # Probably we should use debug instead of info
-                if pm._proxies == {} and self.debug_print_printed == False:
+                if proxy_manager._proxies == {}:
                     self.logger.info("Session running on no proxy mode")
                     self.debug_print_printed = True
-                elif self.debug_print_printed == False:
-                    self.logger.info("Session proxy config is {}".format(pm._proxies))
-                    self.debug_print_printed = True
+                else:
+                    if self.debug_print_printed is not True:
+                        self.logger.info(
+                            "Session proxy config is %s", proxy_manager._proxies
+                        )
+                        self.debug_print_printed = True
 
                 # Do we need captcha handling?
                 # has_captcha bla bla
@@ -99,19 +102,19 @@ class Navigator(object, metaclass=Singleton):
                     continue
                 elif resp.status_code == 403:
                     self.logger.info("Got an access denied error (403).")
-                    if not pm.has_proxy():
+                    if not proxy_manager.has_proxy():
                         self.logger.info("No connections possible")
                         if not self.got_403:
                             self.logger.info(
                                 "Retrying immediately with another session"
                             )
                         else:
-                            w = random.uniform(60, 2 * 120)
+                            random_wait = random.uniform(60, 2 * 120)
                             self.logger.info(
                                 "Will retry after %.2f seconds (with another session).",
-                                w,
+                                random_wait,
                             )
-                            time.sleep(w)
+                            time.sleep(random_wait)
                         self._new_session()
                         self.got_403 = True
                         continue  # Retry request same session
@@ -127,32 +130,33 @@ class Navigator(object, metaclass=Singleton):
                         """Response code %d, Retrying...""", resp.status_code
                     )
             except DOSException:
-                if not pm.has_proxy():
+                if not proxy_manager.has_proxy():
                     self.logger.info("No other connections possible.")
-                    w = random.uniform(60, 2 * 60)
+                    random_wait = random.uniform(60, 2 * 60)
                     self.logger.info(
-                        "Will retry after %.2f seconds (with the same session).", w
+                        "Will retry after %.2f seconds (with the same session).",
+                        random_wait,
                     )
-                    time.sleep(w)
+                    time.sleep(random_wait)
                     continue
 
-            except (Timeout, TimeoutException) as e:
+            except (Timeout, TimeoutException) as error:
                 err = "Timeout Exception %s while fetching page: %s" % (
-                    type(e).__name__,
-                    e.args,
+                    type(error).__name__,
+                    error.args,
                 )
                 self.logger.info(err)
-                if timeout < 3 * self._TIMEOUT:
+                if timeout < 3 * self._timeout_obj:
                     self.logger.info(
                         "Increasing timeout and retrying within same session."
                     )
-                    timeout = timeout + self._TIMEOUT
+                    timeout = timeout + self._timeout_obj
                     continue
                 self.logger.info("Giving up this session.")
-            except Exception as e:
+            except Exception as error:
                 err = "Exception %s while fetching page: %s" % (
-                    type(e).__name__,
-                    e.args,
+                    type(error).__name__,
+                    error.args,
                 )
                 self.logger.info(err)
                 self.logger.info("Retrying with a new session.")
@@ -163,10 +167,10 @@ class Navigator(object, metaclass=Singleton):
             self.logger.info("Tries increased current tries cound -> %d", tries)
 
             try:
-                session, timeout = pm.get_next_proxy(
+                session, timeout = proxy_manager.get_next_proxy(
                     num_tries=tries,
                     old_timeout=timeout,
-                    old_proxy=pm._proxies.get("http", None),
+                    old_proxy=proxy_manager._proxies.get("http", None),
                 )
             except Exception:
                 self.logger.info(
@@ -213,7 +217,7 @@ class Navigator(object, metaclass=Singleton):
         href_schema = urlparse(href)
 
         # Path validation
-        if href_schema.path == b"" or "":
+        if href_schema.path == b"":
             return None
 
         # Check blacklisted word
@@ -223,9 +227,9 @@ class Navigator(object, metaclass=Singleton):
                     return None
 
         # check is href includes http or not
-        if href_schema.scheme != "" or b"":
+        if href_schema.scheme != "":
             return href
-        elif organization.base_url_ending != None:
+        if organization.base_url_ending != "":
             return (
                 base_schema.scheme
                 + "://"
@@ -233,8 +237,7 @@ class Navigator(object, metaclass=Singleton):
                 + organization.base_url_ending
                 + href_schema.path
             )
-        else:
-            return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
+        return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
 
     def search_organization(
         self,
@@ -260,21 +263,22 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
         for i in res:
-            self._extract_course_page(i)
+            self._extract_course_page(i, organization)
         return res
 
-    def _extract_course_page(
-        self,
-        url: str,
-        course_name_location: str = None,
-        instructor_location: str = None,
-    ):
+    def _extract_course_page(self, url: str, organization: OrganizationParserStruct):
         soup = self._get_soup(url)
-        instructor_name = soup.select(
-            "div > div.wpb_column.vc_col-sm-3 > div.iyte_ins-ass > div.stm-teacher-bio.stm-teacher-bio_trainer > div > div > div.stm-teacher-bio__title > a"
-        )
+        instructor_name = soup.select(organization.instructor_selector)
+        if instructor_name is None:
+            self.logger.info("Not founded instructor at url: %s", url)
+
         course_code = soup.select("div > div.vc_col-sm-9 > h1")
+        if course_code is None:
+            self.logger.info("Not founded course code at url: %s", url)
+
         course_name = soup.select("div > div.vc_col-sm-9 > h2")
+        if course_name is None:
+            self.logger.info("Not founded course name at url: %s", url)
         print(instructor_name)
         print(course_code)
         print(course_name)

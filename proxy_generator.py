@@ -1,10 +1,10 @@
+import logging
+from typing import Callable
+import time
 from fake_useragent import UserAgent
 import httpx
-from typing import Callable
 import requests
-import time
 from fp.fp import FreeProxy
-import logging
 from data_types import ProxyMode
 
 
@@ -25,7 +25,7 @@ class ProxyGenerator(object):
         self._proxies = {}
         self._session = None
         self._proxy_works = False
-        self._TIMEOUT = 5
+        self._timeout_obj = 5
         self._new_session()
 
     def get_session(self):
@@ -45,17 +45,17 @@ class ProxyGenerator(object):
         with requests.Session() as session:
             session.proxies = proxies
             try:
-                resp = session.get("http://httpbin.org/ip", timeout=self._TIMEOUT)
+                resp = session.get("http://httpbin.org/ip", timeout=self._timeout_obj)
                 if resp.status_code == 200:
                     self.logger.info(
                         "Proxy works! IP address: %s", resp.json()["origin"]
                     )
                     return True
-                elif resp.status_code == 401:
+                if resp.status_code == 401:
                     self.logger.warning("Incorrect credentials for proxy!")
                     return False
             except TimeoutError:
-                time.sleep(self._TIMEOUT)
+                time.sleep(self._timeout_obj)
             except Exception as e:
                 self.logger.info("Exception while testing proxy: %s", e)
             return False
@@ -72,13 +72,13 @@ class ProxyGenerator(object):
 
         user_agent = UserAgent().random
 
-        _HEADERS = {
+        headers = {
             "accept-language": "en-US,en,tr,tr-TR",
             "accept": "text/html,application/xhtml+xml,application/xml",
             "User-Agent": user_agent,
         }
         # self._session.headers.update(_HEADERS)
-        init_kwargs.update(headers=_HEADERS)
+        init_kwargs.update(headers=headers)
 
         if self._proxy_works:
             init_kwargs["proxies"] = proxies  # .get("http", None)
@@ -97,22 +97,18 @@ class ProxyGenerator(object):
         freeproxy = FreeProxy(rand=False, timeout=timeout)
         if not hasattr(self, "_dirty_freeproxies"):
             self._dirty_freeproxies = set()
-        try:
-            all_proxies = freeproxy.get_proxy_list(repeat=False)  # free-proxy >= 1.1.0
-        # Library version checking
-        except TypeError:
-            all_proxies = freeproxy.get_proxy_list()  # free-proxy < 1.1.0
-        all_proxies.reverse()
+        all_proxies = freeproxy.get_proxy_list(repeat=False)  # free-proxy >= 1.1.0
+        # all_proxies.reverse() Is that bad option or not?
 
-        t1 = time.time()
+        now = time.time()
         # This function checks if proxies are working
         # if not it adds them to the dirty list
         # and gets a new proxy from the list
         # if it works yields the proxy for the usage
-        while time.time() - t1 < wait_time:
+        while time.time() - now < wait_time:
             proxy = all_proxies.pop()
             if not all_proxies:
-                all_proxies = freeproxy.get_proxy_list()
+                all_proxies = freeproxy.get_proxy_list(repeat=False)
             if proxy in self._dirty_freeproxies:
                 continue
             proxies = {"http://": proxy, "https://": proxy}
@@ -120,7 +116,7 @@ class ProxyGenerator(object):
             if proxy_works:
                 # Stop execution callback with yield
                 dirty_proxy = yield proxy
-                t1 = time.time()
+                now = time.time()
             else:
                 dirty_proxy = proxy
 
@@ -173,17 +169,17 @@ class ProxyGenerator(object):
             new_proxy = self._proxy_gen(old_proxy)
             while not self._use_proxy(new_proxy):
                 new_proxy = self._proxy_gen(new_proxy)
-            new_timeout = self._TIMEOUT  # Reset timeout to default
+            new_timeout = self._timeout_obj  # Reset timeout to default
             self._new_session()
         else:
             self._new_session()
 
         return self._session, new_timeout
 
-    def _use_proxy(self, http: str, https: str = None) -> bool:
+    def _use_proxy(self, http: str, https: str = "") -> bool:
         if http[:4] != "http":
             http = "http://" + http
-        if https is None:
+        if https == "":
             https = http
         elif https[:5] != "https":
             https = "https://" + https

@@ -1,5 +1,5 @@
-from navigator import Navigator
 import click
+from navigator import Navigator
 from data_types import _build_organization_source
 
 
@@ -20,7 +20,7 @@ from data_types import _build_organization_source
     help="Use proxy for client session",
 )
 def uni_parser(name, debug, use_proxy):
-    if name == None:
+    if name is None:
         raise NotImplemented("Should be all universities")
     navigator = Navigator()
 
@@ -31,8 +31,10 @@ def uni_parser(name, debug, use_proxy):
         navigator.use_proxy()
 
     organization = _build_organization_source(name)
-    listOutput = navigator.search_organization(organization)
+    print(organization)
+    navigator.search_organization(organization)
 
 
 if __name__ == "__main__":
+    # pylint: disable = no-value-for-parameter   # isables the pylint check for the next line
     uni_parser()
