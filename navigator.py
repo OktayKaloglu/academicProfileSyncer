@@ -228,16 +228,27 @@ class Navigator(object, metaclass=Singleton):
 
         # check is href includes http or not
         if href_schema.scheme != "":
+            if href in organization.exact_url_blacklist:
+                return None
             return href
         if organization.base_url_ending != "":
-            return (
+            builded_url = (
                 base_schema.scheme
                 + "://"
                 + base_schema.netloc
                 + organization.base_url_ending
                 + href_schema.path
             )
-        return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
+            if builded_url in organization.exact_url_blacklist:
+                return None
+            return builded_url
+
+        builded_url_bs = (
+            base_schema.scheme + "://" + base_schema.netloc + href_schema.path
+        )
+        if builded_url_bs in organization.exact_url_blacklist:
+            return None
+        return builded_url_bs
 
     def search_organization(
         self,
@@ -263,6 +274,7 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
         for i in res:
+            print(i)
             self._extract_course_page(i, organization)
         return res
 
@@ -272,11 +284,11 @@ class Navigator(object, metaclass=Singleton):
         if instructor_name is None:
             self.logger.info("Not founded instructor at url: %s", url)
 
-        course_code = soup.select("div > div.vc_col-sm-9 > h1")
+        course_code = soup.select(organization.course_code_selector)
         if course_code is None:
             self.logger.info("Not founded course code at url: %s", url)
 
-        course_name = soup.select("div > div.vc_col-sm-9 > h2")
+        course_name = soup.select(organization.course_name_selector)
         if course_name is None:
             self.logger.info("Not founded course name at url: %s", url)
         print(instructor_name)
