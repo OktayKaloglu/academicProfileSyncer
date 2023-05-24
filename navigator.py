@@ -78,7 +78,10 @@ class Navigator(object, metaclass=Singleton):
                 resp = session.get(page_request, timeout=timeout)
 
                 # Probably we should use debug instead of info
-                self.logger.info("Session proxy config is {}".format(pm._proxies))
+                if pm._proxies == {}:
+                    self.logger.info("Session running on no proxy mode")
+                else:
+                    self.logger.info("Session proxy config is {}".format(pm._proxies))
 
                 # Do we need captcha handling?
                 # has_captcha bla bla
@@ -182,7 +185,11 @@ class Navigator(object, metaclass=Singleton):
         return res
 
     def _filter_link(
-        self, href: str, base_url: str, blacklist: list[str] = None
+        self,
+        href: str,
+        base_url: str,
+        blacklist: list[str] = None,
+        base_ending: str = None,
     ) -> str | None:
         builtin_include_filter = ["#", "javascript:", "mailto:"]
         builtin_equal_filter = ["/"]
@@ -215,13 +222,22 @@ class Navigator(object, metaclass=Singleton):
         # check is href includes http or not
         if href_schema.scheme != "" or b"":
             return href
+        elif base_ending != None:
+            return (
+                base_schema.scheme
+                + "://"
+                + base_schema.netloc
+                + base_ending
+                + href_schema.path
+            )
         else:
             return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
 
-    def search_organization(self, url: str, filter_source: str = None) -> list:
+    def search_organization(
+        self, url: str, filter_source: str = None, base_ending: str = None
+    ) -> list:
         soup = self._get_soup(url)
         rows = soup.find_all("a")
-        blacklist = ["DersOgretimPlaniPdf", "sayfa"]
 
         if rows:
             self.logger.info("Found links on page")
@@ -232,7 +248,10 @@ class Navigator(object, metaclass=Singleton):
         self.logger.info("Starting filtering process for links")
         for link in rows:
             filtered = self._filter_link(
-                href=link.get("href"), base_url=url, blacklist=blacklist
+                href=link.get("href"),
+                base_url=url,
+                blacklist=filter_source,
+                base_ending=base_ending,
             )
             if filtered is not None and filtered not in seen_urls:
                 res.append({"course": filtered})

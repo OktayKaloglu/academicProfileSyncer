@@ -30,8 +30,12 @@ def uni_parser(name, debug, use_proxy):
     if use_proxy:
         navigator.use_proxy()
 
-    organization = _define_organization_source(name)
-    listOutput = navigator.search_organization(organization)
+    organization, blacklist, base_ending = _define_organization_source(name)
+    listOutput = navigator.search_organization(
+        organization, filter_source=blacklist, base_ending=base_ending
+    )
+    # for i in listOutput:
+    #     print(i)
 
 
 if __name__ == "__main__":
