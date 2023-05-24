@@ -1,6 +1,6 @@
 from enum import Enum
 import logging
-from typing import TypedDict
+from typing import Dict, List, TypedDict
 
 """This file list common types of this project"""
 
@@ -31,13 +31,6 @@ class OrganizationSource(str, Enum):
     IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI = "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-egitim-plani-2018-ve-sonrasi/"
 
 
-class CourseSource(str, Enum):
-    """View pages"""
-
-    COURSE_DETAIL_PAGE = "COURSE_DETAIL_PAGE"
-    GENERAL_VIEW_PAGE = "GENERAL_VIEW_PAGE"
-
-
 class PathBlacklist(list, Enum):
     EGE_UNIVERSITY = ["DersOgretimPlaniPdf", "sayfa"]
     DOKUZ_EYLUL_UNIVERSITY = [
@@ -65,51 +58,54 @@ class SpecialBaseURLEnding(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = "/ders-katalog/2021-2022/tr/"
 
 
-class FilterSource(str, Enum):
-    """Filter list"""
+class OrganizationParserStruct:
+    def __init__(
+        self,
+        university: str,
+        initials: str,
+        blacklist: List[str],
+        source: str,
+        base_url_ending: str,
+    ) -> None:
+        self.university = university
+        self.initials = initials
+        self.blacklist = blacklist
+        self.source = source
+        self.base_url_ending = base_url_ending
 
-    FILTER_URL_EXCEPT_ALL = "FILTER_URL_EXCEPT_ALL"
-
-
-class Organization(TypedDict, total=False):
-    """Organization class"""
-
-    source: OrganizationSource
-    filter_source: FilterSource
-    name: str
-    # email_domain: str
-    # homepage: str
-
-
-class Course(TypedDict, total=False):
-    """Course class"""
-
-    course_name: str
-    organization: Organization
-    container_type: str
+    def __str__(self) -> str:
+        return f"University: {self.university}\nInitials: {self.initials}\nBlacklist: {self.blacklist}\nSource: {self.source}\nBase URL Ending: {self.base_url_ending}"
 
 
-# Define at least 3 source
-def _define_organization_source(shorthand: str):
+def _build_organization_source(shorthand: str) -> OrganizationParserStruct:
     logger = set_logger(enable=True)
     if shorthand.lower() == "ege":
         logger.info("Selection is, Ege University proceeding.")
-        return (
-            OrganizationSource.EGE_UNIVERSITY.value,
-            PathBlacklist.EGE_UNIVERSITY.value,
-            None,
+        builded = OrganizationParserStruct(
+            university="Ege University",
+            initials="ege",
+            source=OrganizationSource.EGE_UNIVERSITY.value,
+            blacklist=PathBlacklist.EGE_UNIVERSITY.value,
+            base_url_ending=None,
         )
+        return builded
     elif shorthand.lower() == "deu":
         logger.info("Selection is, Dokuz Eylul University proceeding.")
-        return (
-            OrganizationSource.DOKUZ_EYLUL_UNIVERSITY.value,
-            PathBlacklist.DOKUZ_EYLUL_UNIVERSITY.value,
-            SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
+        builded = OrganizationParserStruct(
+            university="Dokuz Eylul University",
+            initials="deu",
+            source=OrganizationSource.DOKUZ_EYLUL_UNIVERSITY.value,
+            blacklist=PathBlacklist.DOKUZ_EYLUL_UNIVERSITY.value,
+            base_url_ending=SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
         )
+        return builded
     elif shorthand.lower() == "iyte":
         logger.info("Selection is, Dokuz Eylul University proceeding.")
-        return (
-            OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
-            PathBlacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
-            None,
+        builded = OrganizationParserStruct(
+            university="Izmir Yuksek Teknoliji University",
+            initials="iyte",
+            source=OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
+            blacklist=PathBlacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
+            base_url_ending=None,
         )
+        return builded

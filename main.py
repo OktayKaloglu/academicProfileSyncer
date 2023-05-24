@@ -1,6 +1,6 @@
 from navigator import Navigator
 import click
-from data_types import _define_organization_source
+from data_types import _build_organization_source
 
 
 @click.command()
@@ -30,10 +30,8 @@ def uni_parser(name, debug, use_proxy):
     if use_proxy:
         navigator.use_proxy()
 
-    organization, blacklist, base_ending = _define_organization_source(name)
-    listOutput = navigator.search_organization(
-        organization, filter_source=blacklist, base_ending=base_ending
-    )
+    organization = _build_organization_source(name)
+    listOutput = navigator.search_organization(organization)
 
 
 if __name__ == "__main__":

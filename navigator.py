@@ -8,6 +8,7 @@ from lxml import etree
 from bs4 import BeautifulSoup
 from httpx import TimeoutException
 from requests.exceptions import Timeout
+from data_types import OrganizationParserStruct
 
 from proxy_generator import ProxyGenerator, DOSException
 
@@ -49,7 +50,7 @@ class Navigator(object, metaclass=Singleton):
             self._TIMEOUT = timeout
 
     def use_proxy(self):
-        proxy_works = self.pm2.FreeProxies()
+        proxy_works = self.pm1.FreeProxies()
         proxy_works2 = self.pm2.FreeProxies()
         if not proxy_works and proxy_works2:
             self.pm1 = self.pm2
@@ -191,9 +192,7 @@ class Navigator(object, metaclass=Singleton):
     def _filter_link(
         self,
         href: str,
-        base_url: str,
-        blacklist: list[str] = None,
-        base_ending: str = None,
+        organization: OrganizationParserStruct,
     ) -> str | None:
         builtin_include_filter = ["#", "javascript:", "mailto:"]
         builtin_equal_filter = ["/"]
@@ -210,7 +209,7 @@ class Navigator(object, metaclass=Singleton):
             if bfilter in href:
                 return None
 
-        base_schema = urlparse(base_url)
+        base_schema = urlparse(organization.source)
         href_schema = urlparse(href)
 
         # Path validation
@@ -218,20 +217,20 @@ class Navigator(object, metaclass=Singleton):
             return None
 
         # Check blacklisted word
-        if blacklist is not None:
-            for word in blacklist:
+        if organization.blacklist is not None:
+            for word in organization.blacklist:
                 if word.lower() in href_schema.path.lower():
                     return None
 
         # check is href includes http or not
         if href_schema.scheme != "" or b"":
             return href
-        elif base_ending != None:
+        elif organization.base_url_ending != None:
             return (
                 base_schema.scheme
                 + "://"
                 + base_schema.netloc
-                + base_ending
+                + organization.base_url_ending
                 + href_schema.path
             )
         else:
@@ -239,12 +238,9 @@ class Navigator(object, metaclass=Singleton):
 
     def search_organization(
         self,
-        url: str,
-        filter_source: str = None,
-        base_ending: str = None,
-        complete_blacklist: str = None,
+        organization: OrganizationParserStruct,
     ) -> list:
-        soup = self._get_soup(url)
+        soup = self._get_soup(organization.source)
         rows = soup.find_all("a")
 
         if rows:
@@ -257,9 +253,7 @@ class Navigator(object, metaclass=Singleton):
         for link in rows:
             filtered = self._filter_link(
                 href=link.get("href"),
-                base_url=url,
-                blacklist=filter_source,
-                base_ending=base_ending,
+                organization=organization,
             )
             if filtered is not None and filtered not in seen_urls:
                 res.append(filtered)
