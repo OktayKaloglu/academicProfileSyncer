@@ -1,6 +1,7 @@
 import logging
 import random
 import sys
+import re
 import time
 from urllib.parse import urlparse
 
@@ -9,7 +10,7 @@ from httpx import TimeoutException
 from requests.exceptions import Timeout
 from data_types import OrganizationParserStruct
 
-from proxy_generator import ProxyGenerator, DOSException
+from proxy_generator import MaxTryException, ProxyGenerator, DOSException
 
 
 class Singleton(type):
@@ -75,6 +76,9 @@ class Navigator(object, metaclass=Singleton):
         session = self._session2
         timeout = self._timeout_obj
         while tries < self._max_retries:
+            self.logger.info("Current tries: %d", tries)
+            if self._max_retries - 1 == tries:
+                raise MaxTryException(f"Cannot fetch this url: {page_request}")
             try:
                 random_wait = random.uniform(1, 2)
                 time.sleep(random_wait)
@@ -99,6 +103,7 @@ class Navigator(object, metaclass=Singleton):
                 elif resp.status_code == 404:
                     self.logger.info("Got a 404 error. Attempting with same proxy")
                     tries += 1
+                    self.logger.info("Increased tries! now tries is: %d", tries)
                     continue
                 elif resp.status_code == 403:
                     self.logger.info("Got an access denied error (403).")
@@ -187,7 +192,10 @@ class Navigator(object, metaclass=Singleton):
         self._max_retries = num_retries
 
     def _get_soup(self, url: str) -> BeautifulSoup:
-        html = self._get_page(url)
+        try:
+            html = self._get_page(url)
+        except MaxTryException:
+            raise MaxTryException(f"Cannot fetch this URL:{url}")
         # Special html char, replace it
         html = html.replace("\xa0", " ")
         res = BeautifulSoup(html, "html.parser")
@@ -274,23 +282,68 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
         for i in res:
-            print(i)
-            self._extract_course_page(i, organization)
+            try:
+                self._extract_course_page(i, organization)
+            except MaxTryException:
+                self.logger.info("This url cannot be fetched %s", i)
+                continue
         return res
 
     def _extract_course_page(self, url: str, organization: OrganizationParserStruct):
-        soup = self._get_soup(url)
-        instructor_name = soup.select(organization.instructor_selector)
+        try:
+            soup = self._get_soup(url)
+        except MaxTryException:
+            raise MaxTryException(f"Cannot fetch this URL: {url}")
+
+        if organization.uses_single_line_information_on_instructor:
+            input_for_instructor = (
+                soup.select(organization.instructor_selector)[0].get_text().strip()
+            )
+            match2 = re.match(
+                organization.single_line_instructor_regex, input_for_instructor
+            )
+            if match2:
+                instructor_name = match2.group(1).strip()
+            else:
+                instructor_name = None
+        else:
+            instructor_name = (
+                soup.select(organization.instructor_selector)[0].get_text().strip()
+            )
+            if instructor_name == "":
+                instructor_name = None
+
+        if organization.uses_single_line_information_on_course:
+            # course code
+            inpt = soup.select(organization.course_code_selector)[0].get_text().strip()
+            match = re.match(organization.single_line_course_regex, inpt)
+            if match:
+                # course code
+                course_code = match.group(1).strip()
+                course_name = match.group(2).strip()
+            else:
+                course_name = None
+                # course code
+                course_code = None
+
+        else:
+            # This is course code for seperate selectors!
+            course_code = (
+                soup.select(organization.course_code_selector)[0].get_text().strip()
+            )
+            course_name = (
+                soup.select(organization.course_name_selector)[0].get_text().strip()
+            )
+
         if instructor_name is None:
             self.logger.info("Not founded instructor at url: %s", url)
 
-        course_code = soup.select(organization.course_code_selector)
         if course_code is None:
             self.logger.info("Not founded course code at url: %s", url)
 
-        course_name = soup.select(organization.course_name_selector)
         if course_name is None:
             self.logger.info("Not founded course name at url: %s", url)
+
         print(instructor_name)
         print(course_code)
         print(course_name)

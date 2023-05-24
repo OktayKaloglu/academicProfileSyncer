@@ -143,6 +143,14 @@ class SpecialBaseURLEnding(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = "/ders-katalog/2021-2022/tr/"
 
 
+class SingleLineCourseRegex(str, Enum):
+    YASAR_UNIVERSITY = r"((?:\w+\s+)*\w+\s*\d+)\s+(.*?)\s+–.*"
+
+
+class SingleLineInstructorRegex(str, Enum):
+    YASAR_UNIVERSITY = r",\s*([^,]+)$"
+
+
 class OrganizationParserStruct(NamedTuple):
     university: str
     initials: str
@@ -153,7 +161,10 @@ class OrganizationParserStruct(NamedTuple):
     instructor_selector: str = ""
     course_code_selector: str = ""
     course_name_selector: str = ""
-    uses_single_line_information: bool = False
+    uses_single_line_information_on_course: bool = False
+    uses_single_line_information_on_instructor: bool = False
+    single_line_course_regex: str = ""
+    single_line_instructor_regex: str = ""
 
     def __str__(self) -> str:
         return (
@@ -164,8 +175,12 @@ class OrganizationParserStruct(NamedTuple):
             f"Base URL Ending: {self.base_url_ending}\n"
             f"Instructor Selector: {self.instructor_selector}\n"
             f"Course Code Selector: {self.course_code_selector}\n"
-            f"Course Name Selector: {self.course_name_selector}"
-            f"Exact Blacklist: {self.exact_url_blacklist}"
+            f"Course Name Selector: {self.course_name_selector}\n"
+            f"Exact Blacklist: {self.exact_url_blacklist}\n"
+            f"Uses single line information on course: {self.uses_single_line_information_on_course}\n"
+            f"Uses single line information on instructor: {self.uses_single_line_information_on_instructor}\n"
+            f"Single line course regex: {self.single_line_course_regex}\n"
+            f"Single line instructor regex: {self.single_line_instructor_regex}\n"
         )
 
 
@@ -222,7 +237,10 @@ def _build_organization_source(shorthand: str) -> OrganizationParserStruct | Non
             course_code_selector=CourseCodeSelector.YASAR_UNIVERSITY.value,
             course_name_selector=CourseNameSelector.YASAR_UNIVERSITY.value,
             exact_url_blacklist=ExactURLBlacklist.YASAR_UNIVERSITY.value,
-            uses_single_line_information=True,
+            uses_single_line_information_on_course=True,
+            uses_single_line_information_on_instructor=True,
+            single_line_course_regex=SingleLineCourseRegex.YASAR_UNIVERSITY,
+            single_line_instructor_regex=SingleLineInstructorRegex.YASAR_UNIVERSITY,
         )
         return builded
     return None
