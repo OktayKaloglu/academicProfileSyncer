@@ -3,6 +3,7 @@ import random
 import sys
 import time
 from urllib.parse import urlparse
+from lxml import etree
 
 from bs4 import BeautifulSoup
 from httpx import TimeoutException
@@ -34,6 +35,7 @@ class Navigator(object, metaclass=Singleton):
         self.got_403 = False
         self.pm1.set_logger(True)
         self.pm2.set_logger(True)
+        self.debug_print_printed = False
 
     def set_logger(self, enable: bool):
         handler = logging.StreamHandler()  # output to console
@@ -78,10 +80,12 @@ class Navigator(object, metaclass=Singleton):
                 resp = session.get(page_request, timeout=timeout)
 
                 # Probably we should use debug instead of info
-                if pm._proxies == {}:
+                if pm._proxies == {} and self.debug_print_printed == False:
                     self.logger.info("Session running on no proxy mode")
-                else:
+                    self.debug_print_printed = True
+                elif self.debug_print_printed == False:
                     self.logger.info("Session proxy config is {}".format(pm._proxies))
+                    self.debug_print_printed = True
 
                 # Do we need captcha handling?
                 # has_captcha bla bla
@@ -234,7 +238,11 @@ class Navigator(object, metaclass=Singleton):
             return base_schema.scheme + "://" + base_schema.netloc + href_schema.path
 
     def search_organization(
-        self, url: str, filter_source: str = None, base_ending: str = None
+        self,
+        url: str,
+        filter_source: str = None,
+        base_ending: str = None,
+        complete_blacklist: str = None,
     ) -> list:
         soup = self._get_soup(url)
         rows = soup.find_all("a")
@@ -254,7 +262,25 @@ class Navigator(object, metaclass=Singleton):
                 base_ending=base_ending,
             )
             if filtered is not None and filtered not in seen_urls:
-                res.append({"course": filtered})
+                res.append(filtered)
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
+        for i in res:
+            self._extract_course_page(i)
         return res
+
+    def _extract_course_page(
+        self,
+        url: str,
+        course_name_location: str = None,
+        instructor_location: str = None,
+    ):
+        soup = self._get_soup(url)
+        instructor_name = soup.select(
+            "div > div.wpb_column.vc_col-sm-3 > div.iyte_ins-ass > div.stm-teacher-bio.stm-teacher-bio_trainer > div > div > div.stm-teacher-bio__title > a"
+        )
+        course_code = soup.select("div > div.vc_col-sm-9 > h1")
+        course_name = soup.select("div > div.vc_col-sm-9 > h2")
+        print(instructor_name)
+        print(course_code)
+        print(course_name)

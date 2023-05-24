@@ -28,6 +28,7 @@ class OrganizationSource(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = (
         "https://debis.deu.edu.tr/ders-katalog/2021-2022/tr/bolum_1210_tr.html"
     )
+    IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI = "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-egitim-plani-2018-ve-sonrasi/"
 
 
 class CourseSource(str, Enum):
@@ -37,7 +38,7 @@ class CourseSource(str, Enum):
     GENERAL_VIEW_PAGE = "GENERAL_VIEW_PAGE"
 
 
-class BlackList(list, Enum):
+class PathBlacklist(list, Enum):
     EGE_UNIVERSITY = ["DersOgretimPlaniPdf", "sayfa"]
     DOKUZ_EYLUL_UNIVERSITY = [
         "havuz",
@@ -45,6 +46,18 @@ class BlackList(list, Enum):
         ".pdf",
         "bolum_1210_eng.html",
         "bolum_1210_tr.html",
+        "tr-",
+    ]
+    IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI = [
+        "lidya",
+        "kisiler",
+        "arastirma",
+        "egitim",
+        "iletisim",
+        "education",
+        "hakkinda",
+        "fakulte-dersleri",
+        "math",
     ]
 
 
@@ -83,13 +96,20 @@ def _define_organization_source(shorthand: str):
         logger.info("Selection is, Ege University proceeding.")
         return (
             OrganizationSource.EGE_UNIVERSITY.value,
-            BlackList.EGE_UNIVERSITY.value,
+            PathBlacklist.EGE_UNIVERSITY.value,
             None,
         )
     elif shorthand.lower() == "deu":
         logger.info("Selection is, Dokuz Eylul University proceeding.")
         return (
             OrganizationSource.DOKUZ_EYLUL_UNIVERSITY.value,
-            BlackList.DOKUZ_EYLUL_UNIVERSITY.value,
+            PathBlacklist.DOKUZ_EYLUL_UNIVERSITY.value,
             SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
+        )
+    elif shorthand.lower() == "iyte":
+        logger.info("Selection is, Dokuz Eylul University proceeding.")
+        return (
+            OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
+            PathBlacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
+            None,
         )

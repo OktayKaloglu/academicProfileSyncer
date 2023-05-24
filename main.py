@@ -34,8 +34,6 @@ def uni_parser(name, debug, use_proxy):
     listOutput = navigator.search_organization(
         organization, filter_source=blacklist, base_ending=base_ending
     )
-    # for i in listOutput:
-    #     print(i)
 
 
 if __name__ == "__main__":
