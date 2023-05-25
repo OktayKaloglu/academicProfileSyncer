@@ -77,12 +77,16 @@ class ProxyGenerator(object):
             "accept": "text/html,application/xhtml+xml,application/xml",
             "User-Agent": user_agent,
         }
-        # self._session.headers.update(_HEADERS)
         init_kwargs.update(headers=headers)
+
+        # Some websites wants to SSL verification, i don't know why
+        # disable for know
+        init_kwargs["verify"] = False
 
         if self._proxy_works:
             init_kwargs["proxies"] = proxies  # .get("http", None)
             self._proxies = proxies
+
         self._session = httpx.Client(**init_kwargs)
 
         return self._session

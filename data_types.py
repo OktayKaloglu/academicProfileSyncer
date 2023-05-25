@@ -28,6 +28,10 @@ class OrganizationSource(str, Enum):
     )
     IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI = "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-egitim-plani-2018-ve-sonrasi/"
     YASAR_UNIVERSITY = "https://ce.yasar.edu.tr/dersler/"
+    IZMIR_KATIP_CELEBI_UNIVERSITY = (
+        "https://ceng.ikcu.edu.tr/S/16843/lisans-ogretim-plani"
+    )
+    IZMIR_EKONOMI_UNIVERSITY = "https://ce.ieu.edu.tr/tr/curr"
 
 
 class PathBlacklist(list, Enum):
@@ -73,6 +77,8 @@ class PathBlacklist(list, Enum):
         "fotografvideo",
         "iletisim",
     ]
+    IZMIR_KATIP_CELEBI_UNIVERSITY = []
+    IZMIR_EKONOMI_UNIVERSITY = []
 
 
 class ExactURLBlacklist(list, Enum):
@@ -114,6 +120,8 @@ class ExactURLBlacklist(list, Enum):
         "https://compmscwot.yasar.edu.tr",
         "https://compphd.yasar.edu.tr",
     ]
+    IZMIR_KATIP_CELEBI_UNIVERSITY = []
+    IZMIR_EKONOMI_UNIVERSITY = []
 
 
 class InstructorNameSelector(str, Enum):
@@ -123,6 +131,7 @@ class InstructorNameSelector(str, Enum):
     YASAR_UNIVERSITY = (
         "#main-content > div > div > div > div > div > ul > li:nth-child(1) > strong"
     )
+    IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(9) > h4 > span > span > strong"
 
 
 class CourseCodeSelector(str, Enum):
@@ -130,6 +139,7 @@ class CourseCodeSelector(str, Enum):
     EGE_UNIVERSITY = "#wrapper > div > div > div > div > div > div > table:nth-child(5) > tbody > tr > td:nth-child(1)"
     DOKUZ_EYLUL_UNIVERSITY = "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(3) > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(1)"
     YASAR_UNIVERSITY = "#main-content > div > div > div > div > div > h3"
+    IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(1) > h4 > span > span > strong"
 
 
 class CourseNameSelector(str, Enum):
@@ -137,10 +147,12 @@ class CourseNameSelector(str, Enum):
     EGE_UNIVERSITY = "#wrapper > div > div > div > div > div > div > table:nth-child(5) > tbody > tr > td:nth-child(2)"
     DOKUZ_EYLUL_UNIVERSITY = "body > div.main-wrapper > div.container > div.span-18.last > table:nth-child(3) > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2)"
     YASAR_UNIVERSITY = "#main-content > div > div > div > div > div > h3"
+    IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(2) > h4 > span > span > strong"
 
 
 class SpecialBaseURLEnding(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = "/ders-katalog/2021-2022/tr/"
+    IZMIR_EKONOMI_UNIVERSITY = "/tr/"
 
 
 class SingleLineCourseRegex(str, Enum):
@@ -165,6 +177,7 @@ class OrganizationParserStruct(NamedTuple):
     uses_single_line_information_on_instructor: bool = False
     single_line_course_regex: str = ""
     single_line_instructor_regex: str = ""
+    uses_single_page: bool = False
 
     def __str__(self) -> str:
         return (
@@ -211,6 +224,7 @@ def _build_organization_source(shorthand: str) -> OrganizationParserStruct | Non
             instructor_selector=InstructorNameSelector.DOKUZ_EYLUL_UNIVERSITY.value,
             course_code_selector=CourseCodeSelector.DOKUZ_EYLUL_UNIVERSITY.value,
             course_name_selector=CourseNameSelector.DOKUZ_EYLUL_UNIVERSITY.value,
+            exact_url_blacklist=ExactURLBlacklist.DOKUZ_EYLUL_UNIVERSITY.value,
         )
         return builded
     elif shorthand.lower() == "iyte":
@@ -228,6 +242,7 @@ def _build_organization_source(shorthand: str) -> OrganizationParserStruct | Non
         return builded
     elif shorthand.lower() == "yasar":
         logger.info("Selection is, Yasar University proceeding.")
+        raise NotImplemented("Instructor regex doesn't work!")
         builded = OrganizationParserStruct(
             university="Yasar University",
             initials="yasar",
@@ -243,4 +258,40 @@ def _build_organization_source(shorthand: str) -> OrganizationParserStruct | Non
             single_line_instructor_regex=SingleLineInstructorRegex.YASAR_UNIVERSITY,
         )
         return builded
+    elif shorthand.lower() == "ikcu":
+        raise NotImplemented("Single page")
+        builded = OrganizationParserStruct(
+            university="Izmir Katip Celebi University",
+            initials="ikcu",
+            source=OrganizationSource.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            blacklist=PathBlacklist.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            instructor_selector=InstructorNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            course_code_selector=CourseCodeSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            course_name_selector=CourseNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            exact_url_blacklist=ExactURLBlacklist.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            uses_single_page=True,
+        )
+        return builded
+    elif shorthand.lower() == "ieu":
+        builded = OrganizationParserStruct(
+            university="Izmir Ekonomi University",
+            initials="ieu",
+            source=OrganizationSource.IZMIR_EKONOMI_UNIVERSITY.value,
+            blacklist=PathBlacklist.IZMIR_EKONOMI_UNIVERSITY.value,
+            base_url_ending=SpecialBaseURLEnding.IZMIR_EKONOMI_UNIVERSITY.value,
+            instructor_selector=InstructorNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            course_code_selector=CourseCodeSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            course_name_selector=CourseNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
+            exact_url_blacklist=ExactURLBlacklist.IZMIR_EKONOMI_UNIVERSITY.value,
+        )
+        return builded
     return None
+
+
+# file_path = "path/to/your/file.txt"  # Replace with the actual file path
+# Read the file and store each line as a separate string in a list
+# with open(file_path, 'r') as file:
+#    lines = [line.strip() for line in file]
+
+# Print the list of strings
+#    print(lines)

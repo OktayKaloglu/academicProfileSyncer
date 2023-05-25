@@ -281,12 +281,22 @@ class Navigator(object, metaclass=Singleton):
                 res.append(filtered)
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
-        for i in res:
+
+        if organization.uses_single_page:
             try:
-                self._extract_course_page(i, organization)
+                self._extract_course_page(
+                    organization=organization, url=organization.source
+                )
             except MaxTryException:
                 self.logger.info("This url cannot be fetched %s", i)
-                continue
+        else:
+            for i in res:
+                try:
+                    print(i)
+                    # self._extract_course_page(i, organization)
+                except MaxTryException:
+                    self.logger.info("This url cannot be fetched %s", i)
+                    continue
         return res
 
     def _extract_course_page(self, url: str, organization: OrganizationParserStruct):
