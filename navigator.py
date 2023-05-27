@@ -3,6 +3,7 @@ import random
 import sys
 import re
 import time
+from typing import List
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
@@ -11,6 +12,8 @@ from requests.exceptions import Timeout
 from data_types import OrganizationParserStruct
 
 from proxy_generator import MaxTryException, ProxyGenerator, DOSException
+
+EXACT_BLOCKLIST_PATH = "./sources/global_exact_blocklist.txt"
 
 
 class Singleton(type):
@@ -38,6 +41,7 @@ class Navigator(object, metaclass=Singleton):
         self.proxy_manager_1.set_logger(True)
         self.proxy_manager_2.set_logger(True)
         self.debug_print_printed = False
+        self._global_exact_blocklist = _read_global_block_list(EXACT_BLOCKLIST_PATH)
 
     def set_logger(self, enable: bool):
         handler = logging.StreamHandler()  # output to console
@@ -208,6 +212,12 @@ class Navigator(object, metaclass=Singleton):
     ) -> str | None:
         builtin_include_filter = ["#", "javascript:", "mailto:"]
         builtin_equal_filter = ["/"]
+        builtin_domain_filter = [
+            "twitter.com",
+            "linkedin.com",
+            "facebook.com",
+            "instagram.com",
+        ]
 
         # Validate href
         if href is None:
@@ -219,6 +229,10 @@ class Navigator(object, metaclass=Singleton):
 
         for bfilter in builtin_include_filter:
             if bfilter in href:
+                return None
+
+        for domain in builtin_domain_filter:
+            if domain in href:
                 return None
 
         base_schema = urlparse(organization.source)
@@ -236,7 +250,7 @@ class Navigator(object, metaclass=Singleton):
 
         # check is href includes http or not
         if href_schema.scheme != "":
-            if href in organization.exact_url_blacklist:
+            if href in self._global_exact_blocklist:
                 return None
             return href
         if organization.base_url_ending != "":
@@ -247,15 +261,16 @@ class Navigator(object, metaclass=Singleton):
                 + organization.base_url_ending
                 + href_schema.path
             )
-            if builded_url in organization.exact_url_blacklist:
+            if builded_url in self._global_exact_blocklist:
                 return None
             return builded_url
 
         builded_url_bs = (
             base_schema.scheme + "://" + base_schema.netloc + href_schema.path
         )
-        if builded_url_bs in organization.exact_url_blacklist:
+        if builded_url_bs in self._global_exact_blocklist:
             return None
+
         return builded_url_bs
 
     def search_organization(
@@ -282,21 +297,12 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
 
-        if organization.uses_single_page:
+        for i in res:
             try:
-                self._extract_course_page(
-                    organization=organization, url=organization.source
-                )
+                self._extract_course_page(i, organization)
             except MaxTryException:
                 self.logger.info("This url cannot be fetched %s", i)
-        else:
-            for i in res:
-                try:
-                    print(i)
-                    # self._extract_course_page(i, organization)
-                except MaxTryException:
-                    self.logger.info("This url cannot be fetched %s", i)
-                    continue
+                continue
         return res
 
     def _extract_course_page(self, url: str, organization: OrganizationParserStruct):
@@ -305,45 +311,20 @@ class Navigator(object, metaclass=Singleton):
         except MaxTryException:
             raise MaxTryException(f"Cannot fetch this URL: {url}")
 
-        if organization.uses_single_line_information_on_instructor:
-            input_for_instructor = (
-                soup.select(organization.instructor_selector)[0].get_text().strip()
-            )
-            match2 = re.match(
-                organization.single_line_instructor_regex, input_for_instructor
-            )
-            if match2:
-                instructor_name = match2.group(1).strip()
-            else:
-                instructor_name = None
-        else:
-            instructor_name = (
-                soup.select(organization.instructor_selector)[0].get_text().strip()
-            )
-            if instructor_name == "":
-                instructor_name = None
+        instructor_name = None
+        course_code = None
+        course_name = None
 
-        if organization.uses_single_line_information_on_course:
-            # course code
-            inpt = soup.select(organization.course_code_selector)[0].get_text().strip()
-            match = re.match(organization.single_line_course_regex, inpt)
-            if match:
-                # course code
-                course_code = match.group(1).strip()
-                course_name = match.group(2).strip()
-            else:
-                course_name = None
-                # course code
-                course_code = None
+        instructor_element = soup.find(organization.instructor_selector)
+        if instructor_element:
+            instructor_name = instructor_element
 
-        else:
-            # This is course code for seperate selectors!
-            course_code = (
-                soup.select(organization.course_code_selector)[0].get_text().strip()
-            )
-            course_name = (
-                soup.select(organization.course_name_selector)[0].get_text().strip()
-            )
+        course_code_element = soup.find(organization.course_code_selector)
+        if course_code_element:
+            course_code = course_code_element
+        course_name_element = soup.find(organization.course_name_selector)
+        if course_name_element:
+            course_name = course_name_element
 
         if instructor_name is None:
             self.logger.info("Not founded instructor at url: %s", url)
@@ -357,3 +338,10 @@ class Navigator(object, metaclass=Singleton):
         print(instructor_name)
         print(course_code)
         print(course_name)
+
+
+def _read_global_block_list(filepath: str) -> List[str]:
+    with open(filepath, "r") as file:
+        lines = [line.strip() for line in file]
+
+    return lines
