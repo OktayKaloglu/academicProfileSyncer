@@ -1,12 +1,14 @@
 from enum import Enum
 import logging
 from typing import List, NamedTuple
-from sources.course_sources import CourseCodeSelector, CourseNameSelector
-from sources.instructor_sources import InstructorNameSelector
+from sources.detail_sources import (
+    CCSelector,
+    CNSelector,
+    INSelector,
+)
 
-from sources.organization_sources import OrganizationSource
-from sources.path_blacklist import PathBlacklist
-from sources.url_sources import SpecialBaseURLEnding
+from sources.organization_sources import OrganizationSource, SpecialBaseURLEnding
+from sources.path_blacklist import Blacklist
 
 
 def set_logger(enable: bool):
@@ -25,7 +27,28 @@ class ProxyMode(str, Enum):
     FREE_PROXIES = "FREE_PROXIES"
 
 
-class OrganizationParserStruct(NamedTuple):
+class Selector(NamedTuple):
+    selector: str = ""
+    regex_filter: str = ""
+
+    def __str__(self) -> str:
+        return f"Selector: {self.selector}\n" f"Regex Filter: {self.regex_filter}\n"
+
+
+class SelectorTuple(NamedTuple):
+    instructor_selector: Selector = Selector()
+    course_name_selector: Selector = Selector()
+    course_code_selector: Selector = Selector()
+
+    def __str__(self) -> str:
+        return (
+            f"Instructor selector: {self.instructor_selector}\n"
+            f"Course Name selector: {self.course_name_selector}\n"
+            f"Course Code selector: {self.course_code_selector}\n"
+        )
+
+
+class Parser(NamedTuple):
     university: str
     initials: str
     blacklist: List[str]
@@ -48,42 +71,44 @@ class OrganizationParserStruct(NamedTuple):
         )
 
 
-def _build_organization_source(shorthand: str) -> OrganizationParserStruct | None:
+def _build_organization_source(shorthand: str) -> Parser | None:
+    mytest = SelectorTuple()
+    print(mytest)
     logger = set_logger(enable=True)
     if shorthand.lower() == "ege":
         logger.info("Selection is, Ege University proceeding.")
-        builded = OrganizationParserStruct(
+        builded = Parser(
             university="Ege University",
             initials="ege",
             source=OrganizationSource.EGE_UNIVERSITY.value,
-            blacklist=PathBlacklist.EGE_UNIVERSITY.value,
-            instructor_selector=InstructorNameSelector.EGE_UNIVERSITY.value,
-            course_code_selector=CourseCodeSelector.EGE_UNIVERSITY.value,
-            course_name_selector=CourseNameSelector.EGE_UNIVERSITY.value,
+            blacklist=Blacklist.EGE_UNIVERSITY.value,
+            instructor_selector=INSelector.EGE_UNIVERSITY.value,
+            course_code_selector=CCSelector.EGE_UNIVERSITY.value,
+            course_name_selector=CNSelector.EGE_UNIVERSITY.value,
         )
         return builded
     elif shorthand.lower() == "iyte":
         logger.info("Selection is, Dokuz Eylul University proceeding.")
-        builded = OrganizationParserStruct(
+        builded = Parser(
             university="Izmir Yuksek Teknoliji University",
             initials="iyte",
             source=OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
-            blacklist=PathBlacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            instructor_selector=InstructorNameSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            course_code_selector=CourseCodeSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            course_name_selector=CourseNameSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
+            blacklist=Blacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
+            instructor_selector=INSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
+            course_code_selector=CCSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
+            course_name_selector=CNSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
         )
         return builded
     elif shorthand.lower() == "ieu":
-        builded = OrganizationParserStruct(
+        builded = Parser(
             university="Izmir Ekonomi University",
             initials="ieu",
             source=OrganizationSource.IZMIR_EKONOMI_UNIVERSITY.value,
-            blacklist=PathBlacklist.IZMIR_EKONOMI_UNIVERSITY.value,
+            blacklist=Blacklist.IZMIR_EKONOMI_UNIVERSITY.value,
             base_url_ending=SpecialBaseURLEnding.IZMIR_EKONOMI_UNIVERSITY.value,
-            instructor_selector=InstructorNameSelector.IZMIR_EKONOMI_UNIVERSITY.value,
-            course_code_selector=CourseCodeSelector.IZMIR_EKONOMI_UNIVERSITY.value,
-            course_name_selector=CourseNameSelector.IZMIR_EKONOMI_UNIVERSITY.value,
+            instructor_selector=INSelector.IZMIR_EKONOMI_UNIVERSITY.value,
+            course_code_selector=CCSelector.IZMIR_EKONOMI_UNIVERSITY.value,
+            course_name_selector=CNSelector.IZMIR_EKONOMI_UNIVERSITY.value,
         )
         return builded
     return None

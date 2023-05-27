@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class PathBlacklist(list, Enum):
+class Blacklist(list, Enum):
     EGE_UNIVERSITY = ["DersOgretimPlaniPdf", "sayfa"]
     DOKUZ_EYLUL_UNIVERSITY = [
         "havuz",

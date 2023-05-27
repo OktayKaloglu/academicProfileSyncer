@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 from httpx import TimeoutException
 from requests.exceptions import Timeout
-from data_types import OrganizationParserStruct
+from data_types import Parser
 
 from proxy_generator import MaxTryException, ProxyGenerator, DOSException
 
@@ -26,7 +26,7 @@ class Singleton(type):
 
 
 class Navigator(object, metaclass=Singleton):
-    def __init__(self):
+    def __init__(self, disable_course_flag: bool = False):
         # super(Navigator, self).__init__()
         super().__init__()
         self.logger = logging.getLogger("navigator")
@@ -42,6 +42,7 @@ class Navigator(object, metaclass=Singleton):
         self.proxy_manager_2.set_logger(True)
         self.debug_print_printed = False
         self._global_exact_blocklist = _read_global_block_list(EXACT_BLOCKLIST_PATH)
+        self._disable_course_flag = disable_course_flag
 
     def set_logger(self, enable: bool):
         handler = logging.StreamHandler()  # output to console
@@ -208,7 +209,7 @@ class Navigator(object, metaclass=Singleton):
     def _filter_link(
         self,
         href: str,
-        organization: OrganizationParserStruct,
+        organization: Parser,
     ) -> str | None:
         builtin_include_filter = ["#", "javascript:", "mailto:"]
         builtin_equal_filter = ["/"]
@@ -275,7 +276,7 @@ class Navigator(object, metaclass=Singleton):
 
     def search_organization(
         self,
-        organization: OrganizationParserStruct,
+        organization: Parser,
     ) -> list:
         soup = self._get_soup(organization.source)
         rows = soup.find_all("a")
@@ -297,6 +298,9 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
 
+        if self._disable_course_flag:
+            return res
+
         for i in res:
             try:
                 self._extract_course_page(i, organization)
@@ -305,7 +309,7 @@ class Navigator(object, metaclass=Singleton):
                 continue
         return res
 
-    def _extract_course_page(self, url: str, organization: OrganizationParserStruct):
+    def _extract_course_page(self, url: str, organization: Parser):
         try:
             soup = self._get_soup(url)
         except MaxTryException:
@@ -315,14 +319,14 @@ class Navigator(object, metaclass=Singleton):
         course_code = None
         course_name = None
 
-        instructor_element = soup.find(organization.instructor_selector)
+        instructor_element = soup.select(organization.instructor_selector)
         if instructor_element:
             instructor_name = instructor_element
 
-        course_code_element = soup.find(organization.course_code_selector)
+        course_code_element = soup.select(organization.course_code_selector)
         if course_code_element:
             course_code = course_code_element
-        course_name_element = soup.find(organization.course_name_selector)
+        course_name_element = soup.select(organization.course_name_selector)
         if course_name_element:
             course_name = course_name_element
 
