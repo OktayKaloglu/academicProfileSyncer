@@ -41,7 +41,8 @@ def uni_parser(name, debug, use_proxy, disable_course_extractor):
     organization = _build_organization_source(name)
     print(organization)
     a = navigator.search_organization(organization)
-    # print(a)
+    for i in a:
+        print(i)
 
 
 if __name__ == "__main__":

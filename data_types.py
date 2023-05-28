@@ -5,6 +5,8 @@ from sources.detail_sources import (
     CCSelector,
     CNSelector,
     INSelector,
+    SelectorTuple,
+    _selector_tuple_builder,
 )
 
 from sources.organization_sources import OrganizationSource, SpecialBaseURLEnding
@@ -27,36 +29,13 @@ class ProxyMode(str, Enum):
     FREE_PROXIES = "FREE_PROXIES"
 
 
-class Selector(NamedTuple):
-    selector: str = ""
-    regex_filter: str = ""
-
-    def __str__(self) -> str:
-        return f"Selector: {self.selector}\n" f"Regex Filter: {self.regex_filter}\n"
-
-
-class SelectorTuple(NamedTuple):
-    instructor_selector: Selector = Selector()
-    course_name_selector: Selector = Selector()
-    course_code_selector: Selector = Selector()
-
-    def __str__(self) -> str:
-        return (
-            f"Instructor selector: {self.instructor_selector}\n"
-            f"Course Name selector: {self.course_name_selector}\n"
-            f"Course Code selector: {self.course_code_selector}\n"
-        )
-
-
 class Parser(NamedTuple):
     university: str
     initials: str
     blacklist: List[str]
     source: str
     base_url_ending: str = ""
-    instructor_selector: str = ""
-    course_code_selector: str = ""
-    course_name_selector: str = ""
+    selectors: SelectorTuple = None
 
     def __str__(self) -> str:
         return (
@@ -65,52 +44,61 @@ class Parser(NamedTuple):
             f"Blacklist: {self.blacklist}\n"
             f"Source: {self.source}\n"
             f"Base URL Ending: {self.base_url_ending}\n"
-            f"Instructor Selector: {self.instructor_selector}\n"
-            f"Course Code Selector: {self.course_code_selector}\n"
-            f"Course Name Selector: {self.course_name_selector}\n"
+            f"Base URL Ending: {self.selectors}\n"
         )
 
 
 def _build_organization_source(shorthand: str) -> Parser | None:
-    mytest = SelectorTuple()
-    print(mytest)
     logger = set_logger(enable=True)
+    # works
     if shorthand.lower() == "ege":
         logger.info("Selection is, Ege University proceeding.")
-        builded = Parser(
+        return Parser(
             university="Ege University",
             initials="ege",
             source=OrganizationSource.EGE_UNIVERSITY.value,
             blacklist=Blacklist.EGE_UNIVERSITY.value,
-            instructor_selector=INSelector.EGE_UNIVERSITY.value,
-            course_code_selector=CCSelector.EGE_UNIVERSITY.value,
-            course_name_selector=CNSelector.EGE_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("ege"),
         )
-        return builded
+    # works
     elif shorthand.lower() == "iyte":
-        logger.info("Selection is, Dokuz Eylul University proceeding.")
-        builded = Parser(
-            university="Izmir Yuksek Teknoliji University",
+        logger.info("Selection is, Izmir Yuksek Teknoloji University proceeding.")
+        return Parser(
+            university="Izmir Yuksek Teknoloji University",
             initials="iyte",
-            source=OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITESI.value,
+            source=OrganizationSource.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
             blacklist=Blacklist.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            instructor_selector=INSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            course_code_selector=CCSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
-            course_name_selector=CNSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("iyte"),
         )
-        return builded
+    # works
     elif shorthand.lower() == "ieu":
-        builded = Parser(
+        return Parser(
             university="Izmir Ekonomi University",
             initials="ieu",
             source=OrganizationSource.IZMIR_EKONOMI_UNIVERSITY.value,
             blacklist=Blacklist.IZMIR_EKONOMI_UNIVERSITY.value,
             base_url_ending=SpecialBaseURLEnding.IZMIR_EKONOMI_UNIVERSITY.value,
-            instructor_selector=INSelector.IZMIR_EKONOMI_UNIVERSITY.value,
-            course_code_selector=CCSelector.IZMIR_EKONOMI_UNIVERSITY.value,
-            course_name_selector=CNSelector.IZMIR_EKONOMI_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("ieu"),
         )
-        return builded
+    # works
+    elif shorthand.lower() == "deu":
+        return Parser(
+            university="Dokuz Eylul University",
+            initials="deu",
+            source=OrganizationSource.DOKUZ_EYLUL_UNIVERSITY.value,
+            blacklist=Blacklist.DOKUZ_EYLUL_UNIVERSITY.value,
+            base_url_ending=SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("deu"),
+        )
+    elif shorthand.lower() == "yasar":
+        logger.info("Selection is, Yasar University proceeding.")
+        return Parser(
+            university="Yasar University",
+            initials="yasar",
+            source=OrganizationSource.YASAR_UNIVERSITY.value,
+            blacklist=Blacklist.YASAR_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("yasar"),
+        )
     return None
 
 
@@ -143,21 +131,5 @@ def _build_organization_source(shorthand: str) -> Parser | None:
 #         course_code_selector=CourseCodeSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
 #         course_name_selector=CourseNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
 #         uses_single_page=True,
-#     )
-#     return builded
-
-
-# elif shorthand.lower() == "deu":
-#     logger.info("Selection is, Dokuz Eylul University proceeding.")
-#     raise NotImplemented("WHY THIS SHIT NOT WORKING!??!?")
-#     builded = OrganizationParserStruct(
-#         university="Dokuz Eylul University",
-#         initials="deu",
-#         source=OrganizationSource.DOKUZ_EYLUL_UNIVERSITY.value,
-#         blacklist=PathBlacklist.DOKUZ_EYLUL_UNIVERSITY.value,
-#         base_url_ending=SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
-#         instructor_selector=InstructorNameSelector.DOKUZ_EYLUL_UNIVERSITY.value,
-#         course_code_selector=CourseCodeSelector.DOKUZ_EYLUL_UNIVERSITY.value,
-#         course_name_selector=CourseNameSelector.DOKUZ_EYLUL_UNIVERSITY.value,
 #     )
 #     return builded

@@ -12,6 +12,7 @@ from requests.exceptions import Timeout
 from data_types import Parser
 
 from proxy_generator import MaxTryException, ProxyGenerator, DOSException
+from sources.detail_sources import Selector, SelectorTuple
 
 EXACT_BLOCKLIST_PATH = "./sources/global_exact_blocklist.txt"
 
@@ -298,18 +299,24 @@ class Navigator(object, metaclass=Singleton):
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
 
+        self.logger.info("URL Count: %s", len(res))
         if self._disable_course_flag:
             return res
 
+        parsed = 0
         for i in res:
             try:
-                self._extract_course_page(i, organization)
+                pars = self._extract_course_page(i, organization.selectors)
+                if pars:
+                    parsed += 1
             except MaxTryException:
                 self.logger.info("This url cannot be fetched %s", i)
                 continue
+
+        self.logger.info("Parsed Count: %s", parsed)
         return res
 
-    def _extract_course_page(self, url: str, organization: Parser):
+    def _extract_course_page(self, url: str, selectors: SelectorTuple):
         try:
             soup = self._get_soup(url)
         except MaxTryException:
@@ -319,29 +326,61 @@ class Navigator(object, metaclass=Singleton):
         course_code = None
         course_name = None
 
-        instructor_element = soup.select(organization.instructor_selector)
-        if instructor_element:
-            instructor_name = instructor_element
+        try:
+            instructor_element = soup.select(selectors.instructor_selector.selector)[
+                selectors.instructor_index
+            ].text.strip()
 
-        course_code_element = soup.select(organization.course_code_selector)
-        if course_code_element:
-            course_code = course_code_element
-        course_name_element = soup.select(organization.course_name_selector)
-        if course_name_element:
-            course_name = course_name_element
+            if instructor_element:
+                instructor_name = self._extract_information(
+                    instructor_element, selectors.instructor_selector
+                )
 
-        if instructor_name is None:
-            self.logger.info("Not founded instructor at url: %s", url)
+            course_code_element = soup.select(selectors.course_code_selector.selector)[
+                selectors.course_code_index
+            ].text.strip()
 
-        if course_code is None:
-            self.logger.info("Not founded course code at url: %s", url)
+            if course_code_element:
+                course_code = self._extract_information(
+                    course_code_element, selectors.course_code_selector
+                )
 
-        if course_name is None:
-            self.logger.info("Not founded course name at url: %s", url)
+            course_name_element = soup.select(selectors.course_name_selector.selector)[
+                selectors.course_name_index
+            ].text.strip()
 
-        print(instructor_name)
-        print(course_code)
-        print(course_name)
+            if course_name_element:
+                course_name = self._extract_information(
+                    course_name_element, selectors.course_name_selector
+                )
+
+            if instructor_name is None:
+                self.logger.info("Not founded instructor at url: %s", url)
+
+            if course_code is None:
+                self.logger.info("Not founded course code at url: %s", url)
+
+            if course_name is None:
+                self.logger.info("Not founded course name at url: %s", url)
+
+            print(instructor_name)
+            print(course_code)
+            print(course_name)
+            return True
+        except IndexError:
+            instructor_name = None
+            course_code = None
+            course_name = None
+            return False
+
+    def _extract_information(self, element: str, selector: Selector) -> str:
+        if selector.regex_filter != "":
+            match = re.search(selector.regex_filter, element)
+            if match:
+                return match.group(selector.regex_index)
+            else:
+                return None
+        return element
 
 
 def _read_global_block_list(filepath: str) -> List[str]:
