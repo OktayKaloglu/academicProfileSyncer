@@ -230,3 +230,6 @@ https://ceng.metu.edu.tr/tr
 http://tanitim.ceng.metu.edu.tr/
 http://ceng.metu.edu.tr
 http://cse.metu.edu.tr/
+https://ninova.itu.edu.tr/tr/
+https://ninova.itu.edu.tr/tr/dersler/
+http://www.bidb.itu.edu.tr

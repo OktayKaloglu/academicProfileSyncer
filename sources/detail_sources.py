@@ -16,6 +16,7 @@ class INSelector(str, Enum):
     BOGAZICI_UNIVERSITY = "#block-system-main > div > div > div > div > div > div.panel-pane.pane-views.pane-course-offerings > div > div > div > table > tbody > tr.odd.views-row-first > td.views-field.views-field-field-instructor"
     BILKENT_UNIVERSITY = "td table tr td font i a"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > table > tr:nth-child(7) > td:nth-child(2) > a"
+    ISTANBUL_TEKNIK_UNIVERSITY = ".dersBilgileri"
 
 
 class CCSelector(str, Enum):
@@ -30,6 +31,7 @@ class CCSelector(str, Enum):
     BOGAZICI_UNIVERSITY = "#page-title > span"
     BILKENT_UNIVERSITY = "td table tr td h2"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
+    ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
 
 
 class CNSelector(str, Enum):
@@ -44,6 +46,7 @@ class CNSelector(str, Enum):
     BOGAZICI_UNIVERSITY = "#page-title > span"
     BILKENT_UNIVERSITY = "td table tr td h2"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
+    ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
 
 
 class Selector(NamedTuple):
@@ -172,6 +175,21 @@ def _selector_tuple_builder(initials: str):
             course_name_selector=Selector(
                 selector=CNSelector.ORTA_DOGU_TEKNIK_UNIVERSITY.value,
                 regex_filter=r"[A-Za-z]{2,4}\d{2,4}[a-zA-Z]?\s*(.+)",
+                regex_index=1,
+            ),
+        )
+    elif initials.lower() == "itu":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.ISTANBUL_TEKNIK_UNIVERSITY.value
+            ),
+            course_code_selector=Selector(
+                selector=CCSelector.ISTANBUL_TEKNIK_UNIVERSITY.value,
+                regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?",
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.ISTANBUL_TEKNIK_UNIVERSITY.value,
+                regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
             ),
         )
