@@ -3,7 +3,7 @@ from navigator import Navigator
 from data_types import _build_organization_source
 
 
-@click.command()
+@click.command(no_args_is_help=True)
 @click.option(
     "--debug",
     is_flag=True,
@@ -11,9 +11,10 @@ from data_types import _build_organization_source
     default=False,
     help="Run with debug configuration",
 )
-@click.option("-n", "--name", help="University name for parsing option")
 @click.option(
-    "-u",
+    "-u", "--university", help="University name for parsing option", metavar="<name>"
+)
+@click.option(
     "--use-proxy",
     is_flag=True,
     show_default=True,
@@ -24,7 +25,7 @@ from data_types import _build_organization_source
     "--disable-course-extractor",
     is_flag=True,
     show_default=False,
-    help="Disable course extract flag, when this flag is set CLI doesn't going to parse coure detail pages",
+    help="Disable course extract flag, disables course extraction tool",
 )
 def uni_parser(name, debug, use_proxy, disable_course_extractor):
     print(disable_course_extractor)
@@ -40,8 +41,8 @@ def uni_parser(name, debug, use_proxy, disable_course_extractor):
 
     organization = _build_organization_source(name)
     print(organization)
-    a = navigator.search_organization(organization)
-    for i in a:
+    urls = navigator.search_organization(organization)
+    for i in urls:
         print(i)
 
 

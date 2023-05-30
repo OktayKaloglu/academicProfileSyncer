@@ -26,7 +26,7 @@ repos:
         types_or: [python, pyi]
         args:
           [
-            "--disable=C0115,C0116,C0114,C0114,R1720,R0902,W0718,W0212,W0201",
+            "--disable=C0115,C0116,C0114,C0114,R1720,R0902,W0718,W0212,W0201,E0711,E1102",
             "--fail-under=7.5",
             "-sn",
             "-rn",

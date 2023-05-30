@@ -163,3 +163,4 @@ runtime.db
 *.swp
 .vscode
 kernelpg.ipynb
+*.swp
