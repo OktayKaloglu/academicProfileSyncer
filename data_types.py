@@ -2,9 +2,6 @@ from enum import Enum
 import logging
 from typing import List, NamedTuple
 from sources.detail_sources import (
-    CCSelector,
-    CNSelector,
-    INSelector,
     SelectorTuple,
     _selector_tuple_builder,
 )
@@ -90,6 +87,7 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             base_url_ending=SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
             selectors=_selector_tuple_builder("deu"),
         )
+    # works
     elif shorthand.lower() == "yasar":
         logger.info("Selection is, Yasar University proceeding.")
         return Parser(
@@ -99,26 +97,19 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             blacklist=Blacklist.YASAR_UNIVERSITY.value,
             selectors=_selector_tuple_builder("yasar"),
         )
+    # works
+    elif shorthand.lower() == "boun":
+        logger.info("Selection is, Bogazici University proceeding.")
+        return Parser(
+            university="Bogazici University",
+            initials="boun",
+            source=OrganizationSource.BOGAZICI_UNIVERSITY.value,
+            blacklist=Blacklist.BOGAZICI_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("boun"),
+        )
+
     return None
 
-
-# elif shorthand.lower() == "yasar":
-#     logger.info("Selection is, Yasar University proceeding.")
-#     raise NotImplemented("Instructor regex doesn't work!")
-#     builded = OrganizationParserStruct(
-#         university="Yasar University",
-#         initials="yasar",
-#         source=OrganizationSource.YASAR_UNIVERSITY.value,
-#         blacklist=PathBlacklist.YASAR_UNIVERSITY.value,
-#         instructor_selector=InstructorNameSelector.YASAR_UNIVERSITY.value,
-#         course_code_selector=CourseCodeSelector.YASAR_UNIVERSITY.value,
-#         course_name_selector=CourseNameSelector.YASAR_UNIVERSITY.value,
-#         uses_single_line_information_on_course=True,
-#         uses_single_line_information_on_instructor=True,
-#         single_line_course_regex=SingleLineCourseRegex.YASAR_UNIVERSITY,
-#         single_line_instructor_regex=SingleLineInstructorRegex.YASAR_UNIVERSITY,
-#     )
-#     return builded
 
 # elif shorthand.lower() == "ikcu":
 #     raise NotImplemented("Single page")

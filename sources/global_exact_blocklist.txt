@@ -207,3 +207,19 @@ https://ce.ieu.edu.tr/tr/lisansustu-tezler
 https://ce.ieu.edu.tr/tr/ https://lisansustu.ieu.edu.tr/ozel_hukuk/tr
 https://lisansustu.ieu.edu.tr/lojistik_yonetimi/tr
 https://lisansustu.ieu.edu.tr/lojistik_yonetimi_tezsiz/tr
+https://distancelearning.boun.edu.tr/
+https://www.cmpe.boun.edu.tr/courses/cmpemsc
+https://www.cmpe.boun.edu.tr/courses/cmpephd
+https://www.cmpe.boun.edu.tr/research
+https://www.cmpe.boun.edu.tr/research/projects
+http://ailab.cmpe.boun.edu.tr/
+https://www.cmpe.boun.edu.tr/research/labs/caslab
+http://colors.cmpe.boun.edu.tr/
+https://www.cmpe.boun.edu.tr/research/labs/medialabb
+http://netlab.boun.edu.tr/
+http://pilab.cmpe.boun.edu.tr/doku.php
+http://satlab.cmpe.boun.edu.tr/
+http://soslab.cmpe.boun.edu.tr/
+http://tabilab.cmpe.boun.edu.tr/
+https://www.tetam.boun.edu.tr/en
+https://www.cmpe.boun.edu.tr/contact

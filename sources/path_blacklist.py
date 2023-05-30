@@ -74,3 +74,18 @@ class Blacklist(list, Enum):
         "ozel_hukuk",
         "lojistik_yonetimi",
     ]
+    BOGAZICI_UNIVERSITY = [
+        "undergraduate",
+        "login",
+        "department",
+        "prospective",
+        "history",
+        "faculty",
+        "researchers",
+        "assistants",
+        "graduate",
+        "swe",
+        "node",
+        "people",
+        "content",
+    ]

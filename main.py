@@ -12,7 +12,7 @@ from data_types import _build_organization_source
     help="Run with debug configuration",
 )
 @click.option(
-    "-u", "--university", help="University name for parsing option", metavar="<name>"
+    "-n", "--name", help="University name for parsing option", metavar="<name>"
 )
 @click.option(
     "--use-proxy",

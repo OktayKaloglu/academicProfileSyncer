@@ -13,6 +13,7 @@ class INSelector(str, Enum):
     )
     IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(9) > h4 > span > span > strong"
     IZMIR_EKONOMI_UNIVERSITY = "#coordinator_list > li > a"
+    BOGAZICI_UNIVERSITY = "#block-system-main > div > div > div > div > div > div.panel-pane.pane-views.pane-course-offerings > div > div > div > table > tbody > tr.odd.views-row-first > td.views-field.views-field-field-instructor"
 
 
 class CCSelector(str, Enum):
@@ -24,6 +25,7 @@ class CCSelector(str, Enum):
     YASAR_UNIVERSITY = "#main-content > div > div > div > div > div > h3"
     IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(1) > h4 > span > span > strong"
     IZMIR_EKONOMI_UNIVERSITY = "div:nth-child(3) > div >  div.col-xs-12.col-sm-12.col-md-8.col-lg-9.text-primary-color-content > div > div > div:nth-child(2) > table > tr:nth-child(2) > td:nth-child(1) > div"
+    BOGAZICI_UNIVERSITY = "#page-title > span"
 
 
 class CNSelector(str, Enum):
@@ -35,6 +37,7 @@ class CNSelector(str, Enum):
     YASAR_UNIVERSITY = "#main-content > div > div > div > div > div > h3"
     IZMIR_KATIP_CELEBI_UNIVERSITY = "#main-wrapper > section.content-container > section > div > div > div > div > div.row.form-group > div > div > div > table > tbody > tr:nth-child(6) > td:nth-child(2) > h4 > span > span > strong"
     IZMIR_EKONOMI_UNIVERSITY = "#course_name"
+    BOGAZICI_UNIVERSITY = "#page-title > span"
 
 
 class Selector(NamedTuple):
@@ -122,6 +125,19 @@ def _selector_tuple_builder(initials: str):
             course_name_selector=Selector(
                 selector=CNSelector.YASAR_UNIVERSITY.value,
                 regex_filter=r"\b[A-Z]{2,4}\s\d{4}\s(.+?)\s–",
+                regex_index=1,
+            ),
+        )
+    elif initials.lower() == "boun":
+        return SelectorTuple(
+            instructor_selector=Selector(selector=INSelector.BOGAZICI_UNIVERSITY.value),
+            course_code_selector=Selector(
+                selector=CCSelector.BOGAZICI_UNIVERSITY.value,
+                regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?",
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.BOGAZICI_UNIVERSITY.value,
+                regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
             ),
         )

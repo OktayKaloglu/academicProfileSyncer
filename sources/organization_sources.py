@@ -15,6 +15,7 @@ class OrganizationSource(str, Enum):
         "https://ceng.ikcu.edu.tr/S/16843/lisans-ogretim-plani"
     )
     IZMIR_EKONOMI_UNIVERSITY = "https://ce.ieu.edu.tr/tr/curr"
+    BOGAZICI_UNIVERSITY = "https://www.cmpe.boun.edu.tr/courses/undergraduate"
 
 
 class SpecialBaseURLEnding(str, Enum):

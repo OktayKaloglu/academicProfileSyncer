@@ -219,6 +219,7 @@ class Navigator(object, metaclass=Singleton):
             "linkedin.com",
             "facebook.com",
             "instagram.com",
+            "youtube.com",
         ]
 
         # Validate href
