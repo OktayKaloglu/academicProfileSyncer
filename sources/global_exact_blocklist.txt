@@ -223,3 +223,10 @@ http://soslab.cmpe.boun.edu.tr/
 http://tabilab.cmpe.boun.edu.tr/
 https://www.tetam.boun.edu.tr/en
 https://www.cmpe.boun.edu.tr/contact
+http://www.metu.edu.tr
+http://ceng.metu.edu.tr/
+http://ceng.metu.edu.tr
+https://ceng.metu.edu.tr/tr
+http://tanitim.ceng.metu.edu.tr/
+http://ceng.metu.edu.tr
+http://cse.metu.edu.tr/

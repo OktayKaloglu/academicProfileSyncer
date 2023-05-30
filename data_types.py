@@ -107,6 +107,7 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             blacklist=Blacklist.BOGAZICI_UNIVERSITY.value,
             selectors=_selector_tuple_builder("boun"),
         )
+    # works
     elif shorthand.lower() == "bilkent":
         logger.info("Selection is, Bilkent University proceeding.")
         return Parser(
@@ -117,7 +118,16 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             base_url_ending=SpecialBaseURLEnding.BILKENT_UNIVERSITY.value,
             selectors=_selector_tuple_builder("bilkent"),
         )
-
+    # works
+    elif shorthand.lower() == "odtu":
+        logger.info("Selection is, Orta Dogu Teknik University proceeding.")
+        return Parser(
+            university="Orta Dogu Teknik University",
+            initials="odtu",
+            source=OrganizationSource.ORTA_DOGU_TEKNIK_UNIVERSITY.value,
+            blacklist=Blacklist.ORTA_DOGU_TEKNIK_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("odtu"),
+        )
     return None
 
 

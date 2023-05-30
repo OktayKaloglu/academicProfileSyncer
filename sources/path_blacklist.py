@@ -90,3 +90,18 @@ class Blacklist(list, Enum):
         "content",
     ]
     BILKENT_UNIVERSITY = []
+    ORTA_DOGU_TEKNIK_UNIVERSITY = [
+        "konum",
+        "people",
+        "assistants",
+        "node",
+        "arastirma",
+        "yazilim",
+        "tez",
+        "tezsiz",
+        "aday",
+        "dersler",
+        "ogretim",
+        "genel",
+        "ders-listesi",
+    ]
