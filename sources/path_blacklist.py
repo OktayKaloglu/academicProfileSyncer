@@ -89,3 +89,4 @@ class Blacklist(list, Enum):
         "people",
         "content",
     ]
+    BILKENT_UNIVERSITY = []
