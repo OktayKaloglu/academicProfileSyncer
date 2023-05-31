@@ -26,6 +26,9 @@ class INSelector(str, Enum):
     ANKARA_UNIVERSITY = "#content_sec > div > div.col1 > div > table:nth-child(10) > tbody > tr:nth-child(6) > td:nth-child(2)"
     BASKENT_UNIVERSITY = "#mytable > tr:nth-child(6) > td > a:nth-child(1)"
     ISTANBUL_UNIVERSITY_CERRAHPASA = "body > div > div > div > div > div.col-lg-9.col-md-9 > div > div:nth-child(1) > div.panel-body > table > tbody > tr:nth-child(5) > td:nth-child(4) > a"
+    MARMARA_UNIVERSITY = (
+        "#bbicerik > div > table > tbody > tr:nth-child(1) > td:nth-child(4)"
+    )
 
 
 class CCSelector(str, Enum):
@@ -50,6 +53,7 @@ class CCSelector(str, Enum):
     ANKARA_UNIVERSITY = "#body_content_lblDersKodu"
     BASKENT_UNIVERSITY = "#ders_bilgi > table > tr:nth-child(2) > td:nth-child(2)"
     ISTANBUL_UNIVERSITY_CERRAHPASA = "body > div > div > div > div > div.col-lg-9.col-md-9 > div > div:nth-child(1) > div.panel-body > table > tbody > tr:nth-child(1) > td:nth-child(4)"
+    MARMARA_UNIVERSITY = "#bbicerik > table > tr:nth-child(2) > td:nth-child(2)"
 
 
 class CNSelector(str, Enum):
@@ -74,6 +78,7 @@ class CNSelector(str, Enum):
     ANKARA_UNIVERSITY = "#body_content_lblDersAdi"
     BASKENT_UNIVERSITY = "#ders_bilgi > table > tr:nth-child(2) > td:nth-child(1)"
     ISTANBUL_UNIVERSITY_CERRAHPASA = "body > div > div > div > div > div.col-lg-9.col-md-9 > div > div:nth-child(1) > div.panel-body > table > tbody > tr:nth-child(1) > td:nth-child(2)"
+    MARMARA_UNIVERSITY = "#bbicerik > table > tr:nth-child(2) > td:nth-child(3)"
 
 
 class Selector(NamedTuple):
@@ -318,4 +323,12 @@ def _selector_tuple_builder(initials: str):
             course_name_selector=Selector(
                 selector=CNSelector.ISTANBUL_UNIVERSITY_CERRAHPASA.value
             ),
+        )
+    elif initials.lower() == "marmara":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.MARMARA_UNIVERSITY.value,
+            ),
+            course_code_selector=Selector(selector=CCSelector.MARMARA_UNIVERSITY.value),
+            course_name_selector=Selector(selector=CNSelector.MARMARA_UNIVERSITY.value),
         )

@@ -198,3 +198,4 @@ class Blacklist(list, Enum):
         "lisans",
         "onlisans",
     ]
+    MARMARA_UNIVERSITY = ["Print"]

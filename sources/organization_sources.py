@@ -36,6 +36,7 @@ class OrganizationSource(str, Enum):
     ANKARA_UNIVERSITY = "http://bbs.ankara.edu.tr/Ders_Plani.aspx?bno=4358&bot=1992"
     BASKENT_UNIVERSITY = "http://truva.baskent.edu.tr/bilgipaketi/?dil=TR&menu=akademik&inner=katalog&birim=682"
     ISTANBUL_UNIVERSITY_CERRAHPASA = "https://ebs.iuc.edu.tr/home/dersprogram/?id=1092"
+    MARMARA_UNIVERSITY = "https://meobs.marmara.edu.tr/Mufredat/DersListesi?organizasyonId=97&organizasyonProgramId=78&programMufredatId=4199&mufredatTurId=932001&birimOrganizasyonId=0"
 
 
 class SpecialBaseURLEnding(str, Enum):
