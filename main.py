@@ -47,20 +47,9 @@ def uni_parser(name, debug, use_proxy, disable_course_extractor):
         navigator.use_proxy()
 
     organization = _build_organization_source(name)
-    # parsed_objs = navigator.search_organization(organization)
-    obj = ExportObjectCourse(
-        organization="asd",
-        initials="Asd231j",
-        href="Asdasd",
-        course_code="asdasda",
-        course_info="Asdasdsa",
-        course_name="asdasasdsa",
-        instructor="asdasdsadsa",
-    )
-    asd = []
-    asd.append(obj)
+    parsed_objs = navigator.search_organization(organization)
     filename = generate_filename(organization.initials)
-    write_object_to_csv(asd, filename)
+    write_object_to_csv(parsed_objs, filename)
 
 
 if __name__ == "__main__":
