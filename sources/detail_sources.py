@@ -17,6 +17,7 @@ class INSelector(str, Enum):
     BILKENT_UNIVERSITY = "td table tr td font i a"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > table > tr:nth-child(7) > td:nth-child(2) > a"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersBilgileri"
+    YEDITEPE_UNIVERSITY = "div > div > div.field.field-name-field-dersin-koordinatoru.field-type-node-reference.field-label-inline.clearfix > div.field-items > div > a"
 
 
 class CCSelector(str, Enum):
@@ -32,6 +33,7 @@ class CCSelector(str, Enum):
     BILKENT_UNIVERSITY = "td table tr td h2"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
+    YEDITEPE_UNIVERSITY = "div > div > fieldset:nth-child(1) > div > div.field.field-name-field-ders-kodu.field-type-text.field-label-inline.clearfix > div.field-items > div"
 
 
 class CNSelector(str, Enum):
@@ -47,6 +49,7 @@ class CNSelector(str, Enum):
     BILKENT_UNIVERSITY = "td table tr td h2"
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
+    YEDITEPE_UNIVERSITY = "#page-title"
 
 
 class Selector(NamedTuple):
@@ -191,5 +194,15 @@ def _selector_tuple_builder(initials: str):
                 selector=CNSelector.ISTANBUL_TEKNIK_UNIVERSITY.value,
                 regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
+            ),
+        )
+    elif initials.lower() == "yeditepe":
+        return SelectorTuple(
+            instructor_selector=Selector(selector=INSelector.YEDITEPE_UNIVERSITY.value),
+            course_code_selector=Selector(
+                selector=CCSelector.YEDITEPE_UNIVERSITY.value
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.YEDITEPE_UNIVERSITY.value
             ),
         )

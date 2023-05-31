@@ -21,6 +21,9 @@ class OrganizationSource(str, Enum):
     ISTANBUL_TEKNIK_UNIVERSITY = (
         "https://ninova.itu.edu.tr/tr/dersler/bilgisayar-bilisim-fakultesi/"
     )
+    YEDITEPE_UNIVERSITY = (
+        "https://eng.yeditepe.edu.tr/tr/bilgisayar-muhendisligi-bolumu/dersler"
+    )
 
 
 class SpecialBaseURLEnding(str, Enum):
