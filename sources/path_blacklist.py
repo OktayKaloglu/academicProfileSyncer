@@ -160,3 +160,13 @@ class Blacklist(list, Enum):
         "arastirma",
         "cift",
     ]
+    GALATASARAY_UNIVERSITY = [
+        "index",
+        "programmedetails",
+        "programmeoutcomes",
+        "page",
+        "outcomesmatrix",
+        "docs",
+        "galeri",
+        "allcoursesreport",
+    ]

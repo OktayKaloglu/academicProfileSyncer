@@ -253,3 +253,6 @@ https://eng.yeditepe.edu.tr/tr/bilgisayar-muhendisligi-bolumu/yayinlar
 https://eng.yeditepe.edu.tr/tr/bilgisayar-muhendisligi-bolumu/projeler
 https://eng.yeditepe.edu.tr/tr/bilgisayar-muhendisligi-bolumu/duyuru
 https://eng.yeditepe.edu.tr/tr/bilgisayar-muhendisligi-bolumu/etkinlik
+https://ects.gsu.edu.tr/tr
+http://uio.gsu.edu.tr/tr
+https://ects.gsu.edu.tr/tr/Yonetim/user/login

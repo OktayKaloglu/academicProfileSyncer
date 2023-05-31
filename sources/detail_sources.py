@@ -18,6 +18,7 @@ class INSelector(str, Enum):
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > table > tr:nth-child(7) > td:nth-child(2) > a"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersBilgileri"
     YEDITEPE_UNIVERSITY = "div > div > div.field.field-name-field-dersin-koordinatoru.field-type-node-reference.field-label-inline.clearfix > div.field-items > div > a"
+    GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > span:nth-child(1)"
 
 
 class CCSelector(str, Enum):
@@ -34,6 +35,7 @@ class CCSelector(str, Enum):
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
     YEDITEPE_UNIVERSITY = "div > div > fieldset:nth-child(1) > div > div.field.field-name-field-ders-kodu.field-type-text.field-label-inline.clearfix > div.field-items > div"
+    GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(1)"
 
 
 class CNSelector(str, Enum):
@@ -50,6 +52,7 @@ class CNSelector(str, Enum):
     ORTA_DOGU_TEKNIK_UNIVERSITY = "#content > div.col-content > div > div > h2"
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
     YEDITEPE_UNIVERSITY = "#page-title"
+    GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(2)"
 
 
 class Selector(NamedTuple):
@@ -204,5 +207,17 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.YEDITEPE_UNIVERSITY.value
+            ),
+        )
+    elif initials.lower() == "gsu":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.GALATASARAY_UNIVERSITY.value
+            ),
+            course_code_selector=Selector(
+                selector=CCSelector.GALATASARAY_UNIVERSITY.value
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.GALATASARAY_UNIVERSITY.value
             ),
         )
