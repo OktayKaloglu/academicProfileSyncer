@@ -271,6 +271,7 @@ class Navigator(object, metaclass=Singleton):
                     base_schema.scheme
                     + "://"
                     + base_schema.netloc
+                    + organization.base_url_ending
                     + href_schema.path
                     + "?"
                     + href_schema.query
@@ -399,10 +400,13 @@ class Navigator(object, metaclass=Singleton):
         if selector.regex_filter != "":
             match = re.search(selector.regex_filter, element)
             if match:
-                return match.group(selector.regex_index)
+                cleaned_text = re.sub(r"\s+", " ", match.group(selector.regex_index))
+                return cleaned_text
             else:
                 return None
-        return element
+
+        cleaned_text = re.sub(r"\s+", " ", element)
+        return cleaned_text
 
 
 def _read_global_block_list(filepath: str) -> List[str]:

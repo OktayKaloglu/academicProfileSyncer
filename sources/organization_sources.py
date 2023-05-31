@@ -33,9 +33,11 @@ class OrganizationSource(str, Enum):
         "https://ects.bilgi.edu.tr/Department/Curriculum?catalog_departmentId=138530"
     )
     GEBZE_TEKNIK_UNIVERSITY = "https://abl.gtu.edu.tr/ects/?dil=tr&duzey=ucuncu&modul=lisans_derskatalogu&bolum=104&tip=lisans"
+    ANKARA_UNIVERSITY = "http://bbs.ankara.edu.tr/Ders_Plani.aspx?bno=4358&bot=1992"
 
 
 class SpecialBaseURLEnding(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = "/ders-katalog/2021-2022/tr/"
     IZMIR_EKONOMI_UNIVERSITY = "/tr/"
     BILKENT_UNIVERSITY = "/"
+    ANKARA_UNIVERSITY = "/"
