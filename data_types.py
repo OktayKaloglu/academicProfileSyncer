@@ -233,18 +233,3 @@ def _build_organization_source(shorthand: str) -> Parser | None:
         )
 
     return None
-
-
-# elif shorthand.lower() == "ikcu":
-#     raise NotImplemented("Single page")
-#     builded = OrganizationParserStruct(
-#         university="Izmir Katip Celebi University",
-#         initials="ikcu",
-#         source=OrganizationSource.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
-#         blacklist=PathBlacklist.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
-#         instructor_selector=InstructorNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
-#         course_code_selector=CourseCodeSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
-#         course_name_selector=CourseNameSelector.IZMIR_KATIP_CELEBI_UNIVERSITY.value,
-#         uses_single_page=True,
-#     )
-#     return builded

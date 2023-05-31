@@ -12,7 +12,7 @@ from requests.exceptions import Timeout
 from data_types import Parser
 
 from proxy_generator import MaxTryException, ProxyGenerator, DOSException
-from sources.detail_sources import Selector, SelectorTuple
+from sources.detail_sources import ExportObjectCourse, Selector, SelectorTuple
 
 EXACT_BLOCKLIST_PATH = "./sources/global_exact_blocklist.txt"
 
@@ -308,7 +308,8 @@ class Navigator(object, metaclass=Singleton):
         if rows:
             self.logger.info("Found links on page")
 
-        res = []
+        hrefs = []
+        parsed_obj = []
         seen_urls = set()
 
         self.logger.info("Starting filtering process for links")
@@ -318,28 +319,34 @@ class Navigator(object, metaclass=Singleton):
                 organization=organization,
             )
             if filtered is not None and filtered not in seen_urls:
-                res.append(filtered)
+                hrefs.append(filtered)
                 seen_urls.add(filtered)
         self.logger.info("Links gathered")
 
-        self.logger.info("URL Count: %s", len(res))
+        self.logger.info("URL Count: %s", len(hrefs))
         if self._disable_course_flag:
-            return res
+            for i in hrefs:
+                print(i)
 
         parsed = 0
-        for i in res:
+        for i in hrefs:
             try:
-                pars = self._extract_course_page(i, organization.selectors)
-                if pars:
+                pars = self._extract_course_page(
+                    i, organization.selectors, organization=organization
+                )
+                if pars is not None:
                     parsed += 1
+                    parsed_obj.append(pars)
             except MaxTryException:
                 self.logger.info("This url cannot be fetched %s", i)
                 continue
 
         self.logger.info("Parsed Count: %s", parsed)
-        return res
+        return parsed_obj
 
-    def _extract_course_page(self, url: str, selectors: SelectorTuple):
+    def _extract_course_page(
+        self, url: str, selectors: SelectorTuple, organization: Parser
+    ):
         try:
             soup = self._get_soup(url)
         except MaxTryException:
@@ -348,6 +355,7 @@ class Navigator(object, metaclass=Singleton):
         instructor_name = None
         course_code = None
         course_name = None
+        course_info = None
 
         try:
             instructor_element = soup.select(selectors.instructor_selector.selector)[
@@ -377,19 +385,50 @@ class Navigator(object, metaclass=Singleton):
                     course_name_element, selectors.course_name_selector
                 )
 
+            course_info_element = soup.select(selectors.course_info_selector.selector)[
+                selectors.course_info_selector_index
+            ].text.strip()
+
+            if course_info_element:
+                course_info = self._extract_information(
+                    course_info_element, selectors.course_name_selector
+                )
+
             if instructor_name is None:
                 self.logger.info("Not founded instructor at url: %s", url)
+                return None
 
             if course_code is None:
                 self.logger.info("Not founded course code at url: %s", url)
+                return None
 
             if course_name is None:
                 self.logger.info("Not founded course name at url: %s", url)
+                return None
 
-            print(instructor_name)
-            print(course_code)
-            print(course_name)
-            return True
+            if course_info is None:
+                self.logger.info("Not founded course info at url: %s", url)
+                return None
+
+            self.logger.info(
+                "Parsed content: %s %s %s \n%s",
+                instructor_name,
+                course_code,
+                course_name,
+                course_info,
+            )
+
+            obj = ExportObjectCourse(
+                organization=organization.university,
+                initials=organization.initials,
+                href=url,
+                course_code=course_code,
+                course_info=course_info,
+                course_name=course_name,
+                instructor=instructor_name,
+            )
+            return obj
+
         except IndexError:
             instructor_name = None
             course_code = None

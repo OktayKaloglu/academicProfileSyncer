@@ -1,5 +1,7 @@
 from enum import Enum
-from typing import NamedTuple
+from typing import List, NamedTuple
+import csv
+import os
 
 
 class INSelector(str, Enum):
@@ -81,6 +83,15 @@ class CNSelector(str, Enum):
     MARMARA_UNIVERSITY = "#bbicerik > table > tr:nth-child(2) > td:nth-child(3)"
 
 
+class CISelector(str, Enum):
+    """Course info Selector"""
+
+    EGE_UNIVERSITY = "#wrapper > div > div > div > div > div > div > p:nth-child(14)"
+    IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY = (
+        "div > div.vc_col-sm-9 > div > div > div > div > div > div > p"
+    )
+
+
 class Selector(NamedTuple):
     selector: str = ""
     regex_filter: str = ""
@@ -94,6 +105,8 @@ class SelectorTuple(NamedTuple):
     instructor_selector: Selector = Selector()
     course_name_selector: Selector = Selector()
     course_code_selector: Selector = Selector()
+    course_info_selector: Selector = Selector()
+    course_info_selector_index: int = 0
     instructor_index: int = 0
     course_name_index: int = 0
     course_code_index: int = 0
@@ -103,10 +116,68 @@ class SelectorTuple(NamedTuple):
             f"Instructor selector: {self.instructor_selector}\n"
             f"Course Name selector: {self.course_name_selector}\n"
             f"Course Code selector: {self.course_code_selector}\n"
+            f"Course info selector: {self.course_info_selector}\n"
             f"Instructor index: {self.instructor_index}\n"
             f"Course code index: {self.course_code_index}\n"
             f"Course name index: {self.course_name_index}\n"
+            f"Course info index: {self.course_info_selector_index}\n"
         )
+
+
+class ExportObjectCourse:
+    def __init__(
+        self,
+        organization,
+        initials,
+        href,
+        course_code,
+        course_name,
+        course_info,
+        instructor,
+    ):
+        self.organization = organization
+        self.initials = initials
+        self.href = href
+        self.course_code = course_code
+        self.course_name = course_name
+        self.course_info = course_info
+        self.instructor = instructor
+
+    def to_list(self):
+        return [
+            self.organization,
+            self.initials,
+            self.href,
+            self.course_code,
+            self.course_name,
+            self.course_info,
+            self.instructor,
+        ]
+
+    def __str__(self):
+        return f"ExportObjectCourse(organization={self.organization}, initials={self.initials}, href={self.href}, course_code={self.course_code}, course_name={self.course_name}, course_info={self.course_info})"
+
+
+def write_object_to_csv(
+    obj: List[ExportObjectCourse], filename: str, write_headers=True
+):
+    file_exists = os.path.isfile(filename)
+    with open(filename, mode="a" if file_exists else "w", newline="") as file:
+        writer = csv.writer(file)
+        if write_headers and (not file_exists or file.tell() == 0):
+            writer.writerow(
+                [
+                    "organization",
+                    "initials",
+                    "href",
+                    "course_code",
+                    "course_name",
+                    "course_info",
+                    "instructor",
+                ]
+            )
+        for i in obj:
+            writer.writerow(i.to_list())
 
 
 def _selector_tuple_builder(initials: str):
@@ -115,6 +186,7 @@ def _selector_tuple_builder(initials: str):
             instructor_selector=Selector(selector=INSelector.EGE_UNIVERSITY.value),
             course_code_selector=Selector(selector=CCSelector.EGE_UNIVERSITY.value),
             course_name_selector=Selector(selector=CNSelector.EGE_UNIVERSITY.value),
+            course_info_selector=Selector(selector=CISelector.EGE_UNIVERSITY.value),
         )
     elif initials.lower() == "iyte":
         return SelectorTuple(
@@ -126,6 +198,9 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value
+            ),
+            course_info_selector=Selector(
+                selector=CISelector.IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY.value
             ),
         )
 
