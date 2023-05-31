@@ -190,3 +190,4 @@ class Blacklist(list, Enum):
     ]
     GEBZE_TEKNIK_UNIVERSITY = ["menu"]
     ANKARA_UNIVERSITY = ["bologna", "bolumler", "default", "iletisim", "bolum"]
+    BASKENT_UNIVERSITY = []

@@ -202,6 +202,16 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             base_url_ending=SpecialBaseURLEnding.ANKARA_UNIVERSITY.value,
             selectors=_selector_tuple_builder("ankara"),
         )
+    elif shorthand.lower() == "baskent":
+        logger.info("Selection is, Baskent University proceeding.")
+        return Parser(
+            university="Baskent University",
+            initials="baskent",
+            source=OrganizationSource.BASKENT_UNIVERSITY.value,
+            blacklist=Blacklist.BASKENT_UNIVERSITY.value,
+            # base_url_ending=SpecialBaseURLEnding.ANKARA_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("baskent"),
+        )
 
     return None
 

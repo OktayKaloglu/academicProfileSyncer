@@ -24,6 +24,7 @@ class INSelector(str, Enum):
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div:nth-child(3) > table > tbody > tr:nth-child(4) > td:nth-child(2) > a:nth-child(1)"
     GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(6) > td.dyazi1 > a"
     ANKARA_UNIVERSITY = "#content_sec > div > div.col1 > div > table:nth-child(10) > tbody > tr:nth-child(6) > td:nth-child(2)"
+    BASKENT_UNIVERSITY = "#mytable > tr:nth-child(6) > td > a:nth-child(1)"
 
 
 class CCSelector(str, Enum):
@@ -46,6 +47,7 @@ class CCSelector(str, Enum):
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(2)"
     GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(5) > td.dyazi1"
     ANKARA_UNIVERSITY = "#body_content_lblDersKodu"
+    BASKENT_UNIVERSITY = "#ders_bilgi > table > tr:nth-child(2) > td:nth-child(2)"
 
 
 class CNSelector(str, Enum):
@@ -68,6 +70,7 @@ class CNSelector(str, Enum):
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(3)"
     GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(4) > td.dyazi1"
     ANKARA_UNIVERSITY = "#body_content_lblDersAdi"
+    BASKENT_UNIVERSITY = "#ders_bilgi > table > tr:nth-child(2) > td:nth-child(1)"
 
 
 class Selector(NamedTuple):
@@ -292,4 +295,12 @@ def _selector_tuple_builder(initials: str):
             ),
             course_code_selector=Selector(selector=CCSelector.ANKARA_UNIVERSITY.value),
             course_name_selector=Selector(selector=CNSelector.ANKARA_UNIVERSITY.value),
+        )
+    elif initials.lower() == "baskent":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.BASKENT_UNIVERSITY.value,
+            ),
+            course_code_selector=Selector(selector=CCSelector.BASKENT_UNIVERSITY.value),
+            course_name_selector=Selector(selector=CNSelector.BASKENT_UNIVERSITY.value),
         )
