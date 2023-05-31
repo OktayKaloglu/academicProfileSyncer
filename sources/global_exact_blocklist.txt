@@ -405,3 +405,11 @@ http://truva.baskent.edu.tr?dil=TR&menu=akademik&inner=programCiktilariMatrisi&b
 http://truva.baskent.edu.tr?dil=TR&menu=akademik&inner=tyycMatrisi&birim=682
 http://truva.baskent.edu.tr?dil=TR
 http://truva.baskent.edu.tr?dil=TR&menu=akademik&inner=genelBilgi&birim=504True
+https://ebs.iuc.edu.tr/home/language?lang=tr
+https://ebs.iuc.edu.tr/home/language?lang=en
+http://www.istanbulc.edu.tr/tr/content/yerleskeler/yerleskeler
+https://ebs.iuc.edu.tr/home/program/?id=1092&yil=2022
+https://ebs.iuc.edu.tr/home/amachedef/?id=1092
+https://ebs.iuc.edu.tr/home/kazanim/?id=1092
+https://ebs.iuc.edu.tr/home/mezuniyetkosullari/?id=1092
+https://ebs.iuc.edu.tr/home/dersprogram/?id=1092&yil=2022
