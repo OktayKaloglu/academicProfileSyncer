@@ -22,6 +22,7 @@ class INSelector(str, Enum):
     BAHCESEHIR_UNIVERSITY = 'td:contains("Dersin Koordinatörü:") + td'
     YILDIZ_TEKNIK_UNIVERSITY = "#coursegrid > tr:nth-child(2) > td > a"
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div:nth-child(3) > table > tbody > tr:nth-child(4) > td:nth-child(2) > a:nth-child(1)"
+    GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(6) > td.dyazi1 > a"
 
 
 class CCSelector(str, Enum):
@@ -42,6 +43,7 @@ class CCSelector(str, Enum):
     BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(1)"
     YILDIZ_TEKNIK_UNIVERSITY = "#courseshortinfo > td:nth-child(2)"
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(2)"
+    GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(5) > td.dyazi1"
 
 
 class CNSelector(str, Enum):
@@ -62,6 +64,7 @@ class CNSelector(str, Enum):
     BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(2)"
     YILDIZ_TEKNIK_UNIVERSITY = "#courseshortinfo > td:nth-child(1) > strong"
     ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(3)"
+    GEBZE_TEKNIK_UNIVERSITY = "#content > div:nth-child(7) > table:nth-child(1) > tbody > tr:nth-child(4) > td.dyazi1"
 
 
 class Selector(NamedTuple):
@@ -265,5 +268,17 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.ISTANBUL_BILGI_UNIVERSITY.value
+            ),
+        )
+    elif initials.lower() == "gtu":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.GEBZE_TEKNIK_UNIVERSITY.value,
+            ),
+            course_code_selector=Selector(
+                selector=CCSelector.GEBZE_TEKNIK_UNIVERSITY.value
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.GEBZE_TEKNIK_UNIVERSITY.value
             ),
         )

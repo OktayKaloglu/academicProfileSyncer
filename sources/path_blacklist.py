@@ -188,3 +188,4 @@ class Blacklist(list, Enum):
         "SummerSchool",
         "Information",
     ]
+    GEBZE_TEKNIK_UNIVERSITY = ["menu"]

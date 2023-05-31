@@ -183,6 +183,16 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             blacklist=Blacklist.ISTANBUL_BILGI_UNIVERSITY.value,
             selectors=_selector_tuple_builder("bilgi"),
         )
+    elif shorthand.lower() == "gtu":
+        logger.info("Selection is, Gebze Teknik University proceeding.")
+        return Parser(
+            university="Gebze Teknik University",
+            initials="gtu",
+            source=OrganizationSource.GEBZE_TEKNIK_UNIVERSITY.value,
+            blacklist=Blacklist.GEBZE_TEKNIK_UNIVERSITY.value,
+            selectors=_selector_tuple_builder("gtu"),
+        )
+
     return None
 
 
