@@ -19,6 +19,7 @@ class INSelector(str, Enum):
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersBilgileri"
     YEDITEPE_UNIVERSITY = "div > div > div.field.field-name-field-dersin-koordinatoru.field-type-node-reference.field-label-inline.clearfix > div.field-items > div > a"
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > span:nth-child(1)"
+    BAHCESEHIR_UNIVERSITY = 'td:contains("Dersin Koordinatörü:") + td'
 
 
 class CCSelector(str, Enum):
@@ -36,6 +37,7 @@ class CCSelector(str, Enum):
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
     YEDITEPE_UNIVERSITY = "div > div > fieldset:nth-child(1) > div > div.field.field-name-field-ders-kodu.field-type-text.field-label-inline.clearfix > div.field-items > div"
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(1)"
+    BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(1)"
 
 
 class CNSelector(str, Enum):
@@ -53,6 +55,7 @@ class CNSelector(str, Enum):
     ISTANBUL_TEKNIK_UNIVERSITY = ".dersler h1"
     YEDITEPE_UNIVERSITY = "#page-title"
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(2)"
+    BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(2)"
 
 
 class Selector(NamedTuple):
@@ -219,5 +222,17 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.GALATASARAY_UNIVERSITY.value
+            ),
+        )
+    elif initials.lower() == "bau":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.BAHCESEHIR_UNIVERSITY.value
+            ),
+            course_code_selector=Selector(
+                selector=CCSelector.BAHCESEHIR_UNIVERSITY.value
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.BAHCESEHIR_UNIVERSITY.value
             ),
         )

@@ -170,3 +170,4 @@ class Blacklist(list, Enum):
         "galeri",
         "allcoursesreport",
     ]
+    BAHCESEHIR_UNIVERSITY = []
