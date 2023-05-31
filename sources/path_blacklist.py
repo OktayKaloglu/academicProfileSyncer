@@ -180,3 +180,11 @@ class Blacklist(list, Enum):
         # "contact",
         # "statistics",
     ]
+    ISTANBUL_BILGI_UNIVERSITY = [
+        "Institutional",
+        "Department",
+        "Home",
+        "Elective",
+        "SummerSchool",
+        "Information",
+    ]

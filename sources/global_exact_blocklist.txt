@@ -296,3 +296,7 @@ http://www.bologna.yildiz.edu.tr/index.php?r=user/view&id=146&aid=3
 http://www.bologna.yildiz.edu.tr/index.php
 http://www.enfo.yildiz.edu.tr/
 http://www.yildiz.edu.tr/
+https://ects.bilgi.edu.tr/Course
+call:4440428
+http://www.bilgi.edu.tr/tr/universite/bilgi-edinme/
+http://www.bilgi.edu.tr/site_media/uploads/files/2015/01/13/santral_kampusu_harita.pdf

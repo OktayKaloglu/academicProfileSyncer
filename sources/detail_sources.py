@@ -21,6 +21,7 @@ class INSelector(str, Enum):
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > span:nth-child(1)"
     BAHCESEHIR_UNIVERSITY = 'td:contains("Dersin Koordinatörü:") + td'
     YILDIZ_TEKNIK_UNIVERSITY = "#coursegrid > tr:nth-child(2) > td > a"
+    ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div:nth-child(3) > table > tbody > tr:nth-child(4) > td:nth-child(2) > a:nth-child(1)"
 
 
 class CCSelector(str, Enum):
@@ -40,6 +41,7 @@ class CCSelector(str, Enum):
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(1)"
     BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(1)"
     YILDIZ_TEKNIK_UNIVERSITY = "#courseshortinfo > td:nth-child(2)"
+    ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(2)"
 
 
 class CNSelector(str, Enum):
@@ -59,6 +61,7 @@ class CNSelector(str, Enum):
     GALATASARAY_UNIVERSITY = "#tab-icerik > div > div.table-responsive > table:nth-child(1) > tbody > tr > td:nth-child(2)"
     BAHCESEHIR_UNIVERSITY = ".rows td:nth-child(2)"
     YILDIZ_TEKNIK_UNIVERSITY = "#courseshortinfo > td:nth-child(1) > strong"
+    ISTANBUL_BILGI_UNIVERSITY = "body > div.container > div:nth-child(3) > div.table-responsive > table > tbody > tr > td:nth-child(3)"
 
 
 class Selector(NamedTuple):
@@ -249,5 +252,18 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.YILDIZ_TEKNIK_UNIVERSITY.value
+            ),
+        )
+    elif initials.lower() == "bilgi":
+        return SelectorTuple(
+            instructor_selector=Selector(
+                selector=INSelector.ISTANBUL_BILGI_UNIVERSITY.value,
+                regex_filter=r"^([^,]+)",
+            ),
+            course_code_selector=Selector(
+                selector=CCSelector.ISTANBUL_BILGI_UNIVERSITY.value
+            ),
+            course_name_selector=Selector(
+                selector=CNSelector.ISTANBUL_BILGI_UNIVERSITY.value
             ),
         )

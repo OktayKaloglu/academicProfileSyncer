@@ -220,6 +220,7 @@ class Navigator(object, metaclass=Singleton):
             "facebook.com",
             "instagram.com",
             "youtube.com",
+            "maps.google.com",
         ]
 
         # Validate href
