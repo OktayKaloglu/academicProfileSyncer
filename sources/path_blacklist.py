@@ -171,3 +171,12 @@ class Blacklist(list, Enum):
         "allcoursesreport",
     ]
     BAHCESEHIR_UNIVERSITY = []
+    YILDIZ_TEKNIK_UNIVERSITY = [
+        # "infoforstudents",
+        # "program",
+        # "institution",
+        # "academicunit",
+        # "login",
+        # "contact",
+        # "statistics",
+    ]

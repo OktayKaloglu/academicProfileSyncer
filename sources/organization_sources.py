@@ -26,6 +26,9 @@ class OrganizationSource(str, Enum):
     )
     GALATASARAY_UNIVERSITY = "https://ects.gsu.edu.tr/tr/program/programmedetails/12"
     BAHCESEHIR_UNIVERSITY = "https://akts.bau.edu.tr/bilgipaketi/index/ogrenimprogrami/program_kodu/04012101/menu_id/p_33/tip/L/ln/tr/print/1"
+    YILDIZ_TEKNIK_UNIVERSITY = (
+        "http://www.bologna.yildiz.edu.tr/index.php?r=program/view&id=196&aid=3"
+    )
 
 
 class SpecialBaseURLEnding(str, Enum):

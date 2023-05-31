@@ -264,6 +264,16 @@ class Navigator(object, metaclass=Singleton):
                 + organization.base_url_ending
                 + href_schema.path
             )
+
+            if href_schema.query:
+                builded_url = (
+                    base_schema.scheme
+                    + "://"
+                    + base_schema.netloc
+                    + href_schema.path
+                    + "?"
+                    + href_schema.query
+                )
             if builded_url in self._global_exact_blocklist:
                 return None
             return builded_url
@@ -271,6 +281,16 @@ class Navigator(object, metaclass=Singleton):
         builded_url_bs = (
             base_schema.scheme + "://" + base_schema.netloc + href_schema.path
         )
+
+        if href_schema.query:
+            builded_url_bs = (
+                base_schema.scheme
+                + "://"
+                + base_schema.netloc
+                + href_schema.path
+                + "?"
+                + href_schema.query
+            )
         if builded_url_bs in self._global_exact_blocklist:
             return None
 
