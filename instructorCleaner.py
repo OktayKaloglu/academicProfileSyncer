@@ -32,6 +32,14 @@ def split_instructors(x):
                 x=repX[0]
     return x
 
+def onlyTheName(x):
+    if '.' in x:
+            
+
+
+        return x
+
+
 
 instructors=pd.read_csv("teachers.csv",sep=',',names=["instructor","lesson","url"])
 instructors.dropna(axis="index",inplace=True)
@@ -42,4 +50,4 @@ instructors=instructors.explode('instructor')
 instructors["instructor"]=instructors["instructor"].apply(lambda x: x.strip())
 instructors=instructors["instructor"].unique().tolist()
 
-writeJson(instructors,"cleaned_instructor.json")
+writeJson(instructors,"cleaned_instructor2.json")
