@@ -433,7 +433,7 @@ class Navigator(object, metaclass=Singleton):
             instructor_name = None
             course_code = None
             course_name = None
-            return False
+            return None
 
     def _extract_information(self, element: str, selector: Selector) -> str:
         if selector.regex_filter != "":

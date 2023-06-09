@@ -9,7 +9,9 @@ class OrganizationSource(str, Enum):
     DOKUZ_EYLUL_UNIVERSITY = (
         "https://debis.deu.edu.tr/ders-katalog/2021-2022/tr/bolum_1210_tr.html"
     )
-    IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY = "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-egitim-plani-2018-ve-sonrasi/"
+    IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY = (
+        "https://ceng.iyte.edu.tr/tr/egitim/lisans-programi/lisans-dersleri/"
+    )
     YASAR_UNIVERSITY = "https://ce.yasar.edu.tr/dersler/"
     IZMIR_KATIP_CELEBI_UNIVERSITY = (
         "https://ceng.ikcu.edu.tr/S/16843/lisans-ogretim-plani"

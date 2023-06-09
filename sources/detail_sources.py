@@ -90,6 +90,7 @@ class CISelector(str, Enum):
     IZMIR_YUKSEK_TEKNOLOJI_UNIVERSITY = (
         "div > div.vc_col-sm-9 > div > div > div > div > div > div > p"
     )
+    IZMIR_EKONOMI_UNIVERSITY = "td.sy-label + td"
 
 
 class Selector(NamedTuple):
@@ -215,6 +216,10 @@ def _selector_tuple_builder(initials: str):
             course_name_selector=Selector(
                 selector=CNSelector.IZMIR_EKONOMI_UNIVERSITY.value
             ),
+            course_info_selector=Selector(
+                selector=CISelector.IZMIR_EKONOMI_UNIVERSITY.value
+            ),
+            course_info_selector_index=9,
         )
 
     elif initials.lower() == "deu":
