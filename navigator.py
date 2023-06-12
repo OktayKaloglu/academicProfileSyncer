@@ -391,7 +391,7 @@ class Navigator(object, metaclass=Singleton):
 
             if course_info_element:
                 course_info = self._extract_information(
-                    course_info_element, selectors.course_name_selector
+                    course_info_element, selectors.course_info_selector
                 )
 
             if instructor_name is None:

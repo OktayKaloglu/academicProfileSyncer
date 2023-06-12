@@ -91,6 +91,13 @@ class CISelector(str, Enum):
         "div > div.vc_col-sm-9 > div > div > div > div > div > div > p"
     )
     IZMIR_EKONOMI_UNIVERSITY = "td.sy-label + td"
+    DOKUZ_EYLUL_UNIVERSITY = "div.span-18.last >p:nth-of-type(6)"
+    YASAR_UNIVERSITY = "div > div > div > div > div > p:nth-child(2)"
+    BOGAZICI_UNIVERSITY = 'div.field-item.odd[property="content:encoded"] p'
+    BILKENT_UNIVERSITY = "td table tr td font"
+    ORTA_DOGU_TEKNIK_UNIVERSITY = "#courseObjectives"
+    ISTANBUL_TEKNIK_UNIVERSITY = ".dersler p"
+    YEDITEPE_UNIVERSITY = "#div > div > div.field.field-name-field-dersin-amaci.field-type-text-long.field-label-above > div.field-items > div"
 
 
 class Selector(NamedTuple):
@@ -233,6 +240,9 @@ def _selector_tuple_builder(initials: str):
             course_name_selector=Selector(
                 selector=CNSelector.DOKUZ_EYLUL_UNIVERSITY.value
             ),
+            course_info_selector=Selector(
+                selector=CISelector.DOKUZ_EYLUL_UNIVERSITY.value
+            ),
             instructor_index=2,
         )
 
@@ -248,6 +258,7 @@ def _selector_tuple_builder(initials: str):
                 regex_filter=r"\b[A-Z]{2,4}\s\d{4}\s(.+?)\s–",
                 regex_index=1,
             ),
+            course_info_selector=Selector(selector=CISelector.YASAR_UNIVERSITY.value),
         )
     elif initials.lower() == "boun":
         return SelectorTuple(
@@ -261,6 +272,9 @@ def _selector_tuple_builder(initials: str):
                 regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
             ),
+            course_info_selector=Selector(
+                selector=CISelector.BOGAZICI_UNIVERSITY.value,
+            ),
         )
     elif initials.lower() == "bilkent":
         return SelectorTuple(
@@ -273,6 +287,9 @@ def _selector_tuple_builder(initials: str):
                 selector=CNSelector.BILKENT_UNIVERSITY.value,
                 regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
+            ),
+            course_info_selector=Selector(
+                selector=CISelector.BILKENT_UNIVERSITY.value,
             ),
         )
     elif initials.lower() == "odtu":
@@ -289,6 +306,9 @@ def _selector_tuple_builder(initials: str):
                 regex_filter=r"[A-Za-z]{2,4}\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
             ),
+            course_info_selector=Selector(
+                selector=CISelector.ORTA_DOGU_TEKNIK_UNIVERSITY.value,
+            ),
         )
     elif initials.lower() == "itu":
         return SelectorTuple(
@@ -304,6 +324,9 @@ def _selector_tuple_builder(initials: str):
                 regex_filter=r"[A-Za-z]{2,4}\s\d{2,4}[a-zA-Z]?\s*(.+)",
                 regex_index=1,
             ),
+            course_info_selector=Selector(
+                selector=CISelector.ISTANBUL_TEKNIK_UNIVERSITY.value,
+            ),
         )
     elif initials.lower() == "yeditepe":
         return SelectorTuple(
@@ -313,6 +336,9 @@ def _selector_tuple_builder(initials: str):
             ),
             course_name_selector=Selector(
                 selector=CNSelector.YEDITEPE_UNIVERSITY.value
+            ),
+            course_info_selector=Selector(
+                selector=CISelector.ISTANBUL_TEKNIK_UNIVERSITY.value,
             ),
         )
     elif initials.lower() == "gsu":

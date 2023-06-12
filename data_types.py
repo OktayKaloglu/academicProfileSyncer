@@ -87,7 +87,7 @@ def _build_organization_source(shorthand: str) -> Parser | None:
             base_url_ending=SpecialBaseURLEnding.DOKUZ_EYLUL_UNIVERSITY.value,
             selectors=_selector_tuple_builder("deu"),
         )
-    # works
+    # doesnt work!
     elif shorthand.lower() == "yasar":
         logger.info("Selection is, Yasar University proceeding.")
         return Parser(
@@ -120,6 +120,7 @@ def _build_organization_source(shorthand: str) -> Parser | None:
         )
     # works
     elif shorthand.lower() == "odtu":
+        raise NotImplemented("buggy?")
         logger.info("Selection is, Orta Dogu Teknik University proceeding.")
         return Parser(
             university="Orta Dogu Teknik University",
